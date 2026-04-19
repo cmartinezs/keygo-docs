@@ -170,14 +170,15 @@ Este documento define el ciclo de vida de producto que usamos como eje organizad
 
 | Fase | Carpeta |
 |------|---------|
-| Discovery + Requirements | `01-product/` |
-| Design & Process + UI Design | `02-design/` |
-| Data Model | `03-data-model/` |
-| Planning | `04-planning/` |
-| Development | `05-development/` |
-| Testing | `06-testing/` |
-| Deployment | `07-deployment/` |
-| Operations | `08-operations/` |
-| Monitoring | `09-monitoring/` |
-| Feedback | `10-feedback/` |
+| Discovery | `01-discovery/` |
+| Requirements | `02-requirements/` |
+| Design & Process + UI Design | `03-design/` |
+| Data Model | `04-data-model/` |
+| Planning | `05-planning/` |
+| Development | `06-development/` |
+| Testing | `07-testing/` |
+| Deployment | `08-deployment/` |
+| Operations | `09-operations/` |
+| Monitoring | `10-monitoring/` |
+| Feedback | `11-feedback/` |
 | Framework + Metadocs | `00-PLANNING/` |
