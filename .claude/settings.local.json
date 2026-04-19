@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(cat)",
+      "Bash(bash /tmp/final_summary.sh)",
+      "Bash(bash /tmp/detailed_inventory.sh)",
+      "Bash(bash /tmp/rest_inventory.sh)",
+      "Bash(bash /tmp/archive_inventory.sh)"
+    ]
+  }
+}
