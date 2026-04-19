@@ -61,7 +61,23 @@ Contenido de la sección...
 
 ---
 
-### 4. README de carpeta
+### 4. Índice propio del documento
+
+Todo archivo `.md` (excepto README de carpeta) debe incluir su propio índice inmediatamente después del título principal y la introducción:
+
+```markdown
+## Contenido
+
+- [Sección 1](#sección-1)
+- [Sección 2](#sección-2)
+- [Sección 3](#sección-3)
+```
+
+El índice lista todas las secciones de nivel 2 (`##`) del documento con links internos de ancla.
+
+---
+
+### 5. README de carpeta
 
 El `README.md` de cada carpeta debe incluir:
 
@@ -69,12 +85,18 @@ El `README.md` de cada carpeta debe incluir:
 [← HOME](../README.md)
 ```
 
-Y al final:
+El índice de la carpeta (lista de documentos) va **al final**, antes del pie de navegación:
 
 ```markdown
+## Contenido
+
+* [Documento 1](./doc-1.md)
+* [Documento 2](./doc-2.md)
+* [Documento 3](./doc-3.md)
+
 ---
 
-[← HOME](../README.md)
+[← HOME](../README.md) | [Siguiente >](./doc-1.md)
 ```
 
 No requiere Anterior/Siguiente ya que es el índice de la carpeta.
@@ -91,6 +113,11 @@ No requiere Anterior/Siguiente ya que es el índice de la carpeta.
 # Título del Documento
 
 Introducción breve del documento.
+
+## Contenido
+
+- [Sección 1](#sección-1)
+- [Sección 2](#sección-2)
 
 ---
 
@@ -125,6 +152,8 @@ Contenido...
 # Nombre de la Fase
 
 Descripción de la fase y su propósito.
+
+---
 
 ## Contenido
 

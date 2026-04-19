@@ -8,6 +8,8 @@ En la siguiente documentación se presenta la visión y los requerimientos de al
 
 Es importante destacar que el alcance de este documento se orienta hacia el "qué" se debe lograr, estableciendo una base conceptual y funcional, sin entrar en detalles sobre el "cómo" se implementará la solución. Aquí encontrará una descripción detallada de la propuesta, la cual busca consolidar la gestión de identidad y acceso en un único punto, garantizando el aislamiento completo entre organizaciones, la trazabilidad de accesos y la autorización granular, facilitando la integración con aplicaciones cliente mediante estándares abiertos (OAuth2/OIDC) y optimizando la seguridad operativa. Este enfoque integral se plantea como respuesta a los desafíos actuales, ofreciendo un marco robusto y escalable que impulse la evolución y el crecimiento del ecosistema de aplicaciones conectadas a Keygo.
 
+---
+
 ## Contenido
 
 A continuación se detalla el contenido del documento de descubrimiento del sistema Keygo:
