@@ -55,15 +55,17 @@ El ciclo no es waterfall — se itera por feature, dominio o versión del produc
 **Carpeta**: `02-requirements/`
 
 **Entregables**:
-- `02-requirements/README.md` — Índice y resumen de requisitos
-- `02-requirements/functional.md` — Requisitos funcionales (RF) por dominio
-- `02-requirements/non-functional.md` — Requisitos no funcionales (RNF): seguridad, performance, escalabilidad
-- `02-requirements/scope-boundaries.md` — Qué queda fuera explícitamente
-- `02-requirements/traceability.md` — Matriz de trazabilidad: estado de implementación por RF/RNF
+- `02-requirements/README.md` — Índice, resumen y guía de navegación
+- `02-requirements/glossary.md` — Términos del dominio de identidad y acceso
+- `02-requirements/priority-matrix.md` — Priorización MoSCoW de todos los RF/RNF
+- `02-requirements/scope-boundaries.md` — Qué está dentro del MVP y qué queda fuera explícitamente
+- `02-requirements/traceability.md` — Matriz RF/RNF ↔ Necesidades ↔ Objetivos estratégicos
+- `02-requirements/functional/rf01-*.md … rf-N-*.md` — Un archivo por requisito funcional
+- `02-requirements/non-functional/rnf01-*.md … rnf-N-*.md` — Un archivo por requisito no funcional
 
-**Referencia**: Material previo disponible en `bkp/01-product/requirements.md`
+**Referencia**: Material previo disponible en `bkp/01-product/requirements.md` y `bkp/grade/03-requirements/`
 
-**Estado**: 🔲 Pendiente (migrar y refinar desde bkp)
+**Estado**: 🔲 Pendiente
 
 ---
 
