@@ -45,7 +45,7 @@ El ciclo no es waterfall — se itera por feature, dominio o versión del produc
 - `01-discovery/final-reflection.md` — Reflexión final y cierre del discovery
 - `01-discovery/final-analysis.md` — Análisis consolidado: insights, riesgos, oportunidades
 
-**Estado**: 🔲 Pendiente
+**Estado**: ✅ Completado
 
 ---
 
@@ -254,7 +254,7 @@ keygo-docs/
 | Fase | SP | Carpeta | Estado |
 |------|----|---------|--------|
 | Framework | SP-0 | `00-PLANNING/` | ✅ |
-| Discovery | SP-D1 | `01-discovery/` | 🔲 |
+| Discovery | SP-D1 | `01-discovery/` | ✅ |
 | Requirements | SP-D2 | `02-requirements/` | 🔲 |
 | Design & Process | SP-D3 | `03-design/` | 🔲 |
 | UI Design | SP-D4 | `03-design/ui/` | 🔲 |
@@ -269,4 +269,4 @@ keygo-docs/
 
 ## Siguiente Paso
 
-👉 **SP-D1: Discovery** — Crear `01-discovery/` con README índice, contexto/motivación, visión, alcance, actores, necesidades, próximos pasos, reflexión final y análisis consolidado
+👉 **SP-D2: Requirements** — Crear `02-requirements/` con README, requisitos funcionales, no funcionales, scope boundaries y matriz de trazabilidad. Migrar y refinar desde `bkp/01-product/requirements.md`
