@@ -49,7 +49,7 @@ El ciclo no es waterfall — se itera por feature, dominio o versión del produc
 
 ---
 
-### [SP-D2] Requirements 🔲
+### [SP-D2] Requirements ✅
 **Objetivo**: Especificar QUÉ debe hacer el sistema, sin prescribir implementación.
 
 **Carpeta**: `02-requirements/`
@@ -65,7 +65,7 @@ El ciclo no es waterfall — se itera por feature, dominio o versión del produc
 
 **Referencia**: Material previo disponible en `bkp/01-product/requirements.md` y `bkp/grade/03-requirements/`
 
-**Estado**: 🔲 Pendiente
+**Estado**: ✅ Completado
 
 ---
 
@@ -257,7 +257,7 @@ keygo-docs/
 |------|----|---------|--------|
 | Framework | SP-0 | `00-PLANNING/` | ✅ |
 | Discovery | SP-D1 | `01-discovery/` | ✅ |
-| Requirements | SP-D2 | `02-requirements/` | 🔲 |
+| Requirements | SP-D2 | `02-requirements/` | ✅ |
 | Design & Process | SP-D3 | `03-design/` | 🔲 |
 | UI Design | SP-D4 | `03-design/ui/` | 🔲 |
 | Data Model | SP-D5 | `04-data-model/` | 🔲 |
@@ -271,4 +271,4 @@ keygo-docs/
 
 ## Siguiente Paso
 
-👉 **SP-D2: Requirements** — Crear `02-requirements/` con README, requisitos funcionales, no funcionales, scope boundaries y matriz de trazabilidad. Migrar y refinar desde `bkp/01-product/requirements.md`
+👉 **SP-D3: Design & Process** — Crear `03-design/` con flujos del sistema, decisiones de proceso y modelo conceptual del dominio.
