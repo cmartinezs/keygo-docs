@@ -8,14 +8,14 @@ Transformar documentación fragmentada (back/front separados) en una única fuen
 ### [SP-1] Mapeo y Análisis de Contenido
 **Objetivo**: Entender qué documentación existe, dónde está, qué es redundante, qué falta.
 
-**Entregables**:
-- `docs-inventory.md` - Listado completo de archivos con clasificación
-- `redundancy-analysis.md` - Identificar duplicaciones back/front
-- `gaps-analysis.md` - Identificar lo que falta
-- `structure-proposal.md` - Estructura recomendada
+**Entregables**: ✅ COMPLETADO
+- `00-PLANNING/SP-1-mapping-analysis/docs-inventory.md` - Listado completo de 519 archivos clasificados
+- `00-PLANNING/SP-1-mapping-analysis/redundancy-analysis.md` - 8 áreas de duplicación (9-13 horas consolidación)
+- `00-PLANNING/SP-1-mapping-analysis/gaps-analysis.md` - 12 áreas faltantes (25-45 horas total)
+- `00-PLANNING/SP-1-mapping-analysis/structure-proposal.md` - Arquitectura unificada recomendada
 
-**Responsables**: Análisis inicial
-**Estado**: Pendiente
+**Estado**: ✅ Completado
+**Documentación**: Ver `00-PLANNING/SP-1-mapping-analysis/README.md`
 
 ---
 
@@ -99,5 +99,21 @@ SP-5 (Validación)
 
 **Total**: ~8-12 sesiones
 
+## Documentación de Planificación
+
+Todos los documentos de análisis y planificación viven en **`00-PLANNING/`** (no mezclados con documentación raw):
+
+```
+00-PLANNING/
+├── SP-1-mapping-analysis/    ✅ Completado
+├── SP-2-architecture-design/ ⏳ Próximo
+├── SP-3-consolidation/       (fases posteriores)
+├── SP-4-navigation/          (fases posteriores)
+└── SP-5-validation/          (fases posteriores)
+```
+
+Ver `00-PLANNING/README.md` para navegación completa.
+
 ## Siguiente Paso
-👉 Comenzar con **SP-1: Mapeo y Análisis de Contenido**
+👉 Revisar **`00-PLANNING/SP-1-mapping-analysis/`** para análisis completado  
+👉 Proceder a **SP-2: Diseño de Arquitectura Documental** (1 sesión)
