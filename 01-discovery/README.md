@@ -1,6 +1,8 @@
-# Descubrimiento del Sistema
+[← HOME](../README.md)
 
-[Volver al HOME](../README.md)
+---
+
+# Descubrimiento del Sistema
 
 En la siguiente documentación se presenta la visión y los requerimientos de alto nivel para la implementación de **Keygo**, una plataforma de autenticación, autorización y gestión de identidad para organizaciones multi-tenant. A lo largo de estas páginas se plasman la motivación que impulsa esta iniciativa —nacida de la necesidad de superar las limitaciones y riesgos derivados de la gestión fragmentada de identidades, accesos y credenciales en ecosistemas multi-aplicación— y los objetivos estratégicos que se persiguen.
 
@@ -19,4 +21,6 @@ A continuación se detalla el contenido del documento de descubrimiento del sist
 * [Reflexión Final y Cierre](final-reflection.md)
 * [Análisis final](final-analysis.md)
 
-[Siguiente >](context-motivation.md)
+---
+
+[← HOME](../README.md) | [Siguiente >](context-motivation.md)
