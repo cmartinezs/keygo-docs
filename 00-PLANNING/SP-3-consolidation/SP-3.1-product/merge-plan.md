@@ -249,27 +249,33 @@ Diagramas visuales agnósticas:
 
 ---
 
-### ✅ ACCIÓN 6: Limpiar/Deprecate Old Files (después de validar)
+### ✅ ACCIÓN 6: Eliminar Raw Files (después de validar)
 
-**Archivos a marcar deprecated**:
-- `00-BACKEND/01-product/glossary.md` → Agregar nota al inicio: "⚠️ DEPRECATED - Use 01-product/glossary.md"
-- `01-FRONTEND/01-product/02-role-model.md` → Agregar nota: "⚠️ DEPRECATED - Content merged into 01-product/glossary.md"
-- `00-BACKEND/01-product/requirements.md` → Agregar nota: "⚠️ DEPRECATED - Use 01-product/requirements.md"
-- `00-BACKEND/01-product/pain-points.md` → Agregar nota: "⚠️ DEPRECATED - Moved to 01-product/constraints-limitations.md"
+**Estrategia**: Los documentos raw serán ELIMINADOS (no deprecados), reemplazados completamente por los nuevos.
 
-**NO BORRAR TODAVÍA** - Solo marcar, después de que SP-3 esté completo y validado.
+**Archivos a ELIMINAR**:
+- `00-BACKEND/01-product/` → Será eliminado completamente después de SP-3 (todo migrado a 01-product/)
+- `01-FRONTEND/01-product/` → Será eliminado completamente después de SP-3 (todo migrado)
+
+**Timing**: NO eliminar en esta sesión, hacerlo al final de SP-3 cuando todo esté migrado y validado.
+
+**Importancia**: Los nuevos documentos NO deben tener referencias a los raw files.
+- ❌ NO hacer links como "See 00-BACKEND/01-product/glossary.md"
+- ✅ Documentos nuevos son autónomos y completos
 
 ---
 
 ## 📐 Estructura Final de 01-product/
 
+**Después de SP-3.1 (esta sesión)**:
+
 ```
-01-product/                          [Nueva sección unificada]
+01-product/                          [Nueva sección UNIFICADA - fuente única de verdad]
 ├── README.md                        ← Entry point
 ├── vision.md                        ← NEW: Visión agnóstica
-├── glossary.md                      ← MOVED + EXPANDED: Fuente única
-├── requirements.md                  ← MOVED: Requisitos por BC
-├── constraints-limitations.md        ← MOVED + RENAMED: Pain points
+├── glossary.md                      ← NEW CONSOLIDATED: Fuente única (reemplaza raw)
+├── requirements.md                  ← NEW CONSOLIDATED: Requisitos por BC (reemplaza raw)
+├── constraints-limitations.md        ← NEW CONSOLIDATED: Pain points (reemplaza raw)
 ├── diagrams/                        ← KEEP: Use cases, flows, etc.
 │   ├── README.md
 │   ├── use-cases.md
@@ -277,8 +283,13 @@ Diagramas visuales agnósticas:
 │   ├── billing-flow-contractor.md
 │   ├── account-flow.md
 │   └── tenant-management-flow.md
-└── [otros archivos existentes]      ← Mantener: bounded-contexts.md, current-state.md, etc.
+└── [otros archivos]                 ← Evaluar en SP-3 qué mantener/consolidar
 ```
+
+**Después de SP-3 COMPLETO**:
+- ❌ `00-BACKEND/01-product/` - Será eliminado (todo ya en 01-product/)
+- ❌ `01-FRONTEND/01-product/` - Será eliminado (todo ya en 01-product/)
+- ✅ `01-product/` - ÚNICA fuente de verdad para documentación de producto
 
 ---
 
@@ -286,6 +297,7 @@ Diagramas visuales agnósticas:
 
 Antes de hacer commit, verificar:
 
+### Contenido
 - [ ] **glossary.md**: 
   - Roles ADMIN, ADMIN_TENANT, USER_TENANT definidos
   - Alfabético de A-Z
@@ -308,6 +320,12 @@ Antes de hacer commit, verificar:
 - [ ] **README.md**: 
   - Link a cada doc con descripción
   - Navegación hacia otras secciones
+
+### Crítico: SIN REFERENCIAS A RAW DOCS
+- [ ] **Ningún documento nuevo** hace referencia a 00-BACKEND/01-product/ o 01-FRONTEND/01-product/
+- [ ] Todos son **autónomos y completos** (no dependen de raw docs)
+- [ ] Links solo a otros documentos en 01-product/ o secciones 02+
+- [ ] Si hay información en raw docs que falta, **INCLUIR EN EL NUEVO DOCUMENTO**
 
 ---
 

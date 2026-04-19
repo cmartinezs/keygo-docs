@@ -8,7 +8,12 @@
 
 ## Objetivo
 
-Consolidar documentación dispersa de product (glossary, requirements, vision, constraints) en una sección unificada **01-product/** que sea SINGLE SOURCE OF TRUTH para QUÉ estamos construyendo.
+**Reemplazar completamente** documentación dispersa de product (glossary, requirements, vision, constraints) con una sección unificada **01-product/** que sea SINGLE SOURCE OF TRUTH para QUÉ estamos construyendo.
+
+**Estrategia**: 
+- ✅ Crear nuevos documentos en `01-product/` (autónomos, completos)
+- ❌ NO hacer referencias a raw docs (00-BACKEND/, 01-FRONTEND/)
+- 🗑️ Eliminar raw docs al final de SP-3 (cuando todo esté migrado)
 
 ---
 
@@ -39,32 +44,39 @@ Plan ejecutable paso-a-paso:
 
 ## Resultado Esperado
 
-### Nuevo: 01-product/
+### Nuevo: 01-product/ (SINGLE SOURCE OF TRUTH)
 
+**Reemplaza completamente**:
+- ❌ `00-BACKEND/01-product/` - Será eliminado
+- ❌ `01-FRONTEND/01-product/` - Será eliminado
+
+**Nueva estructura**:
 ```
-01-product/
-├── README.md                    ← Entry point + mini-index
-├── vision.md                    ← NEW: Visión agnóstica (1-2 páginas)
-├── glossary.md                  ← CONSOLIDATED: 100+ términos (SINGLE SOURCE OF TRUTH)
-├── requirements.md              ← CONSOLIDATED: RF-A/B/T/C por bounded context
-├── constraints-limitations.md    ← CONSOLIDATED: Pain points + restricciones
-├── diagrams/                    ← KEEP: Use cases, flows, etc.
-├── bounded-contexts.md          ← KEEP: Existing
-├── current-state.md             ← KEEP: Existing
-├── solution-proposal.md          ← KEEP: Existing
-└── dependency-map.md            ← KEEP: Existing
+01-product/                         [ÚNICO lugar para documentación de producto]
+├── README.md                       ← Entry point + mini-index
+├── vision.md                       ← NEW: Visión agnóstica (1-2 páginas)
+├── glossary.md                     ← NEW: 100+ términos (SINGLE SOURCE OF TRUTH)
+├── requirements.md                 ← NEW: RF-A/B/T/C por bounded context
+├── constraints-limitations.md       ← NEW: Pain points + restricciones
+├── diagrams/                       ← NEW/KEEP: Use cases, flows, etc.
+├── bounded-contexts.md             ← (si vale la pena mantener)
+├── current-state.md                ← (si vale la pena mantener)
+├── solution-proposal.md            ← (si vale la pena mantener)
+└── dependency-map.md               ← (si vale la pena mantener)
 ```
 
-### Benefits
+### Cambio Principal
 
-| Antes | Después |
-|-------|---------|
-| glossary en 00-BACKEND | ✅ glossary en 01-product (CENTRALIZED) |
-| role-model en 01-FRONTEND | ✅ Merged en glossary |
-| requirements en 00-BACKEND | ✅ requirements en 01-product |
-| pain-points en 00-BACKEND | ✅ constraints-limitations en 01-product |
-| NO vision.md | ✅ vision.md agnóstico nuevo |
-| NO README en 01-product | ✅ README con navegación |
+| Antes (Fragmentado) | Después (Unificado) |
+|-----|-----|
+| `00-BACKEND/01-product/glossary.md` | ✅ `01-product/glossary.md` (REEMPLAZA) |
+| `01-FRONTEND/01-product/02-role-model.md` | ✅ Merged en `01-product/glossary.md` |
+| `00-BACKEND/01-product/requirements.md` | ✅ `01-product/requirements.md` (REEMPLAZA) |
+| `00-BACKEND/01-product/pain-points.md` | ✅ `01-product/constraints-limitations.md` (REEMPLAZA) |
+| (no existe) | ✅ `01-product/vision.md` (NEW) |
+| (no existe) | ✅ `01-product/README.md` (NEW) |
+
+**Resultado**: Developers van a `01-product/` y encuentran TODO. Punto final.
 
 ### Developers ahora pueden
 
@@ -113,8 +125,9 @@ Plan ejecutable paso-a-paso:
 **ACCIÓN 6: Validar + Commit**
 - [ ] Verificar todos los archivos existen y contienen expected content
 - [ ] Verificar estructura de 01-product/ completa
-- [ ] Commit: "Complete SP-3.1: Consolidate 01-product section"
-- [ ] Marcar deprecated (con notas) archivos en 00-BACKEND/ y 01-FRONTEND/
+- [ ] Verificar: NINGÚN nuevo documento hace referencia a raw docs (00-BACKEND/, 01-FRONTEND/)
+- [ ] Commit: "Complete SP-3.1: Create unified 01-product section (replaces raw docs)"
+- [ ] Raw docs NO se eliminan aún (se harán después de SP-3 completo)
 
 ---
 

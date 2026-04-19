@@ -135,77 +135,88 @@ USER_TENANT        - Uso cotidiano
 
 ## Plan de Consolidación
 
-### Fase 1: Unificar Glossary ✅ (THIS SPRINT)
+**Principio**: Los nuevos documentos en `01-product/` REEMPLAZAN completamente los raw files.
+- ❌ NO mantener referencias entre nuevo y raw
+- ✅ Documentos nuevos son autónomos y completos
+- ✅ Raw files serán eliminados después de SP-3 completo
+
+### Fase 1: Crear Glossary Unificado ✅ (THIS SPRINT)
 
 **Archivos fuente**:
-- ✅ 00-BACKEND/01-product/glossary.md (principal)
-- ✅ 01-FRONTEND/01-product/02-role-model.md (roles definition)
+- 📖 00-BACKEND/01-product/glossary.md (principal - 550 líneas)
+- 📖 01-FRONTEND/01-product/02-role-model.md (input - 24 líneas)
 
 **Procesamiento**:
-1. USAR backend glossary como base
-2. EXTRAER role definitions de role-model.md
-3. EXPANDIR sección "Roles" (agregar ADMIN, ADMIN_TENANT, USER_TENANT)
-4. VALIDAR que no hay conflictos/contradicciones
-5. CREAR unified: 01-product/glossary.md (en nueva estructura)
+1. TOMAR contenido de backend glossary como base (es más completo)
+2. EXTRAER definiciones de roles de frontend role-model.md
+3. EXPANDIR sección "Roles" con definiciones detalladas (ADMIN, ADMIN_TENANT, USER_TENANT)
+4. CREAR NUEVO: `01-product/glossary.md` (completamente autónomo)
 
-**Output**: `01-product/glossary.md` consolidado
-- Mismo contenido que backend
-- Pero roles de frontend INTEGRADOS
-- Es SINGLE SOURCE OF TRUTH
+**Output**: `01-product/glossary.md`
+- Contenido completo (100+ términos alfabéticos)
+- Roles bien definidos
+- **SINGLE SOURCE OF TRUTH**
+- Independiente de raw docs (no hace referencia a ellos)
 
 ---
 
-### Fase 2: Unificar Requirements ✅ (THIS SPRINT)
+### Fase 2: Crear Requirements Consolidado ✅ (THIS SPRINT)
 
 **Archivos fuente**:
-- ✅ 00-BACKEND/01-product/requirements.md (principal)
-- ❌ 01-FRONTEND/01-product/ (no encontrado)
+- 📖 00-BACKEND/01-product/requirements.md (principal - 200+ líneas)
+- ❌ 01-FRONTEND/01-product/ (no encontrado, solo backend)
 
 **Procesamiento**:
-1. USAR backend requirements como estructura base
-2. COMPLETAR bounded contexts (solo Auth está completo)
-3. CREAR unified: 01-product/requirements.md
+1. TOMAR contenido backend requirements completo (es fuente principal)
+2. CREAR NUEVO: `01-product/requirements.md` (reemplaza backend requirements.md)
+3. NOTAR: Otros bounded contexts (Tenants, Billing, Account) están incompletos - dejar placeholder
 
-**Output**: `01-product/requirements.md` consolidado
-- Estructura: Requisitos funcionales + no-funcionales
-- Por bounded context (Auth, Tenants, Billing, Account)
-- Status claro para cada requisito
+**Output**: `01-product/requirements.md`
+- Estructura: Requisitos funcionales + no-funcionales por bounded context
+- Auth (RF-A): Completo ✅
+- Tenants (RF-T): Placeholder ⏳
+- Billing (RF-B): Placeholder ⏳
+- Account (RF-C): Placeholder ⏳
+- Independiente de raw docs
 
 ---
 
-### Fase 3: Crear Vision.md ✅ (THIS SPRINT)
+### Fase 3: Crear Vision.md Agnóstico ✅ (THIS SPRINT)
 
 **Archivos fuente**:
-- ❓ 01-FRONTEND/01-product/01-vision-and-scope.md (necesito leer)
-- Backend: implícito en requirements
+- 📖 01-FRONTEND/01-product/01-vision-and-scope.md (17 líneas - inspiración)
+- 📖 Backend: implícito en requirements
 
 **Procesamiento**:
 1. LEER vision-and-scope.md frontend
-2. EXTRAER propósito/visión
-3. CREAR agnóstico: 01-product/vision.md
-4. 1-2 párrafos claros de QUÉ estamos construyendo
+2. EXTRAER "vision" part (no "scope")
+3. CREAR NUEVO: `01-product/vision.md` agnóstico (What, For whom, Key Principles, Core Features)
+4. Sin mencionar backend/frontend/Java/React
 
-**Output**: `01-product/vision.md` nuevo
-- AGNÓSTICO (no backend/frontend specifics)
-- Claro, conciso, estratégico
+**Output**: `01-product/vision.md`
+- AGNÓSTICO (aplicable a cualquier implementación)
+- Claro: What are we building? For whom? What are key principles?
+- Conciso: 1-2 páginas máximo
+- Independiente de raw docs
 
 ---
 
 ### Fase 4: Crear Constraints-Limitations.md ✅ (THIS SPRINT)
 
 **Archivos fuente**:
-- ✅ 00-BACKEND/01-product/pain-points.md
-- ❓ FROM vision-and-scope.md
+- 📖 00-BACKEND/01-product/pain-points.md (80+ líneas)
+- 📖 FROM vision-and-scope.md (si aplica)
 
 **Procesamiento**:
-1. MOVER pain-points.md content
-2. RENOMBRAR a constraints-limitations.md
-3. AGREGAR context desde frontend si existe
+1. TOMAR contenido pain-points.md
+2. CREAR NUEVO: `01-product/constraints-limitations.md` (renombrado para clarity)
+3. MANTENER estructura: Pain points con causa raíz + impacto + soluciones
 
-**Output**: `01-product/constraints-limitations.md` 
-- Pain points
-- Technical constraints
-- Non-functional restrictions
+**Output**: `01-product/constraints-limitations.md`
+- Pain points de desarrollo (conocimiento disperso, desalineación, inconsistencias, falta diagramas)
+- Restricciones técnicas
+- Non-functional limitations
+- Independiente de raw docs
 
 ---
 
