@@ -22,14 +22,20 @@ Transformar documentación fragmentada (back/front separados) en una única fuen
 ### [SP-2] Diseño de Arquitectura Documental
 **Objetivo**: Definir estructura final, navegación, índices.
 
-**Entregables**:
-- `information-architecture.md` - Jerarquía final
-- `navigation-map.md` - Cómo navegar entre secciones
-- `index-structure.md` - Índices y puntos de entrada
-- `naming-conventions.md` - Estándares de nomenclatura
+**Entregables**: ✅ COMPLETADO
+- `00-PLANNING/SP-2-architecture-design/information-architecture.md` - Jerarquía final detallada
+- `00-PLANNING/SP-2-architecture-design/naming-conventions.md` - Estándares de nomenclatura (kebab-case, max 50 chars, etc)
+- `00-PLANNING/SP-2-architecture-design/navigation-map.md` - Rutas por rol, navegación sección-a-sección
+- `00-PLANNING/SP-2-architecture-design/index-structure.md` - Diseño del INDEX.md central
 
-**Responsables**: Diseño
-**Estado**: Bloqueado por SP-1
+**Estado**: ✅ Completado
+**Documentación**: Ver `00-PLANNING/SP-2-architecture-design/README.md`
+
+**Decisiones Clave**:
+- Organizar por feature/dominio, no por tech stack (01-product, 02-functional, 03-architecture, etc)
+- Agnóstico primero (01-architecture.md), luego tech-specific (02-backend.md, 03-frontend.md)
+- Índices locales (README.md en cada carpeta) + índice central (INDEX.md en raíz)
+- Máximo 3 niveles de profundidad para evitar overwhelm
 
 ---
 
@@ -114,6 +120,21 @@ Todos los documentos de análisis y planificación viven en **`00-PLANNING/`** (
 
 Ver `00-PLANNING/README.md` para navegación completa.
 
+## Estado Actual
+
+✅ **SP-1 Completado**: Mapeo de 519 archivos, 8 redundancias, 12 gaps, propuesta de estructura  
+✅ **SP-2 Completado**: Arquitectura refinada, naming conventions, navigation design, index structure
+
 ## Siguiente Paso
-👉 Revisar **`00-PLANNING/SP-1-mapping-analysis/`** para análisis completado  
-👉 Proceder a **SP-2: Diseño de Arquitectura Documental** (1 sesión)
+
+👉 **SP-3: Consolidación de Secciones** (próximo)
+
+**Opciones de inicio** (en orden recomendado):
+
+1. **SP-3.1 Product** (1-2h) - Unificar glossary, requirements
+2. **SP-3.2 Functional** (5-10h) - Consolidar authentication, billing flows (HIGH PRIORITY)
+3. **SP-3.3 Architecture** (3-5h) - Unificar multi-tenant, authorization docs
+4. **SP-3.4 Quality** (2-3h) - Consolidar testing, security, accessibility
+5. **SP-3.5 Operations** (3-4h) - Crear frontend deployment, unificar runbooks
+
+**Recomendación**: Comenzar con **SP-3.1** → **SP-3.2** (consolidar auth redundancy crítica)
