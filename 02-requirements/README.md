@@ -22,6 +22,7 @@ Esta sección especifica **qué debe hacer Keygo** y **cómo debe comportarse**,
 | [Matriz de priorización](priority-matrix.md) | Clasificación MoSCoW de todos los RF y RNF. |
 | [Límites de alcance](scope-boundaries.md) | Qué está dentro del MVP, qué queda fuera y qué pertenece a fases futuras. |
 | [Trazabilidad](traceability.md) | Relación entre RF/RNF, necesidades del Discovery y objetivos estratégicos. |
+| [Restricciones técnicas y funcionales](technical-constraints.md) | Restricciones no-negociables: T1-T6 (técnicas), F1-F3 (funcionales), compliance. |
 
 [↑ Volver al inicio](#requerimientos-del-sistema)
 

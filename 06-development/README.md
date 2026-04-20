@@ -12,6 +12,7 @@ Fase de documentación de arquitectura técnica, patrones, APIs y estándares de
 - [Arquitectura](./architecture.md) — Arquitectura hexagonal, bounded contexts → módulos, patrones DDD
 - [API Reference](./api-reference.md) — Contratos de API
 - [Coding Standards](./coding-standards.md) — Convenciones de código y ubiquitous language
+- [Developer Glossary](./glossary-technical.md) — Términos técnicos del stack (Java 21, Spring Boot, Jackson 3, Flyway, etc.)
 - [Workflow](./workflow.md) — Ramas, commits, PRs, pre-commit hooks
 - [ADRs](./adrs/) — Architecture Decision Records
 - [AI Guidelines](./ai/ai-context.md) — Uso de agentes AI
@@ -26,6 +27,7 @@ Fase de documentación de arquitectura técnica, patrones, APIs y estándares de
 | [architecture.md](./architecture.md) | Arquitectura hexagonal, mapeo bounded contexts → módulos, patrones (Repository, Factory, ACL), flujo de requests |
 | [api-reference.md](./api-reference.md) | Contratos de API REST |
 | [coding-standards.md](./coding-standards.md) | Convenciones de código Java, ubiquitous language, naming DDD |
+| [glossary-technical.md](./glossary-technical.md) | Referencia de términos técnicos (Jackson 3, Nimbus, Flyway, JPA, TestContainers, etc.) |
 | [workflow.md](./workflow.md) | Ramas, commits, PRs, pre-commit hooks, integraciones |
 | [adrs/](./adrs/) | Architecture Decision Records |
 | [ai/ai-context.md](./ai/ai-context.md) | Guías para agentes AI (OpenCode, Claude, Copilot) |
