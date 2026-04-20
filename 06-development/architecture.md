@@ -28,7 +28,7 @@ Arquitectura técnica de KeyGo: stack, módulos, patrones arquitectónicos y flu
 | **Hexagonal / Ports & Adapters** | Dominio puro desacoplado de frameworks; infraestructura intercambiable |
 | **DDD Táctico** | Entidades, Value Objects, Agregados, Servicios de Dominio |
 | **Multi-Tenancy Core** | Aislamiento desde el núcleo del modelo, no como preocupación transversal |
-| **API Versionada** | Contratos HTTP explícitos con versionado en URL |
+| **API Versionada** | Contratos HTTP explícitos con versionado en URL — ver [API Versioning Strategy](./api-versioning-strategy.md) |
 | **Contratos Claros** | DTOs específicos por caso de uso, no entidades JPA expuestas |
 | **Observabilidad** | Logging estructurado, métricas, tracing desde el diseño |
 
@@ -669,10 +669,11 @@ BaseResponse<T> → JSON
 
 El aislamiento tenant se implementa a nivel de:
 
-1. **Modelo de Dominio**: cada entidad tiene `tenant_id`
+1. **Modelo de Dominio**: cada entidad tiene `tenant_id` — ver [Database Schema](./database-schema.md) § Multi-Tenancy Isolation
 2. **Consultas**: filtrado automático por tenant en repositorios
-3. **JWT**: claim `tenant_slug` en token
-4. **Autorización**: validación de scope en `@PreAuthorize`
+3. **JWT**: claim `tenant_slug` en token — ver [Authorization Patterns](./authorization-patterns.md) § JWT Canonical Structure
+4. **Autorización**: validación de scope en `@PreAuthorize` — ver [Authorization Patterns](./authorization-patterns.md) § RBAC y @PreAuthorize
+5. **OAuth2 Contract**: dos niveles independientes (Platform + Tenant) — ver [OAuth2/OIDC Contract](./oauth2-oidc-contract.md)
 
 ### Aislamiento en queries
 
@@ -709,28 +710,22 @@ public ResponseEntity<BaseResponse<PagedData<UserData>>> listUsers(...) {
 
 ## Seguridad
 
-### JWT Claims
+### JWT Claims & RBAC
 
-```json
-{
-  "sub": "user-uuid",
-  "email": "user@example.com",
-  "tenant_slug": "my-company",
-  "roles": ["ADMIN_ORG", "USER"],
-  "aud": "keygo-console",
-  "iss": "https://keygo.local/api/v1/tenants/my-company"
-}
-```
+Detalles completos en [Authorization Patterns](./authorization-patterns.md):
+- Estructura canónica de JWT claims (sub, tenant_slug, roles, aud, iss)
+- Tres niveles de RBAC (Platform, Tenant, App)
+- Patrón @PreAuthorize con validación de scope tenant
 
-### Tres Niveles de RBAC
+### OAuth2/OIDC Contract
 
-| Nivel | Roles | Ejemplo |
-|-------|-------|--------|
-| **Platform** | `keygo_admin`, `keygo_account_admin` | Admin global |
-| **Tenant** | `ADMIN_ORG`, `USER`, `VIEWER` | Admin de organización |
-| **App** | `EDITOR`, `VIEWER` | Roles por aplicación |
+Flujos de autenticación multi-nivel, refresh token rotation con replay detection (T-035), y JWKS discovery en [OAuth2/OIDC Contract](./oauth2-oidc-contract.md):
+- PKCE Authorization Code Flow
+- Refresh Token Rotation (con cadena de tokens y detección de replay)
+- Logout y revocación de tokens
+- Endpoint JWKS por tenant
 
-### Validación
+### Validación en Código
 
 ```java
 @PreAuthorize("hasRole('keygo_admin')")
@@ -739,6 +734,8 @@ public ResponseEntity<BaseResponse<PagedData<UserData>>> listUsers(...) {
 // O con rol específico
 @PreAuthorize("hasAnyRole('ADMIN_ORG', 'keygo_admin') and @tenantAuthorizationEvaluator.hasTenantAccess(auth)")
 ```
+
+Ver [Authorization Patterns](./authorization-patterns.md) § @PreAuthorize Patterns para ejemplos completos.
 
 [↑ Volver al inicio](#arquitectura-del-sistema)
 

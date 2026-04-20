@@ -10,6 +10,10 @@ Fase de documentación de arquitectura técnica, patrones, APIs y estándares de
 
 - [Resumen](#resumen)
 - [Arquitectura](./architecture.md) — Arquitectura hexagonal, bounded contexts → módulos, patrones DDD
+- **[OAuth2/OIDC Contract](./oauth2-oidc-contract.md)** — ⭐ Flujos de autenticación (PKCE, multi-level, refresh token rotation, replay detection)
+- **[Authorization Patterns](./authorization-patterns.md)** — ⭐ RBAC multi-nivel, JWT claims, @PreAuthorize, validación de tenant scope
+- **[API Versioning Strategy](./api-versioning-strategy.md)** — ⭐ URI path versioning, semantic versioning, deprecation lifecycle
+- **[Database Schema](./database-schema.md)** — ⭐ ERD, Flyway migrations (V1-V33+), invariantes, multi-tenancy at DB level
 - [API Reference](./api-reference.md) — Contratos de API
 - [Coding Standards](./coding-standards.md) — Convenciones de código y ubiquitous language
 - [Developer Glossary](./glossary-technical.md) — Términos técnicos del stack (Java 21, Spring Boot, Jackson 3, Flyway, etc.)
