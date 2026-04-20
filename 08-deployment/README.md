@@ -23,6 +23,9 @@ Fase de documentación de pipelines CI/CD, ambientes y estrategias de release, c
 | [environments.md](./environments.md) | Dev (auto-deploy), Staging (manual), Production (manual + approval) |
 | [cicd.md](./cicd.md) | GitHub Actions, SAST, dependency scanning, image signing |
 | [release-process.md](./release-process.md) | Versionado semántico, checklist, rollback, disaster recovery |
+| [pipeline-strategy.md](./pipeline-strategy.md) | CI/CD architecture (test → build → scan → push), blue-green & canary, rollback |
+| [environment-setup.md](./environment-setup.md) | Jerarquía de ambientes, precedencia de configuración, setup local/staging/prod |
+| [release-strategy.md](./release-strategy.md) | SemVer versionado, ciclo de release (dev → RC → release), política de deprecación |
 
 [↑ Volver al inicio](#deployment)
 

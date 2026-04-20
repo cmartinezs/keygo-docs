@@ -19,6 +19,8 @@ Fase de documentación de estrategias, tipos de prueba y criterios de calidad, c
 - [smoke-tests.md](./smoke-tests.md) — Verificación post-deploy
 - [uat.md](./uat.md) — User Acceptance Testing
 - [security-testing.md](./security-testing.md) — OWASP, compliance, PII
+- [security-testing-plan.md](./security-testing-plan.md) — Plan ejecutable OWASP Top 10, SOC2, GDPR, escaneo automatizado
+- [accessibility-standards.md](./accessibility-standards.md) — WCAG 2.1 AA, navegación por teclado, screen readers, contraste de color
 
 ---
 

@@ -24,6 +24,8 @@ Fase de operación en producción: runbooks, incident response y SLAs, con énfa
 | [incident-response.md](./incident-response.md) | Niveles de severidad, procedimiento de response, escalamiento, post-incident |
 | [slas.md](./slas.md) | SLAs por tenant, métricas, uptime targets |
 | [support.md](./support.md) | Tickets, escalamiento, SLA de respuesta |
+| [production-runbook.md](./production-runbook.md) | Prerequisitos, deployment (Docker Compose/K8s), health checks, troubleshooting, backup/recovery |
+| [admin-console-guide.md](./admin-console-guide.md) | Guía de admin UI: crear/suspender tenants, gestionar usuarios, audit logs |
 
 ---
 

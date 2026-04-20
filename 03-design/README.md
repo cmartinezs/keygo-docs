@@ -32,6 +32,8 @@ El diseño técnico (arquitectura, APIs, estructura de código) se aborda en `06
 | [UI — Sistema de Diseño](./ui/design-system.md) | Principios visuales, lenguaje de componentes y patrones de interacción. |
 | [UI — Inventario de pantallas](./ui/wireframes.md) | Pantallas por portal, flujos de navegación y propósito de cada sección. |
 | [UI — Decisiones UX](./ui/ux-decisions.md) | Decisiones de experiencia de usuario con alternativas y justificación. |
+| [UI — Flujos Públicos](./ui-flows-public-experience.md) | Landing, login (OAuth2 PKCE), registro, recuperación de contraseña, flujo de suscripción. |
+| [UI — Áreas por Rol](./ui-flows-rbac-areas.md) | Dashboards y funcionalidades por rol: admin platform, admin tenant, usuario final. |
 
 ---
 

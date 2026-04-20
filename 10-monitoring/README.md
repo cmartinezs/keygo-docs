@@ -22,6 +22,7 @@ Fase de observabilidad: métricas, alertas y dashboards, con énfasis en monitor
 | [metrics.md](./metrics.md) | HTTP, JVM, Database, Application, Business metrics |
 | [alerts.md](./alerts.md) | Reglas de alerta, escalamiento, SLA breach detection |
 | [dashboards.md](./dashboards.md) | Grafana panels: Platform, Identity, Access Control, Billing, Audit |
+| [incident-response-guide.md](./incident-response-guide.md) | SEV levels, triage, runbooks por tipo de incidente, escalación, postmortem |
 
 ---
 
