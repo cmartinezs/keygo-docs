@@ -13,6 +13,7 @@ Fase de planificación del producto: roadmap, epics y estrategia de versiones.
 - [roadmap.md](./roadmap.md) — Visión de producto a corto y mediano plazo
 - [epics.md](./epics.md) — Agrupación de trabajo por iniciativa
 - [versioning.md](./versioning.md) — Estrategia de versiones y compatibilidad
+- [use-cases-catalog.md](./use-cases-catalog.md) — Catálogo completo de UC por contexto (UC-A, UC-T, UC-B, UC-AC) con mapeo a Agregados y Eventos (Ref: RF)
 
 ---
 
