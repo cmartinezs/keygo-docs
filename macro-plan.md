@@ -200,7 +200,18 @@ El ciclo no es waterfall — se itera por feature, dominio o versión del produc
 
 **Status**: ✅ PHASE 1 COMPLETE: 12 new critical docs (4 initial + 8 Phase 1) committed, covering backend + frontend architecture for HITO 1 SDLC blockers. Total: ~150 KB new content, all with DDD lens, cross-references, examples, and anti-patterns.
 
-**Next**: Phase 2 IMPORTANT docs (Q2 planning: 12 docs, ~7-10h estimated) — Runbooks, admin guides, UI flows, security testing, accessibility, roadmap, release notes.
+**PHASE 2 IMPORTANT COMPLETE (2026-04-21):** 12 docs across 5 phases (~50.8 KB)
+- **03-design/**: ui-flows-public-experience.md, ui-flows-rbac-areas.md (public + authenticated UI flows)
+- **07-testing/**: security-testing-plan.md, accessibility-standards.md (security & WCAG compliance)
+- **08-deployment/**: pipeline-strategy.md, environment-setup.md, release-strategy.md (CI/CD, versioning, environments)
+- **09-operations/**: production-runbook.md, admin-console-guide.md (operational procedures, admin UI)
+- **10-monitoring/**: incident-response-guide.md (SEV levels, runbooks, postmortem)
+
+Focus: Operational readiness for Q2 2026. All phase README.md indices updated with links.
+
+Commits: 0b95c9e (3 ops/deploy/test docs), 12934cf (4 UI/accessibility/incident docs), e956369 (README indices)
+
+**Next**: Validation, optional Phase 3 (OPTIONAL post-Q2 docs from backup), or iteration on existing docs.
 
 ---
 
