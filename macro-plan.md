@@ -154,6 +154,14 @@ El ciclo no es waterfall — se itera por feature, dominio o versión del produc
 - **`06-development/authorization-patterns.md`** — ⭐ RBAC 3 niveles, JWT canonical structure, @PreAuthorize patterns, TenantAuthorizationEvaluator service
 - **`06-development/api-versioning-strategy.md`** — ⭐ URI path versioning, semantic versioning, 5-phase lifecycle, backward-compatible vs breaking changes
 - **`06-development/database-schema.md`** — ⭐ ERD (Identity/Billing/Audit), Flyway migrations (V1-V33+), multi-tenancy at DB, soft-deletes, append-only audit
+- **`06-development/observability.md`** — ⭐ HITO 1: Logs (MDC), Metrics (Prometheus), Traces (Jaeger), health checks, dashboards, alertas, troubleshooting
+- **`06-development/frontend-architecture.md`** — ⭐ HITO 1: Vite/React/TS/Query/Zustand, principios (tokens in memory, typed requests, guards, local loader), seguridad
+- **`06-development/frontend-project-structure.md`** — ⭐ HITO 1: Feature-first org (app/features/shared), capas, responsabilidades, 5 ejemplos, anti-patterns
+- **`06-development/frontend-auth-implementation.md`** — ⭐ HITO 1: Tokens en memoria, PKCE, session recovery, role guards, critical actions, reauth modal
+- **`06-development/frontend-api-integration.md`** — ⭐ HITO 1: Axios setup (interceptors), TanStack Query (queries, mutations), error normalization, retry strategy, MSW
+- **`06-development/api-endpoints-comprehensive.md`** — ⭐ HITO 1: 9 endpoint groups (Discovery, Auth/OAuth2, Account, Users, Apps, Billing, Admin, Errors, Examples), full specs
+- **`06-development/bootstrap-filter-routes.md`** — ⭐ HITO 1: Rutas públicas/protegidas matriz, prefijos/sufijos config, Spring Security integration, testing scripts
+- **`06-development/validation-strategy.md`** — ⭐ HITO 1: Validación en 3 capas (HTTP DTOs, Domain Value Objects/Helpers, Use Case), exception mapping, testing strategy
 - `06-development/api-reference.md` — Contratos de API REST
 - `06-development/coding-standards.md` — Convenciones de código con énfasis en ubiquitous language
 - `06-development/workflow.md` — Ramas, commits, PRs, pre-commit hooks
@@ -168,13 +176,31 @@ El ciclo no es waterfall — se itera por feature, dominio o versión del produc
 - ✅ Patrones DDD tácticos: Repository, Factory, Anti-Corruption Layer con ejemplos reales
 - ✅ Ubiquitous Language reforzado en `coding-standards.md` con anti-patrones
 - ✅ Anti-Corruption Layer documentado: cuándo, cómo y ejemplos (Payment Provider, Identity Provider)
-- ✅ **[HITO 1 CRITICAL DOCS ADDED]** 4 documentos críticos creados para desbloquear HITO 1 (Auth Security):
-  - `oauth2-oidc-contract.md` — Especifica flujos de autenticación, refresh token rotation, anti-replay
-  - `authorization-patterns.md` — RBAC patterns, @PreAuthorize examples, tenant scope validation
-  - `api-versioning-strategy.md` — Previene breaking changes, establece estrategia de versionado
-  - `database-schema.md` — ERD, Flyway baseline, multi-tenancy invariants, audit trail
+- ✅ **[HITO 1 COMPLETE: 8 CRITICAL DOCS]** Todos los documentos críticos para Q2 2026 HITO 1 (Auth Security) completados:
+  - `oauth2-oidc-contract.md` — OAuth2/OIDC flows, refresh token rotation, anti-replay (T-035)
+  - `authorization-patterns.md` — RBAC, JWT claims, @PreAuthorize, tenant validation
+  - `api-versioning-strategy.md` — URI versioning, semantic versioning, deprecation lifecycle
+  - `database-schema.md` — ERD, Flyway migrations, multi-tenancy at DB, audit
+  - `observability.md` (b9) — Logs, metrics, traces, dashboards, alertas
+  - `frontend-architecture.md` (f8) — Stack (Vite/React/Query/Zustand), principios
+  - `frontend-project-structure.md` (f9) — Feature-first org, capas, ejemplos
+  - `frontend-auth-implementation.md` (f10) — Tokens in-memory, PKCE, session recovery
+  - `frontend-api-integration.md` (f11) — Axios, TanStack Query, error normalization
+  - `api-endpoints-comprehensive.md` (b5) — 9 endpoint groups consolidated with full specs
+  - `bootstrap-filter-routes.md` (b10) — Public routes matrix, Spring Security config
+  - `validation-strategy.md` (b11) — 3-layer validation architecture with examples
 
-**Status**: ✅ Completado + 4 documentos críticos agregados (commit: a43f2d7)
+**Commits**:
+- a43f2d7, 0809fbe — Initial 4 critical docs (oauth2, auth patterns, versioning, schema)
+- c82b278 — observability.md (b9)
+- 1389e3d — frontend-architecture.md (f8) + frontend-project-structure.md (f9)
+- 99cd298 — api-endpoints-comprehensive.md (b5)
+- c1a09fc — frontend-auth-implementation.md (f10) + frontend-api-integration.md (f11)
+- 7a99596 — bootstrap-filter-routes.md (b10) + validation-strategy.md (b11)
+
+**Status**: ✅ PHASE 1 COMPLETE: 12 new critical docs (4 initial + 8 Phase 1) committed, covering backend + frontend architecture for HITO 1 SDLC blockers. Total: ~150 KB new content, all with DDD lens, cross-references, examples, and anti-patterns.
+
+**Next**: Phase 2 IMPORTANT docs (Q2 planning: 12 docs, ~7-10h estimated) — Runbooks, admin guides, UI flows, security testing, accessibility, roadmap, release notes.
 
 ---
 
