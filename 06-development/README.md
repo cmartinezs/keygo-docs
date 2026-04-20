@@ -35,6 +35,14 @@ Fase de documentación de arquitectura técnica, patrones, APIs y estándares de
 | Artefacto | Descripción |
 |-----------|-------------|
 | [architecture.md](./architecture.md) | Arquitectura hexagonal, mapeo bounded contexts → módulos, patrones (Repository, Factory, ACL), flujo de requests |
+| **[observability.md](./observability.md)** | Logs (MDC), Metrics (Prometheus), Traces (Jaeger), dashboards, alertas |
+| **[frontend-architecture.md](./frontend-architecture.md)** | Stack (Vite/React/TS/Query/Zustand), principios de diseño, seguridad |
+| **[frontend-project-structure.md](./frontend-project-structure.md)** | Feature-first architecture, ejemplos, anti-patterns |
+| **[frontend-auth-implementation.md](./frontend-auth-implementation.md)** | Tokens en memoria, PKCE, session recovery, roles, acciones críticas |
+| **[frontend-api-integration.md](./frontend-api-integration.md)** | Axios setup, TanStack Query patterns, error normalization, retry strategy |
+| **[api-endpoints-comprehensive.md](./api-endpoints-comprehensive.md)** | 9 grupos de endpoints (Discovery, Auth, Account, Users, Apps, Billing, Admin, Errors, Examples) |
+| **[bootstrap-filter-routes.md](./bootstrap-filter-routes.md)** | Rutas públicas vs protegidas, configuración Spring Security, matriz de decisión |
+| **[validation-strategy.md](./validation-strategy.md)** | Validación en 3 capas (HTTP, Domain, Use Case), Value Objects, exception mapping |
 | [api-reference.md](./api-reference.md) | Contratos de API REST |
 | [coding-standards.md](./coding-standards.md) | Convenciones de código Java, ubiquitous language, naming DDD |
 | [glossary-technical.md](./glossary-technical.md) | Referencia de términos técnicos (Jackson 3, Nimbus, Flyway, JPA, TestContainers, etc.) |
