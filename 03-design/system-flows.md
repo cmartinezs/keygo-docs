@@ -23,6 +23,12 @@ Los flujos del sistema describen los procesos principales de Keygo en lenguaje d
   - [Flujo 10 — Alta de aplicación cliente](#flujo-10--alta-de-aplicación-cliente)
   - [Flujo 11 — Activación de suscripción](#flujo-11--activación-de-suscripción)
   - [Flujo 12 — Suspensión de organización por plataforma](#flujo-12--suspensión-de-organización-por-plataforma)
+  - [Apéndice: Diagramas Técnicos Detallados (Sequence Diagrams)](#apéndice-diagramas-técnicos-detallados-sequence-diagrams)
+    - [A. Flujo de Autenticación Completo (OAuth2/OIDC)](#a-flujo-de-autenticación-completo-oauth2oidc)
+    - [B. Flujo de Renovación de Token (Refresh Token Rotation)](#b-flujo-de-renovación-de-token-refresh-token-rotation)
+    - [C. Flujo de Gestión de Facturas y Pagos](#c-flujo-de-gestión-de-facturas-y-pagos)
+    - [D. Flujo de Gestión de Tenants (Multi-Tenant Isolation)](#d-flujo-de-gestión-de-tenants-multi-tenant-isolation)
+    - [E. Flujo de Self-Service Usuario (Profile + Sessions)](#e-flujo-de-self-service-usuario-profile--sessions)
 
 ---
 
@@ -554,6 +560,228 @@ sequenceDiagram
 - El Administrador de Plataforma no puede ver ni modificar datos de negocio de la organización — solo operar su estado
 
 [↑ Volver al inicio](#flujos-del-sistema)
+
+---
+
+## Apéndice: Diagramas Técnicos Detallados (Sequence Diagrams)
+
+Esta sección contiene diagramas técnicos de secuencia que complementan los flujos del dominio, mostrando cómo los actores internos y externos interactúan con el sistema en detalle. Útiles para developers, QA, y diseño de APIs.
+
+### A. Flujo de Autenticación Completo (OAuth2/OIDC)
+
+Detalle técnico del flujo de autenticación incluyendo Authorization Code + PKCE, Token Exchange, Refresh Token Rotation y Logout.
+
+```mermaid
+sequenceDiagram
+    participant User as 👤 Usuario
+    participant SPA as 🖥️ SPA/Mobile
+    participant KeyGo as 🔐 KeyGo Server
+    participant Email as 📧 Email Service
+    participant DB as 🗄️ Database
+
+    User->>SPA: 1. Click "Login"
+    SPA->>SPA: 2. Generate code_verifier (random 128 chars)
+    SPA->>SPA: 3. Calculate code_challenge = SHA256(code_verifier)
+    
+    SPA->>KeyGo: 4. GET /oauth2/authorize<br/>?client_id=xxx&redirect_uri=https://app.com/callback<br/>&scope=openid profile email<br/>&response_type=code<br/>&code_challenge=xyz&code_challenge_method=S256&state=abc
+    
+    KeyGo->>KeyGo: 5. Validate: client_id, redirect_uri, scope
+    KeyGo->>User: 6. Redirect to login form
+    User->>KeyGo: 7. POST /account/login { email, password }
+    
+    KeyGo->>DB: 8. Lookup user, verify password (BCrypt)
+    KeyGo->>KeyGo: 9. Create session + authorization_code (TTL 10m)
+    KeyGo->>SPA: 10. Redirect ?code=auth_code_xyz&state=abc
+    
+    SPA->>SPA: 11. Validate state, extract code
+    SPA->>KeyGo: 12. POST /oauth2/token<br/>grant_type=authorization_code, code, code_verifier, client credentials
+    
+    KeyGo->>DB: 13. Validate: code, code_verifier matches challenge, client credentials
+    KeyGo->>KeyGo: 14. Issue JWT tokens: access_token (1h), id_token, refresh_token (30d, hashed)
+    KeyGo->>SPA: 15. Return { access_token, id_token, refresh_token, expires_in=3600 }
+    
+    SPA->>SPA: 16. Store tokens securely (access→memory, refresh→httpOnly cookie)
+    SPA->>User: 17. Redirect to dashboard
+```
+
+**Key Points:**
+- PKCE prevents authorization code interception
+- Tokens issued from backend only (not frontend)
+- Refresh token hashed in database (SHA-256)
+- Session created for audit trail
+
+---
+
+### B. Flujo de Renovación de Token (Refresh Token Rotation)
+
+Detalle de la rotación segura de refresh tokens, incluyendo detección automática de replay attacks (T-035).
+
+```mermaid
+sequenceDiagram
+    participant SPA as 🖥️ SPA/Mobile
+    participant KeyGo as 🔐 KeyGo Server
+    participant DB as 🗄️ Database
+
+    SPA->>SPA: 1. access_token expiring (or 401 received)
+    SPA->>KeyGo: 2. POST /oauth2/token<br/>grant_type=refresh_token, old_refresh_token, client credentials
+    
+    KeyGo->>DB: 3. Lookup refresh_token (hash validation: SHA256)
+    KeyGo->>KeyGo: 4. Validate: not expired (TTL 30d), status ≠ REVOKED, status ≠ USED
+    
+    alt Replay Attack Detected (T-035)
+        KeyGo->>DB: 4a. UPDATE refresh_tokens SET status=REVOKED<br/>WHERE session_id=X (entire chain revoked!)
+        KeyGo->>SPA: Error: REPLAY_ATTACK_DETECTED (user must re-login)
+    else Valid Refresh
+        KeyGo->>DB: 5. Mark old refresh_token status=USED
+        KeyGo->>KeyGo: 6. Generate NEW refresh_token (hash with SHA256)
+        KeyGo->>KeyGo: 7. Issue NEW access_token (TTL 1h)
+        KeyGo->>SPA: 8. Return { new access_token, new refresh_token, expires_in=3600 }
+        SPA->>SPA: 9. Update stored tokens (access + refresh)
+        SPA->>SPA: 10. Retry original request with new access_token
+    end
+```
+
+**Key Points:**
+- Previous token marked USED, new token issued
+- Replay detection revokes entire session chain
+- Tokens refreshed in background before expiration
+- Support for offline_access scope
+
+---
+
+### C. Flujo de Gestión de Facturas y Pagos
+
+Detalle completo de: catálogo → suscripción → factura → pago → renovación automática.
+
+```mermaid
+sequenceDiagram
+    participant User as 👤 Usuario
+    participant SPA as 🖥️ SPA
+    participant KeyGo as 🔐 KeyGo API
+    participant DB as 🗄️ Database
+    participant Gateway as 💳 Payment Gateway
+
+    User->>SPA: 1. Browse plans (no auth required)
+    SPA->>KeyGo: 2. GET /api/v1/billing/plans (cached, TTL 5m)
+    KeyGo->>SPA: 3. Return catalog with plans + billingOptions + entitlements
+    
+    User->>SPA: 4. Click "Subscribe to Basic Monthly"
+    SPA->>KeyGo: 5. POST /api/v1/billing/contracts/{contractId}/activate<br/>body: { planVersionId, billingPeriod }
+    
+    KeyGo->>DB: 6. BEGIN TRANSACTION
+    KeyGo->>DB: 7. INSERT app_subscriptions (status=ACTIVE)
+    KeyGo->>DB: 8. INSERT invoices (status=PENDING, amount=$9.99)
+    KeyGo->>DB: 9. COMMIT
+    
+    KeyGo->>SPA: 10. Return { subscriptionId, invoiceId, amountDue }
+    SPA->>User: 11. Show payment form (card entry)
+    
+    User->>SPA: 12. Enter card + confirm
+    SPA->>Gateway: 13. POST /charges { amount, currency, invoiceId }
+    Gateway->>Gateway: 14. Process charge (3D Secure, etc.)
+    
+    alt Payment Success
+        Gateway->>KeyGo: 15. Webhook: POST /billing/webhooks/payment.completed
+        KeyGo->>DB: 16. UPDATE invoices SET status=PAID
+        KeyGo->>SPA: 17. "Payment successful"
+    else Payment Failure
+        Gateway->>KeyGo: 15. Webhook: payment.failed
+        KeyGo->>DB: 16. Schedule dunning retry (D+1)
+        KeyGo->>SPA: 17. "Payment failed, we'll retry"
+    end
+```
+
+**Key Points:**
+- Catalog cached at T-099 (TTL 5m)
+- Webhook-driven payment processing
+- Dunning engine handles retries (T-090)
+- Auto-renewal every 30 days (T-085)
+
+---
+
+### D. Flujo de Gestión de Tenants (Multi-Tenant Isolation)
+
+Detalle de creación de tenant, usuario, app con aislamiento completo.
+
+```mermaid
+sequenceDiagram
+    participant Admin as 👨‍💼 Admin KeyGo
+    participant API as 🔐 KeyGo API
+    participant DB as 🗄️ Database
+
+    Admin->>API: 1. POST /api/v1/tenants<br/>body: { name }
+    API->>API: 2. Validate: Bearer token, role=ADMIN
+    API->>DB: 3. Check slug UNIQUE
+    
+    API->>DB: 4. BEGIN TRANSACTION
+    API->>DB: 5. INSERT tenants { slug, name, status=ACTIVE }
+    API->>DB: 6. INSERT signing_keys (RSA pair per tenant)
+    API->>DB: 7. COMMIT
+    
+    API->>Admin: 8. Return 201 { tenantId, slug, name }
+    
+    Admin->>API: 9. POST /api/v1/tenants/{slug}/users<br/>body: { email, name }
+    API->>API: 10. Validate: Bearer, role=ADMIN_TENANT, tenant match
+    
+    API->>DB: 11. SELECT tenant_id WHERE slug={slug}
+    API->>DB: 12. Check email UNIQUE per tenant
+    
+    API->>DB: 13. BEGIN
+    API->>DB: 14. INSERT tenant_users { tenant_id, email, status=UNVERIFIED }
+    API->>DB: 15. INSERT password_reset_codes
+    API->>DB: 16. COMMIT
+    
+    API->>Admin: 17. Return 201 { userId, email, requiresPasswordReset }
+```
+
+**Key Points:**
+- Tenant isolation enforced via tenant_id in all queries
+- JWT claims include tenant slug (iss=https://keygo/.../tenants/{slug})
+- Admin operations scoped to single tenant
+- Signing keys rotated per tenant (not global)
+
+---
+
+### E. Flujo de Self-Service Usuario (Profile + Sessions)
+
+Detalle de GET/PATCH profile, lista de sesiones ativas, revocación de device.
+
+```mermaid
+sequenceDiagram
+    participant User as 👤 Usuario
+    participant SPA as 🖥️ SPA
+    participant API as 🔐 KeyGo API
+    participant DB as 🗄️ Database
+
+    User->>SPA: 1. Settings → Profile
+    SPA->>API: 2. GET /api/v1/account/profile (Bearer)
+    API->>API: 3. Validate token (sig, exp, user_id)
+    API->>DB: 4. SELECT user WHERE id=(sub from JWT)
+    API->>SPA: 5. Return { sub, email, name, picture, phone, locale, updated_at }
+    
+    User->>SPA: 6. Edit name + locale, Save
+    SPA->>API: 7. PATCH /api/v1/account/profile (Bearer)<br/>body: { name, locale }
+    API->>DB: 8. UPDATE user SET name, locale, updated_at
+    API->>SPA: 9. Return 200
+    
+    User->>SPA: 10. Settings → Security → Active Sessions
+    SPA->>API: 11. GET /api/v1/account/sessions (Bearer)
+    API->>DB: 12. SELECT sessions WHERE user_id, status=ACTIVE
+    API->>API: 13. FOR EACH: determine is_current (compare UA)
+    API->>SPA: 14. Return sessions[] with is_current flag
+    
+    User->>SPA: 15. Click "Sign out iPhone"
+    SPA->>API: 16. DELETE /api/v1/account/sessions/{sessionId} (Bearer)
+    API->>DB: 17. UPDATE sessions SET terminated_at=NOW()
+    API->>DB: 18. UPDATE refresh_tokens SET status=REVOKED (for this session)
+    API->>SPA: 19. Return 204
+```
+
+**Key Points:**
+- Profile updates reflected in next token issuance
+- Sessions tracked with UA/IP for device identification
+- Session termination revokes all tokens from that device
+- Self-service, no admin approval needed
 
 ---
 
