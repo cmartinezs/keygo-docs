@@ -80,6 +80,9 @@ Esta sección especifica **qué debe hacer Keygo** y **cómo debe comportarse**,
 | [RF15](functional/rf15-gestion-suscripciones.md) | **Gestión de suscripciones** — Planes y estado de suscripción por organización. |
 | [RF16](functional/rf16-medicion-uso.md) | **Medición de uso** — Registro y aplicación de límites según plan activo. |
 | [RF17](functional/rf17-integracion-proveedores-pago.md) | **Integración con proveedores de pago** — Gestión de pagos a través de servicios externos _(fase futura)_. |
+| [RF22](functional/rf22-planes-por-aplicacion.md) | **Planes comerciales por aplicación cliente** — Catálogo de planes que una app puede ofrecer a sus usuarios. |
+| [RF23](functional/rf23-suscripciones-usuarios-app.md) | **Suscripciones de usuarios a planes de aplicación** — Contratación de plan por usuario final de una app; ciclo de vida de la suscripción. |
+| [RF24](functional/rf24-evaluacion-derechos-membresia.md) | **Evaluación de derechos de membresía** — Resolución y aplicación de los derechos del plan activo en el flujo de acceso. |
 
 ### Dominio: Auditoría
 

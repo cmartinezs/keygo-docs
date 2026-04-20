@@ -7,7 +7,12 @@
       "Bash(bash /tmp/final_summary.sh)",
       "Bash(bash /tmp/detailed_inventory.sh)",
       "Bash(bash /tmp/rest_inventory.sh)",
-      "Bash(bash /tmp/archive_inventory.sh)"
+      "Bash(bash /tmp/archive_inventory.sh)",
+      "Bash(git mv *)",
+      "Read(//c/Users/cmartinezs/IdeaProjects/keygo-server/**)",
+      "Read(//c/Users/cmartinezs/IdeaProjects/keygo-web-ui/**)",
+      "Bash(python3 *)",
+      "Bash(node *)"
     ]
   }
 }

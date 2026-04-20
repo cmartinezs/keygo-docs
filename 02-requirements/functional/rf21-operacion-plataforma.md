@@ -38,4 +38,4 @@ El sistema debe proveer al equipo técnico de Keygo las herramientas básicas ne
 
 ---
 
-[← Índice](../README.md) | [< Anterior](rf20-administracion-global-plataforma.md)
+[← Índice](../README.md) | [< Anterior](rf20-administracion-global-plataforma.md) | [Siguiente >](rf22-planes-por-aplicacion.md)

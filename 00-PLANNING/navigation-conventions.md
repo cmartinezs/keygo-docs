@@ -168,6 +168,35 @@ Descripción de la fase y su propósito.
 
 ---
 
+## Regla de Diagramas
+
+Todo diagrama en este repositorio debe seguir este orden de preferencia:
+
+1. **Mermaid** — primera opción siempre. Se escribe dentro de un bloque de código con la etiqueta `mermaid`:
+
+   ````markdown
+   ```mermaid
+   graph TD
+       A --> B
+   ```
+   ````
+
+2. **PlantUML** — si el diagrama no es expresable en Mermaid por limitaciones del lenguaje. Se escribe con la etiqueta `plantuml`:
+
+   ````markdown
+   ```plantuml
+   @startuml
+   A --> B
+   @enduml
+   ```
+   ````
+
+3. **ASCII** — solo si ninguna de las opciones anteriores es viable. Se escribe con la etiqueta `text` o sin etiqueta.
+
+No se admiten imágenes embebidas ni referencias a herramientas externas como fuente principal del diagrama.
+
+---
+
 ## Notas
 
 - Los anclas en Markdown se generan del título en minúsculas, espacios reemplazados por `-`, sin tildes ni caracteres especiales (depende del renderer; GitHub los soporta con tildes)
