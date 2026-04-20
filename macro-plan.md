@@ -333,3 +333,36 @@ keygo-docs/
 **Status**: 🎉 **SDLC FRAMEWORK COMPLETE**
 
 **Siguiente paso**: Iteración continua — cada ciclo refina el dominio y el proceso.
+
+---
+
+## Gap Closure — Post-Backup Analysis (2026-04-20)
+
+### Archivos Creados (Cierre de Brechas)
+
+**Fase 02-Requirements:**
+- `technical-constraints.md` — Restricciones T1-T6 (técnicas), F1-F3 (funcionales), compliance (GDPR, CFDI, PCI DSS)
+- `capability-matrix.md` — 60+ capacidades mapeadas: status (✅/🟡/🔲), horizonte, esfuerzo, RF traceability
+
+**Fase 05-Planning:**
+- `use-cases-catalog.md` — 52 UC detallados (UC-A 12, UC-T 22, UC-B 13, UC-AC 6) con precondiciones, flujos, postcondiciones, eventos de dominio
+- `hitos-y-propuestas.md` — 4 hitos Q2 2026 (322h total), 37 propuestas (T-NNN/V-NNN/F-NNN) con effort, dependencias, deliverables
+
+**Fase 06-Development:**
+- `glossary-technical.md` — Stack (Java 21, Spring Boot, PostgreSQL, Jackson 3, Flyway, JPA, Nimbus, BCrypt, TestContainers, etc.)
+
+**Fase 11-Feedback:**
+- `GAPS-ANALYSIS.md` — Análisis exhaustivo del backup vs. framework: 70% capturado, 20% parcial, 10% missing
+
+### Status de Cierre
+
+| Recomendación | Acción | Status |
+|---|---|---|
+| Use Case Catalog (UC-A/T/B/AC) | Crear 52 UC documentados | ✅ 2026-04-20 |
+| Capability Matrix (60+ caps) | Mapear capacidades por contexto | ✅ 2026-04-20 |
+| Hitos y Propuestas (T-NNN) | Roadmap detallado Q2 2026 | ✅ 2026-04-20 |
+| Technical Glossary (stack) | 40+ términos del stack | ✅ 2026-04-20 |
+| Technical Constraints (T1-T6) | Restricciones codificadas | ✅ 2026-04-20 |
+| Gap Analysis | Revisión backup vs. official | ✅ 2026-04-20 |
+
+**Cierre Total de Brechas:** 6/6 (100%) — Framework ahora incluye todos los elementos críticos del backup con mejoras DDD integradas.
