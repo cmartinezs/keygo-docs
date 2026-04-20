@@ -150,6 +150,10 @@ El ciclo no es waterfall — se itera por feature, dominio o versión del produc
 **Entregables**:
 - `06-development/README.md` — Índice de desarrollo con navegación
 - `06-development/architecture.md` — Arquitectura hexagonal, bounded contexts → módulos, patrones (Repository, Factory, ACL), flujo de requests
+- **`06-development/oauth2-oidc-contract.md`** — ⭐ OAuth2/OIDC multi-level (Platform + Tenant), PKCE, refresh token rotation with T-035 replay detection, JWKS discovery
+- **`06-development/authorization-patterns.md`** — ⭐ RBAC 3 niveles, JWT canonical structure, @PreAuthorize patterns, TenantAuthorizationEvaluator service
+- **`06-development/api-versioning-strategy.md`** — ⭐ URI path versioning, semantic versioning, 5-phase lifecycle, backward-compatible vs breaking changes
+- **`06-development/database-schema.md`** — ⭐ ERD (Identity/Billing/Audit), Flyway migrations (V1-V33+), multi-tenancy at DB, soft-deletes, append-only audit
 - `06-development/api-reference.md` — Contratos de API REST
 - `06-development/coding-standards.md` — Convenciones de código con énfasis en ubiquitous language
 - `06-development/workflow.md` — Ramas, commits, PRs, pre-commit hooks
@@ -164,8 +168,13 @@ El ciclo no es waterfall — se itera por feature, dominio o versión del produc
 - ✅ Patrones DDD tácticos: Repository, Factory, Anti-Corruption Layer con ejemplos reales
 - ✅ Ubiquitous Language reforzado en `coding-standards.md` con anti-patrones
 - ✅ Anti-Corruption Layer documentado: cuándo, cómo y ejemplos (Payment Provider, Identity Provider)
+- ✅ **[HITO 1 CRITICAL DOCS ADDED]** 4 documentos críticos creados para desbloquear HITO 1 (Auth Security):
+  - `oauth2-oidc-contract.md` — Especifica flujos de autenticación, refresh token rotation, anti-replay
+  - `authorization-patterns.md` — RBAC patterns, @PreAuthorize examples, tenant scope validation
+  - `api-versioning-strategy.md` — Previene breaking changes, establece estrategia de versionado
+  - `database-schema.md` — ERD, Flyway baseline, multi-tenancy invariants, audit trail
 
-**Estado**: ✅ Completado
+**Status**: ✅ Completado + 4 documentos críticos agregados (commit: a43f2d7)
 
 ---
 
