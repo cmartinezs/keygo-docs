@@ -14,6 +14,12 @@ Fase de documentación de arquitectura técnica, patrones, APIs y estándares de
 - **[Authorization Patterns](./authorization-patterns.md)** — ⭐ RBAC multi-nivel, JWT claims, @PreAuthorize, validación de tenant scope
 - **[API Versioning Strategy](./api-versioning-strategy.md)** — ⭐ URI path versioning, semantic versioning, deprecation lifecycle
 - **[Database Schema](./database-schema.md)** — ⭐ ERD, Flyway migrations (V1-V33+), invariantes, multi-tenancy at DB level
+- **[Observability](./observability.md)** — ⭐ Logs (MDC), Metrics (Prometheus), Traces (Jaeger), Dashboards, Alertas
+- **[Frontend Architecture](./frontend-architecture.md)** — ⭐ Stack (Vite/React/TS/Query/Zustand), diseño, seguridad
+- **[Frontend Project Structure](./frontend-project-structure.md)** — ⭐ Feature-first org, capas, ejemplos, anti-patterns
+- **[Frontend: Auth Implementation](./frontend-auth-implementation.md)** — ⭐ Tokens en memoria, PKCE, session recovery, roles
+- **[Frontend: API Integration](./frontend-api-integration.md)** — ⭐ Axios, TanStack Query, error normalization, retry strategy
+- **[API Endpoints (Comprehensive)](./api-endpoints-comprehensive.md)** — ⭐ 9 grupos de endpoints (Discovery, Auth, Account, Users, Apps, Billing, Admin, Errors, Examples)
 - [API Reference](./api-reference.md) — Contratos de API
 - [Coding Standards](./coding-standards.md) — Convenciones de código y ubiquitous language
 - [Developer Glossary](./glossary-technical.md) — Términos técnicos del stack (Java 21, Spring Boot, Jackson 3, Flyway, etc.)
