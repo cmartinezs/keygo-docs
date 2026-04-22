@@ -1,0 +1,101 @@
+═══════════════════════════════════════════════════════════════════════════════
+  DDD + HEXAGONAL ARCHITECTURE DOCUMENTATION TEMPLATE
+═══════════════════════════════════════════════════════════════════════════════
+
+¡Bienvenido! Esta plantilla te ayuda a generar documentación completa para 
+tu producto usando Domain-Driven Design + Arquitectura Hexagonal + IA.
+
+───────────────────────────────────────────────────────────────────────────────
+📌 COMIENZA AQUÍ (Orden recomendado):
+───────────────────────────────────────────────────────────────────────────────
+
+1. LEE (5 min)
+   → Abre: README.md (en esta carpeta)
+   
+2. ENTIENDE (20 min)
+   → Abre: 00-GUIDE-AND-INSTRUCTIONS/README.md
+
+3. ELIGE TU CAMINO:
+
+   A) CON IA (Claude, ChatGPT, etc.):
+      → Abre: 00-GUIDE-AND-INSTRUCTIONS/AI-WORKFLOW-GUIDE.md
+      → Sigue: Preparación (Día 1) → Discovery → Requirements → etc.
+      → Usa: 00-GUIDE-AND-INSTRUCTIONS/INSTRUCTIONS-FOR-AI.md para prompts
+      → Tiempo: 10-15 días de trabajo (con IA)
+
+   B) SIN IA (Manual):
+      → Abre: 00-GUIDE-AND-INSTRUCTIONS/TEMPLATE-USAGE-GUIDE.md
+      → Sigue: SETUP-CHECKLIST.md
+      → Documenta: fase por fase
+      → Tiempo: 3-4 semanas de trabajo
+
+4. CONFIGURA (45 min)
+   → Sigue: SETUP-CHECKLIST.md (en esta carpeta)
+
+5. VALIDA (1-2 días)
+   → Revisa: coherencia entre fases
+   → Ajusta: con tu equipo
+
+───────────────────────────────────────────────────────────────────────────────
+📁 ESTRUCTURA:
+───────────────────────────────────────────────────────────────────────────────
+
+00-GUIDE-AND-INSTRUCTIONS/  ← Comienza aquí (README.md)
+  ├── TEMPLATE-USAGE-GUIDE.md         (Guía paso a paso)
+  ├── INSTRUCTIONS-FOR-AI.md          (Cómo usar con Claude)
+  ├── TEMPLATE-ARCHITECTURE.md        (Diseño de la plantilla)
+  ├── FAQ.md                          (Preguntas comunes)
+  └── README.md                       (Índice de guías)
+
+00-PLANNING/                           (Framework SDLC)
+01-discovery/ through 11-feedback/    (12 fases del producto)
+
+MACRO-PLAN.md                          (Plan anual)
+SETUP-CHECKLIST.md                     (Configura plantilla)
+README.md                              (Descripción general)
+
+───────────────────────────────────────────────────────────────────────────────
+⚡ QUICK START (30 min):
+───────────────────────────────────────────────────────────────────────────────
+
+$ cat SETUP-CHECKLIST.md                # Lee checklist
+$ # Sigue los pasos (renombra archivos, actualiza README, etc.)
+$ # Ahora la plantilla está lista para generar contenido
+
+───────────────────────────────────────────────────────────────────────────────
+🎯 FILOSOFÍA:
+───────────────────────────────────────────────────────────────────────────────
+
+✓ Agnóstico primero       (Qué, antes de Cómo)
+✓ Iterable               (Cada feature a su ritmo)
+✓ Vivo                   (Se actualiza con código)
+✓ Trazable               (Requisito → Código → Métrica)
+✓ Colaborativo con IA    (Fácil de generar)
+
+───────────────────────────────────────────────────────────────────────────────
+📚 DOCUMENTACIÓN DISPONIBLE:
+───────────────────────────────────────────────────────────────────────────────
+
+Guía completa:
+  00-GUIDE-AND-INSTRUCTIONS/TEMPLATE-USAGE-GUIDE.md
+
+Cómo trabajar con IA:
+  00-GUIDE-AND-INSTRUCTIONS/INSTRUCTIONS-FOR-AI.md
+
+Entender el diseño:
+  00-GUIDE-AND-INSTRUCTIONS/TEMPLATE-ARCHITECTURE.md
+
+Resolver dudas:
+  00-GUIDE-AND-INSTRUCTIONS/FAQ.md
+
+───────────────────────────────────────────────────────────────────────────────
+🚀 PRÓXIMO PASO:
+───────────────────────────────────────────────────────────────────────────────
+
+1. Abre este archivo: README.md
+2. Sigue las instrucciones
+3. ¡Comienza con Discovery!
+
+═══════════════════════════════════════════════════════════════════════════════
+Created: 2026-04-22
+Version: 1.0
