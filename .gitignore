@@ -55,6 +55,41 @@ build/
 **/node_modules/**
 **/package-lock.json
 
-### Claude
+### Claude Code & AI Agents
 claude-*.log
-./claude/*local.*
+tmp-claude-*
+**/.claude/*.local.*
+**/.claude/settings.local.json
+
+### IDE & Editor Local Configurations
+# VS Code - ignore local settings but preserve shared config
+**/.vscode/*
+!**/.vscode/settings.json
+!**/.vscode/tasks.json
+!**/.vscode/launch.json
+!**/.vscode/extensions.json
+!**/.vscode/*.code-snippets
+**/.vscode/*.local.*
+
+# JetBrains IDEs - ignore local, keep shared
+**/.idea/*
+!**/.idea/*.xml
+!**/.idea/.gitignore
+!**/.idea/runConfigurations/
+**/.idea/*.local.*
+
+# Copilot & GitHub Copilot
+**/.copilot/
+**/.copilotignore
+**/.github/copilot-instructions.md.local
+
+# Codex CLI
+**/.codex/config.local.toml
+**/.codex/*.local.*
+
+# General editor temp files
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
