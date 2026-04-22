@@ -29,7 +29,7 @@ Feedback ←── Monitoring ←── Operations ←── Deployment ←─�
 
 | Phase | Folder | Focus | Owner |
 |-------|--------|-------|-------|
-| **SP-0** | `00-PLANNING/` | Framework, metadocs, governance | Leadership |
+| **SP-0** | `00-documental-planning/` | Framework, metadocs, governance | Leadership |
 | **SP-D1** | `01-discovery/` | Problem, context, vision, actors | Product |
 | **SP-D2** | `02-requirements/` | What system must do (no tech) | Product/Backend |
 | **SP-D3** | `03-design/` | Domain modeling (DDD), processes | Backend/Product |
@@ -150,7 +150,7 @@ ORGANIZATION Aggregate:
 ### Day 1: Setup (Onboard Developers)
 
 1. Clone `keygo-docs` repo
-2. Read `00-PLANNING/sdlc-framework.md` (15 min)
+2. Read `00-documental-planning/sdlc-framework.md` (15 min)
 3. Read `02-requirements/README.md` (15 min)
 4. Read `03-design/strategic-design.md` (20 min)
 5. Read relevant Bounded Context doc (20 min)
@@ -258,7 +258,7 @@ All written with:
 
 ## Véase También
 
-- **00-PLANNING/sdlc-framework.md** — Full framework definition
+- **00-documental-planning/sdlc-framework.md** — Full framework definition
 - **03-design/strategic-design.md** — Subdomain classification
 - **03-design/context-map.md** — Detailed context relationships
 - **README.md** — Entry point for all docs

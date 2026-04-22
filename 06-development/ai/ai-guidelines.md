@@ -32,7 +32,7 @@ Guías para el uso de agentes AI en el desarrollo de KeyGo.
 Al iniciar una sesión con un agente, proporcionar:
 
 1. **Macro plan** → `macro-plan.md`
-2. **Navegación** → `00-PLANNING/navigation-conventions.md`
+2. **Navegación** → `00-documental-planning/navigation-conventions.md`
 3. **Principios** → Estructura de carpetas actual
 
 ---
@@ -58,7 +58,7 @@ Al iniciar una sesión con un agente, proporcionar:
 
 ```
 keygo-docs/
-├── 00-PLANNING/     # Navegación, conventions
+├── 00-documental-planning/     # Navegación, conventions
 ├── 01-discovery/    # Contexto de producto
 ├── 02-requirements/ # RF/RNF, priorización
 ├── 03-design/      # Arquitectura, API, UI
@@ -120,7 +120,7 @@ glob "**/*.ts"
 
 ### Convenciones
 
-- **Navegación** → seguir `00-PLANNING/navigation-conventions.md`
+- **Navegación** → seguir `00-documental-planning/navigation-conventions.md`
 - **Naming** → seguir patrones existentes en carpeta
 - **Formatos** → mantener consistencia con archivos existentes
 

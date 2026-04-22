@@ -181,4 +181,4 @@ Este documento define el ciclo de vida de producto que usamos como eje organizad
 | Operations | `09-operations/` |
 | Monitoring | `10-monitoring/` |
 | Feedback | `11-feedback/` |
-| Framework + Metadocs | `00-PLANNING/` |
+| Framework + Metadocs | `00-documental-planning/` |

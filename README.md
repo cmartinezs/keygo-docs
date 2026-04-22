@@ -45,7 +45,7 @@ La documentación sigue el ciclo de vida del producto (SDLC):
 
 - [¿Qué es Keygo?](./01-discovery/README.md) — Contexto, visión y actores del sistema
 - [Plan de trabajo](./macro-plan.md) — Estado detallado de cada fase
-- [Framework SDLC](./00-PLANNING/sdlc-framework.md) — Cómo está organizada esta documentación
+- [Framework SDLC](./00-documental-planning/sdlc-framework.md) — Cómo está organizada esta documentación
 - [Domain-Driven Design in Keygo](./06-development/architecture.md) — Bounded contexts, aggregates, anti-corruption layers
 
 ---

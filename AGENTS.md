@@ -12,7 +12,7 @@ Estado y pendientes: ver `macro-plan.md`.
 
 1. **Análisis antes de acción**: mapear antes de mover o crear
 2. **No destruir**: mover a `bkp/` antes de eliminar
-3. **Convenciones obligatorias**: toda navegación sigue `00-PLANNING/navigation-conventions.md`
+3. **Convenciones obligatorias**: toda navegación sigue `00-documental-planning/navigation-conventions.md`
 4. **Agnóstico cuando sea posible**: tech-specific solo donde sea necesario
 
 ---

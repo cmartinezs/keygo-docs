@@ -47,7 +47,7 @@ tu producto usando Domain-Driven Design + Arquitectura Hexagonal + IA.
   ├── FAQ.md                          (Preguntas comunes)
   └── README.md                       (Índice de guías)
 
-00-PLANNING/                           (Framework SDLC)
+00-documental-planning/                           (Framework SDLC)
 01-discovery/ through 11-feedback/    (12 fases del producto)
 
 MACRO-PLAN.md                          (Plan anual)

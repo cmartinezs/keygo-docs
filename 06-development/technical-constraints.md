@@ -327,7 +327,7 @@ Si necesitas cambiar una restricción, sigue este proceso:
 
 ### **Step 1: Documentar Razón**
 ```
-Escribir RFC (Request for Comments) en 00-PLANNING/rfcs/ con:
+Escribir RFC (Request for Comments) en 00-documental-planning/rfcs/ con:
 - Problema actual
 - Propuesta de cambio
 - Impacto (líneas de código, esfuerzo, riesgo)

@@ -254,7 +254,7 @@ Backend docs separate from Frontend docs
 
 ## Véase También
 
-- **00-PLANNING/sdlc-framework.md** — How SDLC phases map to doc folders
+- **00-documental-planning/sdlc-framework.md** — How SDLC phases map to doc folders
 - **README.md** — Top-level navigation for all docs
 
 ---

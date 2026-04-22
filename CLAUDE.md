@@ -18,7 +18,7 @@ Documentación unificada de Keygo — única fuente de verdad para backend y fro
 ## Estructura Actual
 
 ```
-00-PLANNING/         # Framework SDLC, convenciones, metadocs
+00-documental-planning/         # Framework SDLC, convenciones, metadocs
 01-discovery/        # Contexto, visión, alcance, actores, necesidades
 02-requirements/     # RF, RNF, scope boundaries, trazabilidad
 03-design/           # Flujos de sistema, decisiones de proceso, UI
@@ -39,8 +39,8 @@ bkp/                 # Material histórico (back/front raw docs, SPs anteriores)
 
 - `macro-plan.md` — Estado y próximos pasos de cada SP
 - `AGENTS.md` — Instrucciones para agentes de IA
-- `00-PLANNING/sdlc-framework.md` — Ciclo SDLC y mapping fase→carpeta
-- `00-PLANNING/navigation-conventions.md` — Reglas de navegación obligatorias
+- `00-documental-planning/sdlc-framework.md` — Ciclo SDLC y mapping fase→carpeta
+- `00-documental-planning/navigation-conventions.md` — Reglas de navegación obligatorias
 
 ---
 

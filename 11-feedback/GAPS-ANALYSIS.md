@@ -28,7 +28,7 @@
 **Contenido**: Diccionario de 48+ términos (Access Token, OAuth2, JWT, Tenant, User, etc.) con explicaciones técnicas.
 
 **Estado en Official Docs**: 
-- ✅ **CAPTURADO** en `00-PLANNING/ubiquitous-language.md` (términos por contexto)
+- ✅ **CAPTURADO** en `00-documental-planning/ubiquitous-language.md` (términos por contexto)
 - ✅ **PARCIALMENTE MEJORADO** con enfoque DDD en `03-design/ubiquitous-language.md`
 - ⚠️ **GAP**: Glossary backup es exhaustivo; falta algunas definiciones técnicas (Jackson 3 namespace, Nimbus, Flyway)
 

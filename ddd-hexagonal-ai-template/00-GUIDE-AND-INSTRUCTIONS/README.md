@@ -88,7 +88,7 @@ Centro de control para entender y usar la plantilla DDD + Hexagonal.
 ## 📁 Estructura de la Plantilla
 
 ```
-00-PLANNING/
+00-documental-planning/
 ├── sdlc-framework.md
 └── navigation-conventions.md
 
@@ -159,7 +159,7 @@ Centro de control para entender y usar la plantilla DDD + Hexagonal.
 ### "Quiero entender si el enfoque DDD + Hexagonal es para mí"
 
 1. Lee [`TEMPLATE-ARCHITECTURE.md`](./TEMPLATE-ARCHITECTURE.md)
-2. Lee `../00-PLANNING/sdlc-framework.md`
+2. Lee `../00-documental-planning/sdlc-framework.md`
 3. Decide si adaptar o crear tu propia estructura
 
 ### "Tengo problemas generando documentación con IA"

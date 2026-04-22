@@ -23,7 +23,7 @@ El ciclo no es waterfall — se itera por feature, dominio o versión del produc
 ### [SP-0] Framework SDLC ✅
 **Objetivo**: Definir el ciclo, sus fases, qué produce cada una, y cómo se mapea a carpetas.
 
-**Entregable**: `00-PLANNING/sdlc-framework.md`
+**Entregable**: `00-documental-planning/sdlc-framework.md`
 
 **Estado**: ✅ Completado
 
@@ -366,7 +366,7 @@ Commits: 0b95c9e (3 ops/deploy/test docs), 12934cf (4 UI/accessibility/incident 
 
 ```
 keygo-docs/
-├── 00-PLANNING/          # Framework SDLC y metadocs de planificación
+├── 00-documental-planning/          # Framework SDLC y metadocs de planificación
 ├── 01-discovery/         # Discovery (contexto, visión, alcance, actores, necesidades)
 ├── 02-requirements/      # Requirements (RF, RNF, scope boundaries, trazabilidad)
 ├── 03-design/            # Design & Process + UI Design
@@ -389,7 +389,7 @@ keygo-docs/
 
 | Fase | SP | Carpeta | Estado |
 |------|----|---------|--------|
-| Framework | SP-0 | `00-PLANNING/` | ✅ |
+| Framework | SP-0 | `00-documental-planning/` | ✅ |
 | Discovery | SP-D1 | `01-discovery/` | ✅ |
 | Requirements | SP-D2 | `02-requirements/` | ✅ |
 | Design & Process | SP-D3 | `03-design/` | ✅ |

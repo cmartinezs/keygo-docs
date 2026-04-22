@@ -261,7 +261,7 @@ Target: 40 / 50 (80%) by end of next cycle
 
 **Status**: Already started, enforce more consistently
 
-**Current**: `00-PLANNING/navigation-conventions.md` exists
+**Current**: `00-documental-planning/navigation-conventions.md` exists
 **Problem**: Not always followed (missing back-to-top, inconsistent header format)
 **Solution**: Automated linting check
 
