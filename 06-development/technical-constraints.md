@@ -1,4 +1,4 @@
-[← Índice](./README.md) | [macro-plan](../macro-plan.md)
+[← Índice](./README.md) | [← Volver a macro-plan](../macro-plan.md)
 
 ---
 
@@ -364,4 +364,4 @@ Una vez aprobado: Actualizar este documento
 
 ---
 
-[← Volver a Requirements](./README.md)
+[← Volver a Development](./README.md)

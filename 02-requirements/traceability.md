@@ -73,6 +73,9 @@ Relación entre los requerimientos del sistema, las necesidades identificadas en
 | RF19 | Trazabilidad de acciones | N8 | OE5 |
 | RF20 | Administración global de la plataforma | N1 | OE1, OE7 |
 | RF21 | Operación de la plataforma | N1 | OE1 |
+| RF22 | Planes comerciales por aplicación cliente | N7 | OE7 |
+| RF23 | Suscripciones de usuarios a planes de aplicación | N7 | OE7 |
+| RF24 | Evaluación de derechos de membresía | N4, N7 | OE4, OE7 |
 
 [↑ Volver al inicio](#trazabilidad)
 

@@ -46,6 +46,7 @@ Fase de documentación de arquitectura técnica, patrones, APIs y estándares de
 | [api-reference.md](./api-reference.md) | Contratos de API REST |
 | [coding-standards.md](./coding-standards.md) | Convenciones de código Java, ubiquitous language, naming DDD |
 | [glossary-technical.md](./glossary-technical.md) | Referencia de términos técnicos (Jackson 3, Nimbus, Flyway, JPA, TestContainers, etc.) |
+| [capability-matrix.md](./capability-matrix.md) | 60+ capacidades por Bounded Context: status (✅/🟡/🔲), horizonte de implementación, esfuerzo estimado, traceabilidad a RF |
 | [workflow.md](./workflow.md) | Ramas, commits, PRs, pre-commit hooks, integraciones |
 | [adrs/](./adrs/) | Architecture Decision Records |
 | [ai/ai-context.md](./ai/ai-context.md) | Guías para agentes AI (OpenCode, Claude, Copilot) |

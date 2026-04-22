@@ -1,6 +1,10 @@
+[← Índice](./README.md)
+
+---
+
 # Capability Matrix — KeyGo Server
 
-> **Descripción:** Matriz exhaustiva de 60+ capacidades del sistema por Bounded Context, mostrando status (✅ Completado, 🟡 Parcial, 🔲 Pendiente), horizonte de implementación, RF asociado, y esfuerzo estimado.
+> **Descripción:** Matriz exhaustiva de 60+ capacidades del sistema por Bounded Context, mostrando status (✅ Completado, 🟡 Parcial, 🔲 Pendiente), horizonte de implementación, RF asociado, y esfuerzo estimado. Referencia técnica para equipo de arquitectura y desarrollo.
 
 **Fecha:** 2026-04-20  
 **Versión:** 1.0  
