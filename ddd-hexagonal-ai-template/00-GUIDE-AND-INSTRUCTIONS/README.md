@@ -44,6 +44,13 @@ Centro de control para entender y usar la plantilla DDD + Hexagonal.
    - Prompts y validación específicos
    - Checklist de coherencia cross-fase
 
+5. **[SKILLS-AND-PLUGINS-GUIDE.md](./SKILLS-AND-PLUGINS-GUIDE.md)** — Usar Claude Code skills
+   - Skills por fase (Discovery, Design, Development, Testing, Deployment, Ops, Monitoring)
+   - Qué skill usar cuándo y para qué
+   - Cómo instalar/activar (MCP, OAuth)
+   - Workflow recomendado con skills
+   - Checklist pre-producción
+
 ### Para entender la arquitectura
 
 5. **[TEMPLATE-ARCHITECTURE.md](./TEMPLATE-ARCHITECTURE.md)** — Cómo está diseñada la plantilla
@@ -105,11 +112,12 @@ Centro de control para entender y usar la plantilla DDD + Hexagonal.
 | Orden | Documento | Duración | Para quién | Propósito |
 |-------|-----------|----------|-----------|-----------|
 | 1 | [`TEMPLATE-USAGE-GUIDE.md`](./TEMPLATE-USAGE-GUIDE.md) | 20 min | Todos | Entender proceso completo |
-| 2 | [`AI-WORKFLOW-GUIDE.md`](./AI-WORKFLOW-GUIDE.md) ⭐ | 30 min | **Con IA** | Flujo práctico día a día, con ejemplos reales |
-| 3 | [`EXAMPLE-IMPLEMENTATION.md`](./EXAMPLE-IMPLEMENTATION.md) | 20 min | **Con IA** | Caso real (Keygo) día a día, Día 1-10 |
-| 4 | [`INSTRUCTIONS-FOR-AI.md`](./INSTRUCTIONS-FOR-AI.md) | 20 min | Referencias durante trabajo | Prompts específicos por fase, troubleshooting |
-| 5 | [`TEMPLATE-ARCHITECTURE.md`](./TEMPLATE-ARCHITECTURE.md) | 15 min | Curiosos | Entender diseño interno |
-| 6 | [`FAQ.md`](./FAQ.md) | 10 min | Dudosos | Resolver problemas comunes |
+| 2 | [`AI-WORKFLOW-GUIDE.md`](./AI-WORKFLOW-GUIDE.md) ⭐ | 30 min | **Con IA** | Flujo práctico día a día |
+| 3 | [`EXAMPLE-IMPLEMENTATION.md`](./EXAMPLE-IMPLEMENTATION.md) | 20 min | **Con IA** | Caso real (Keygo) Día 1-10 |
+| 4 | [`SKILLS-AND-PLUGINS-GUIDE.md`](./SKILLS-AND-PLUGINS-GUIDE.md) ⭐ | 20 min | **Todos** | Skills por fase, cómo usar, setup |
+| 5 | [`INSTRUCTIONS-FOR-AI.md`](./INSTRUCTIONS-FOR-AI.md) | 20 min | Referencias | Prompts específicos por fase |
+| 6 | [`TEMPLATE-ARCHITECTURE.md`](./TEMPLATE-ARCHITECTURE.md) | 15 min | Curiosos | Diseño interno de la plantilla |
+| 7 | [`FAQ.md`](./FAQ.md) | 10 min | Dudosos | Problemas comunes |
 
 ---
 
@@ -123,6 +131,14 @@ Centro de control para entender y usar la plantilla DDD + Hexagonal.
 4. Luego Día 2-3: Discovery, Día 4-5: Requirements, etc.
 5. Consulta [`INSTRUCTIONS-FOR-AI.md`](./INSTRUCTIONS-FOR-AI.md) si necesitas prompts específicos
 6. **Resultado**: Documentación completa en 10-15 días
+
+### "Quiero validar mi trabajo con Claude Code Skills" ⭐⭐
+
+1. Lee [`SKILLS-AND-PLUGINS-GUIDE.md`](./SKILLS-AND-PLUGINS-GUIDE.md) — "General: Todos los skills útiles"
+2. Identifica skill por fase (Design → `/domain-driven-design`, Code → `/code-craftsmanship:clean-code`, etc.)
+3. Sigue "Workflow Recomendado por Día"
+4. Ejecuta "Checklist: Antes de Producción"
+5. **Resultado**: Código y docs validados por expertos
 
 ### "Quiero ver un ejemplo real paso a paso"
 
@@ -209,14 +225,18 @@ Monitoring (login success rate)
 2. **Mezclar agnóstico con específico en fases 1-5**
    - Solución: Usa [`INSTRUCTIONS-FOR-AI.md`](./INSTRUCTIONS-FOR-AI.md) como checklist
 
-3. **No actualizar documentos cuando cambia el código**
-   - Solución: Configura ownership + alertas (ver TEMPLATE-USAGE-GUIDE.md)
+3. **No validar documentos/código con skills**
+   - Solución: Lee [`SKILLS-AND-PLUGINS-GUIDE.md`](./SKILLS-AND-PLUGINS-GUIDE.md), usa skill por fase
+   - Ej: Design → `/domain-driven-design`, Code → `/code-craftsmanship:clean-code`
 
 4. **Generar todo de una vez sin validar**
-   - Solución: Genera fase por fase, valida, ajusta
+   - Solución: Genera fase por fase, valida con skill correspondiente, ajusta
 
 5. **No proporcionar contexto suficiente a IA**
    - Solución: Ver ["Proporciona contexto, no pidas que lo invente"](./INSTRUCTIONS-FOR-AI.md#2-proporciona-contexto-no-pidas-que-lo-invente)
+
+6. **No actualizar documentos cuando cambia el código**
+   - Solución: Configura ownership + alertas (ver TEMPLATE-USAGE-GUIDE.md)
 
 ---
 
