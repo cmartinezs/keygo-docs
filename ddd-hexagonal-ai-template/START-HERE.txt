@@ -1,101 +1,226 @@
-═══════════════════════════════════════════════════════════════════════════════
-  DDD + HEXAGONAL ARCHITECTURE DOCUMENTATION TEMPLATE
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
+          DDD HEXAGONAL AI TEMPLATE - START HERE
+================================================================================
 
-¡Bienvenido! Esta plantilla te ayuda a generar documentación completa para 
-tu producto usando Domain-Driven Design + Arquitectura Hexagonal + IA.
+Welcome! This is a comprehensive documentation framework for projects using
+Domain-Driven Design (DDD) and hexagonal architecture.
 
-───────────────────────────────────────────────────────────────────────────────
-📌 COMIENZA AQUÍ (Orden recomendado):
-───────────────────────────────────────────────────────────────────────────────
+QUICK START (5 minutes)
+================================================================================
 
-1. LEE (5 min)
-   → Abre: README.md (en esta carpeta)
-   
-2. ENTIENDE (20 min)
-   → Abre: 00-GUIDE-AND-INSTRUCTIONS/README.md
+1. READ FIRST:
+   → Open: 00-guides-and-instructions/README.md
 
-3. ELIGE TU CAMINO:
+2. UNDERSTAND THE FRAMEWORK:
+   → Open: 01-templates/00-documentation-planning/sdlc-framework.md
 
-   A) CON IA (Claude, ChatGPT, etc.):
-      → Abre: 00-GUIDE-AND-INSTRUCTIONS/AI-WORKFLOW-GUIDE.md
-      → Sigue: Preparación (Día 1) → Discovery → Requirements → etc.
-      → Usa: 00-GUIDE-AND-INSTRUCTIONS/INSTRUCTIONS-FOR-AI.md para prompts
-      → Tiempo: 10-15 días de trabajo (con IA)
+3. CUSTOMIZE FOR YOUR PROJECT:
+   → Edit: 01-templates/00-documentation-planning/sdlc-framework.md (customize phase names, timeline)
+   → Edit: 01-templates/00-documentation-planning/macro-plan.md (set your team and dates)
+   → Edit: 01-templates/00-documentation-planning/navigation-conventions.md (adjust for your team)
 
-   B) SIN IA (Manual):
-      → Abre: 00-GUIDE-AND-INSTRUCTIONS/TEMPLATE-USAGE-GUIDE.md
-      → Sigue: SETUP-CHECKLIST.md
-      → Documenta: fase por fase
-      → Tiempo: 3-4 semanas de trabajo
+4. BEGIN DISCOVERY:
+   → Open: 01-templates/01-discovery/README.md
+   → Start: 01-templates/01-discovery/TEMPLATE-context-motivation.md
 
-4. CONFIGURA (45 min)
-   → Sigue: SETUP-CHECKLIST.md (en esta carpeta)
+================================================================================
 
-5. VALIDA (1-2 días)
-   → Revisa: coherencia entre fases
-   → Ajusta: con tu equipo
+KEY DIRECTORIES
+================================================================================
 
-───────────────────────────────────────────────────────────────────────────────
-📁 ESTRUCTURA:
-───────────────────────────────────────────────────────────────────────────────
+TEMPLATE (Read-Only Reference):
+  00-guides-and-instructions/   - How to use this framework
+  01-templates/00-documentation-planning/ - Framework templates
 
-00-GUIDE-AND-INSTRUCTIONS/  ← Comienza aquí (README.md)
-  ├── TEMPLATE-USAGE-GUIDE.md         (Guía paso a paso)
-  ├── INSTRUCTIONS-FOR-AI.md          (Cómo usar con Claude)
-  ├── TEMPLATE-ARCHITECTURE.md        (Diseño de la plantilla)
-  ├── FAQ.md                          (Preguntas comunes)
-  └── README.md                       (Índice de guías)
+YOUR PROJECT DOCUMENTATION:
+  01-templates/data-input/      - External materials for reference
+    ├── external-specs/
+    ├── user-research/
+    ├── competitor-analysis/
+    └── standards/
 
-00-documental-planning/                           (Framework SDLC)
-01-discovery/ through 11-feedback/    (12 fases del producto)
+  01-templates/data-output/     - YOUR PRODUCTION DOCUMENTATION
+    ├── 00-documentation-planning/ - Your SDLC & conventions
+    ├── 01-discovery/           - Your business context
+    ├── 02-requirements/        - Your requirements
+    ├── 03-design/              - Your designs
+    ├── 04-data-model/          - Your data structure
+    ├── 05-planning/            - Your roadmap
+    ├── 06-development/         - Your architecture
+    ├── 07-testing/             - Your test strategy
+    ├── 08-deployment/          - Your CI/CD
+    ├── 09-operations/          - Your runbooks
+    ├── 10-monitoring/          - Your metrics
+    └── 11-feedback/            - Your retrospectives
 
-MACRO-PLAN.md                          (Plan anual)
-SETUP-CHECKLIST.md                     (Configura plantilla)
-README.md                              (Descripción general)
+================================================================================
 
-───────────────────────────────────────────────────────────────────────────────
-⚡ QUICK START (30 min):
-───────────────────────────────────────────────────────────────────────────────
+PHASES OVERVIEW
+================================================================================
 
-$ cat SETUP-CHECKLIST.md                # Lee checklist
-$ # Sigue los pasos (renombra archivos, actualiza README, etc.)
-$ # Ahora la plantilla está lista para generar contenido
+Phase 0: PLANNING            Setup framework & conventions
+Phase 1: DISCOVERY           Understand the business problem
+Phase 2: REQUIREMENTS        Define what the system must do
+Phase 3: DESIGN              Design flows and UI/UX
+Phase 4: DATA MODEL          Define entities and relationships
+Phase 5: PLANNING            Create roadmap and sprints
+Phase 6: DEVELOPMENT         Build architecture and code
+Phase 7: TESTING             Test strategy and validation
+Phase 8: DEPLOYMENT          CI/CD and release process
+Phase 9: OPERATIONS          Runbooks and incident response
+Phase 10: MONITORING         Metrics and alerts
+Phase 11: FEEDBACK           Retrospectives and learning
 
-───────────────────────────────────────────────────────────────────────────────
-🎯 FILOSOFÍA:
-───────────────────────────────────────────────────────────────────────────────
+Each phase builds on the previous one. Complete each phase before moving to
+the next.
 
-✓ Agnóstico primero       (Qué, antes de Cómo)
-✓ Iterable               (Cada feature a su ritmo)
-✓ Vivo                   (Se actualiza con código)
-✓ Trazable               (Requisito → Código → Métrica)
-✓ Colaborativo con IA    (Fácil de generar)
+================================================================================
 
-───────────────────────────────────────────────────────────────────────────────
-📚 DOCUMENTACIÓN DISPONIBLE:
-───────────────────────────────────────────────────────────────────────────────
+IMPORTANT PRINCIPLES
+================================================================================
 
-Guía completa:
-  00-GUIDE-AND-INSTRUCTIONS/TEMPLATE-USAGE-GUIDE.md
+1. PHASE DISCIPLINE
+   Phases 1-2 (Discovery & Requirements): WHAT, not HOW
+   - Include: Business needs, constraints, actors
+   - Exclude: Technology names, frameworks, code patterns
 
-Cómo trabajar con IA:
-  00-GUIDE-AND-INSTRUCTIONS/INSTRUCTIONS-FOR-AI.md
+2. SINGLE SOURCE OF TRUTH
+   All documentation lives here. Other repos link to or submodule this repo.
 
-Entender el diseño:
-  00-GUIDE-AND-INSTRUCTIONS/TEMPLATE-ARCHITECTURE.md
+3. TRACEABILITY
+   Link requirements through design → development → testing
+   Use IDs: FR-001, SF-001, TC-001 for consistent references
 
-Resolver dudas:
-  00-GUIDE-AND-INSTRUCTIONS/FAQ.md
+4. AI-ASSISTED, HUMAN-LED
+   AI can generate templates and drafts. Humans validate and customize.
 
-───────────────────────────────────────────────────────────────────────────────
-🚀 PRÓXIMO PASO:
-───────────────────────────────────────────────────────────────────────────────
+5. CONTINUOUS DOCUMENTATION
+   Update as decisions are made, don't batch at the end.
 
-1. Abre este archivo: README.md
-2. Sigue las instrucciones
-3. ¡Comienza con Discovery!
+================================================================================
 
-═══════════════════════════════════════════════════════════════════════════════
-Created: 2026-04-22
-Version: 1.0
+GETTING STARTED CHECKLIST
+================================================================================
+
+Initial Setup (1-2 hours):
+  [ ] Read README.md (overview)
+  [ ] Read TEMPLATE-ARCHITECTURE.md (understand structure)
+  [ ] Read TEMPLATE-USAGE-GUIDE.md (how to fill in sections)
+  [ ] Customize sdlc-framework.md for your project
+  [ ] Update macro-plan.md with team and dates
+
+Phase 0: Planning (2-3 hours):
+  [ ] Customize SDLC framework
+  [ ] Define navigation conventions
+  [ ] Set up macro plan tracking
+  [ ] Brief team on process
+
+Phase 1: Discovery (4-6 hours):
+  [ ] Complete context-motivation.md (vision, problem, success)
+  [ ] Complete actors-and-personas.md (who uses the system)
+  [ ] Complete scope-and-boundaries.md (in/out of scope)
+  [ ] Get stakeholder sign-off
+
+Phase 2: Requirements (8-10 hours):
+  [ ] Complete functional-requirements.md (user stories with acceptance criteria)
+  [ ] Complete non-functional-requirements.md (performance, security, etc.)
+  [ ] Complete scope-boundaries.md (feature matrix by phase)
+  [ ] Get stakeholder validation
+
+[Repeat for remaining phases...]
+
+================================================================================
+
+TIPS & BEST PRACTICES
+================================================================================
+
+1. Start with Discovery
+   Don't jump to implementation. Understand the problem first.
+
+2. Use Templates
+   Each section has EXAMPLE subsections. Copy them and customize.
+
+3. Link Everything
+   Every requirement should trace back to discovery and forward to design.
+
+4. Get Sign-Off
+   Don't move to next phase without stakeholder approval.
+
+5. Use AI Assistance
+   Let AI generate initial drafts, you refine them.
+
+6. Keep It Live
+   Update documentation as you learn, not just at phase end.
+
+7. Preserve History
+   Old decisions go to 01-templates/data-input/ for archival, not deleted.
+
+================================================================================
+
+FREQUENTLY ASKED QUESTIONS
+================================================================================
+
+Q: How long does this take?
+A: 8-12 weeks for a medium project (5-10 people). Phases can overlap.
+
+Q: Can we skip phases?
+A: Not recommended. Each builds on previous ones.
+
+Q: Can we use AI to write all the docs?
+A: No. AI generates drafts (50%), humans refine (50%).
+
+Q: What if we're already building?
+A: Retrofit documentation from what you've decided so far.
+
+Q: How do we keep docs in sync with code?
+A: Automation for APIs/schemas, code reviews for consistency.
+
+More FAQ: 00-guides-and-instructions/FAQ.md
+
+================================================================================
+
+NEED HELP?
+================================================================================
+
+1. DETAILED GUIDES
+   00-guides-and-instructions/TEMPLATE-USAGE-GUIDE.md - How to fill each section
+   00-guides-and-instructions/AI-WORKFLOW-GUIDE.md - Using AI for documentation
+   00-guides-and-instructions/EXAMPLE-IMPLEMENTATION.md - Complete worked example
+
+2. FRAMEWORK RULES
+   01-templates/00-documentation-planning/sdlc-framework.md - Phase structure
+   01-templates/00-documentation-planning/navigation-conventions.md - How to organize documents
+
+3. COMPLETE EXAMPLE
+   See 00-guides-and-instructions/EXAMPLE-IMPLEMENTATION.md for a TaskFlow project documented end-to-end
+
+4. QUESTIONS?
+   See 00-guides-and-instructions/FAQ.md for common questions
+
+================================================================================
+
+NEXT STEPS
+================================================================================
+
+1. Copy this entire ddd-hexagonal-ai-template folder to start your project
+2. Read: README.md → TEMPLATE-ARCHITECTURE.md → TEMPLATE-USAGE-GUIDE.md
+3. Customize: sdlc-framework.md, macro-plan.md for your project
+4. Start: Phase 1 Discovery
+5. Follow the progression through all 11 phases
+
+================================================================================
+
+CONTACT
+================================================================================
+
+Template Version: 1.0
+Framework Last Updated: [DATE]
+Owner: [NAME/TEAM]
+
+For questions or improvements to the template, see the repository README.
+
+================================================================================
+
+Ready to get started? Open: README.md
+
+================================================================================

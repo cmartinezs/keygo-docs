@@ -1,214 +1,113 @@
-# DDD + Hexagonal Architecture Template
+# DDD Hexagonal AI Template
 
-Plantilla agnóstica y reutilizable para generar documentación completa de un producto usando Domain-Driven Design (DDD) estratégico + arquitectura hexagonal, con IA.
+A comprehensive documentation framework for Domain-Driven Design (DDD) projects using hexagonal architecture, designed to be AI-assisted and human-completable.
 
----
+## Overview
 
-## ¿Qué es esto?
+This template provides a structured SDLC (Software Development Lifecycle) documentation system organized in 12 phases, from discovery through feedback. Each phase has a clear purpose, deliverables, and placeholders for project-specific content.
 
-Una estructura de carpetas + documentación plantilla que define un ciclo de vida completo (SDLC) de 12 fases, cada una produciendo artefactos específicos. Diseñada para ser agnóstica de:
+## Directory Structure
 
-- **Problema o solución específica** — funciona para cualquier dominio (auth, billing, marketplace, ERP, etc.)
-- **Tecnología** — no asume lenguajes, frameworks o herramientas
-- **Escala** — para startups o productos empresariales
-- **Contexto** — se adapta a metodologías ágiles, waterfall, o híbridas
-
----
-
-## Propósito
-
-Proporcionar una **fuente única de verdad** para tu producto que:
-
-✅ **Captura "qué" antes de "cómo"** — distinción clara entre vision/requirements (agnóstico) vs. implementation (específico)
-
-✅ **Es iterable** — cada feature/dominio puede estar en fases distintas simultáneamente
-
-✅ **Facilita la colaboración con IA** — instrucciones claras y templates parametrizables para generar contenido
-
-✅ **Es viva, no congelada** — documentación actualizada con código y decisiones en tiempo real
-
-✅ **Garantiza trazabilidad** — requisitos → design → código → tests → métricas
-
----
-
-## Estructura de Carpetas
-
+### Template Framework (Read-Only Guides)
 ```
-ddd-hexagonal-ai-template/
-├── 00-GUIDE-AND-INSTRUCTIONS/    # 👈 Comienza aquí
-│   ├── README.md
-│   ├── TEMPLATE-USAGE-GUIDE.md      (Cómo usar la plantilla)
-│   ├── INSTRUCTIONS-FOR-AI.md       (Cómo pedir a IA que genere docs)
-│   ├── TEMPLATE-ARCHITECTURE.md     (Cómo está diseñada la plantilla)
-│   ├── FAQ.md
-│   └── EXAMPLES/                    (Ejemplos reales de docs completadas)
-│
-├── 00-documental-planning/                  # Framework SDLC + convenciones
-│   ├── sdlc-framework.md
-│   ├── navigation-conventions.md
-│   └── TEMPLATE-macro-plan.md       (Plantilla del plan anual)
-│
-├── 01-discovery/                 # Fase 1: ¿Qué problema resolvemos?
-│   ├── README.md
-│   ├── TEMPLATE-context-motivation.md
-│   ├── TEMPLATE-system-vision.md
-│   ├── TEMPLATE-system-scope.md
-│   ├── TEMPLATE-actors.md
-│   ├── TEMPLATE-needs-expectations.md
-│   └── ...
-│
-├── 02-requirements/              # Fase 2: ¿Qué debe hacer el sistema?
-│   ├── README.md
-│   ├── TEMPLATE-glossary.md
-│   ├── TEMPLATE-priority-matrix.md
-│   ├── TEMPLATE-scope-boundaries.md
-│   ├── TEMPLATE-rf-template.md      (Template para RF individual)
-│   ├── TEMPLATE-rnf-template.md     (Template para RNF individual)
-│   └── ...
-│
-├── 03-design/                    # Fase 3-4: Diseño + UI
-│   ├── README.md
-│   ├── TEMPLATE-strategic-design.md
-│   ├── TEMPLATE-system-flows.md
-│   ├── bounded-contexts/
-│   │   └── TEMPLATE-context.md
-│   ├── ui/
-│   │   ├── TEMPLATE-design-system.md
-│   │   └── TEMPLATE-wireframes.md
-│   └── ...
-│
-├── 04-data-model/                # Fase 5: Modelo de datos
-│   ├── README.md
-│   ├── TEMPLATE-entities.md
-│   ├── TEMPLATE-relationships.md
-│   └── TEMPLATE-data-flows.md
-│
-├── 05-planning/                  # Fase 6: Roadmap + Planning
-│   ├── README.md
-│   ├── TEMPLATE-roadmap.md
-│   ├── TEMPLATE-epics.md
-│   └── TEMPLATE-versioning.md
-│
-├── 06-development/               # Fase 7: Desarrollo técnico
-│   ├── README.md
-│   ├── TEMPLATE-architecture.md
-│   ├── TEMPLATE-api-reference.md
-│   ├── TEMPLATE-coding-standards.md
-│   ├── adrs/
-│   │   └── TEMPLATE-adr.md
-│   └── ...
-│
-├── 07-testing/                   # Fase 8: Testing
-│   ├── README.md
-│   ├── TEMPLATE-test-strategy.md
-│   └── TEMPLATE-test-plans.md
-│
-├── 08-deployment/                # Fase 9: Deployment + CI/CD
-│   ├── README.md
-│   ├── TEMPLATE-cicd.md
-│   ├── TEMPLATE-environments.md
-│   └── TEMPLATE-release-process.md
-│
-├── 09-operations/                # Fase 10: Operaciones
-│   ├── README.md
-│   ├── TEMPLATE-runbook.md
-│   ├── TEMPLATE-incident-response.md
-│   └── TEMPLATE-slas.md
-│
-├── 10-monitoring/                # Fase 11: Monitoreo
-│   ├── README.md
-│   ├── TEMPLATE-metrics.md
-│   ├── TEMPLATE-alerts.md
-│   └── TEMPLATE-dashboards.md
-│
-└── 11-feedback/                  # Fase 12: Aprendizajes
-    ├── README.md
-    ├── TEMPLATE-retrospectives.md
-    ├── TEMPLATE-user-feedback.md
-    └── TEMPLATE-process-improvements.md
+00-guides-and-instructions/     # How to use this template
+├── README.md
+├── TEMPLATE-ARCHITECTURE.md     # Why each folder exists
+├── TEMPLATE-USAGE-GUIDE.md      # How to complete each section
+├── AI-WORKFLOW-GUIDE.md         # Using AI for documentation
+├── EXAMPLE-IMPLEMENTATION.md    # Complete worked example
+├── SKILLS-AND-PLUGINS-GUIDE.md  # Claude Code integration
+└── FAQ.md
+
+01-templates/00-documentation-planning/  # Framework setup
+├── sdlc-framework.md                    # Customized for your project
+├── macro-plan.md                        # Progress tracking
+└── navigation-conventions.md             # Documentation rules
 ```
 
----
+### Your Project Documentation
+```
+01-templates/data-input/        # External materials
+├── external-specs/             # Reference documentation
+├── user-research/              # Interviews, surveys
+├── competitor-analysis/        # Market research
+├── previous-projects/          # Reference implementations
+├── standards/                  # Industry standards
+└── raw-materials/              # Unstructured input
 
-## Quick Start (30 minutos)
-
-### 1. Lee la guía (5 min)
-
-```bash
-open 00-GUIDE-AND-INSTRUCTIONS/TEMPLATE-USAGE-GUIDE.md
+01-templates/data-output/       # PRODUCTION DOCUMENTATION
+├── 00-documentation-planning/  # Your SDLC and conventions
+├── 01-discovery/               # Your business context
+├── 02-requirements/            # Your requirements
+├── 03-design/                  # Your designs
+├── 04-data-model/              # Your data structure
+├── 05-planning/                # Your roadmap
+├── 06-development/             # Your architecture
+├── 07-testing/                 # Your test strategy
+├── 08-deployment/              # Your CI/CD
+├── 09-operations/              # Your runbooks
+├── 10-monitoring/              # Your metrics
+└── 11-feedback/                # Your retrospectives
 ```
 
-### 2. Adaptá la plantilla a tu proyecto (10 min)
+## Quick Start
 
-- Copia toda la carpeta `ddd-hexagonal-ai-template/` a tu repo
-- Renombra `TEMPLATE-*.md` a nombres reales (ej: `TEMPLATE-context-motivation.md` → `context-motivation.md`)
-- Actualiza `MACRO-PLAN.md` con la visión de tu producto
+### 1. Set Up Your Project
+- Copy `data-output/` for your project documentation
+- Place external materials in `data-input/`
+- Customize `01-templates/00-documentation-planning/` with your team and timeline
 
-### 3. Usa IA para generar contenido (10-15 días)
+### 2. Follow the Guides
+- Read: `00-guides-and-instructions/README.md` — Overview
+- Reference: `00-guides-and-instructions/TEMPLATE-USAGE-GUIDE.md` — How to fill each section
+- Review: `00-guides-and-instructions/EXAMPLE-IMPLEMENTATION.md` — Complete example
 
-Hay dos guías para trabajar con IA:
+### 3. Start Documenting
+- Begin with `01-templates/data-output/00-documentation-planning/` — Customize framework
+- Move to `01-templates/data-output/01-discovery/` — Understand your problem
+- Follow the phase progression through `01-templates/data-output/11-feedback/`
 
-**A) Para empezar rápido** → Lee `00-GUIDE-AND-INSTRUCTIONS/AI-WORKFLOW-GUIDE.md`
-- Flujo día a día (Día 1-10)
-- Qué hacer cada día
-- Ejemplos de prompts listos
-- Validación en tiempo real
+### 4. Use Data Flow
+```
+01-templates/data-input/       01-templates/data-output/
+(External materials)           (Your production docs)
+    ↓                              ↑
+  Research          Generate/Write using templates
+  Specifications    Review/Customize
+  User feedback     Remove template text
+  Competitor data   Add real project content
+    ↓                              ↑
+  ├─→ Extract insights ←──────────┤
+  └─→ Inform decisions ←──────────┘
+```
 
-**B) Para ver un caso real** → Lee `00-GUIDE-AND-INSTRUCTIONS/EXAMPLE-IMPLEMENTATION.md`
-- Caso completo: Documentación de Keygo
-- Cada día: qué generar, cómo validar
-- Prompts específicos adaptados
-- Checklist de coherencia
+## Key Principles
 
-**C) Para referencia de prompts** → Consulta `00-GUIDE-AND-INSTRUCTIONS/INSTRUCTIONS-FOR-AI.md`
-- Prompts por fase (discovery, requirements, design, etc.)
-- Troubleshooting avanzado
-- Validation checklist detallado
+- **Single Source of Truth**: All documentation lives here; submódules link to this repo
+- **Phase-Oriented**: Each phase has a clear purpose and deliverables
+- **AI-Assisted**: Templates include placeholders and sections designed for AI co-creation
+- **Human-Completable**: All templates can be completed manually with clear instructions
+- **DDD-First**: Domain language and bounded contexts guide the architecture
+- **Hexagonal Focus**: Clear separation of domain, ports, and adapters
 
----
+## Macro Plan
 
-## Filosofía
+Track progress across all phases in `01-templates/00-documentation-planning/macro-plan.md`:
+- Current phase status
+- Blockers and dependencies
+- Next steps for each sprint
 
-### ¿Por qué 12 fases?
+## Standards
 
-El ciclo de vida completo de un producto tiene 12 momentos naturales:
-
-1. **Discovery** → entender el problema
-2. **Requirements** → especificar qué
-3. **Design & Process** → diseñar cómo fluye
-4. **UI Design** → diseñar cómo interactúa
-5. **Data Model** → diseñar cómo se almacena
-6. **Planning** → planificar la entrega
-7. **Development** → construir
-8. **Testing** → validar
-9. **Deployment** → llevar a producción
-10. **Operations** → operar
-11. **Monitoring** → medir
-12. **Feedback** → aprender
-
-No es waterfall — es un mapa que permite iterar cada feature/dominio a su propio ritmo.
-
-### ¿Por qué DDD + Hexagonal?
-
-- **DDD** — centrado en el lenguaje del negocio (bounded contexts, ubiquitous language)
-- **Hexagonal** — centrado en separar dominio de implementación técnica
-
-Juntos garantizan que:
-- ✅ La documentación es agnóstica de tecnología en las primeras fases
-- ✅ El código refleja el dominio de negocio, no el framework
-- ✅ Las decisiones están trazables y justificadas
+- **Language**: English (unless otherwise specified)
+- **Phase Discipline**: No implementation details (code, frameworks) in Discovery/Requirements
+- **Data Input**: External materials stay in `01-templates/data-input/`, organized and referenced
+- **Data Output**: Production documentation goes in `01-templates/data-output/` without TEMPLATE- prefix
+- **Templates**: Reference guides in `00-guides-and-instructions/`, use to complete `01-templates/data-output/`
+- **No Template Text**: Remove all instruction text before committing to `01-templates/data-output/`
+- **Real Content Only**: `01-templates/data-output/` contains only actual project documentation
 
 ---
 
-## Próximos Pasos
-
-1. 📖 Lee [`TEMPLATE-USAGE-GUIDE.md`](./00-GUIDE-AND-INSTRUCTIONS/TEMPLATE-USAGE-GUIDE.md) — guía completa de inicio a fin
-2. 🤖 Consulta [`INSTRUCTIONS-FOR-AI.md`](./00-GUIDE-AND-INSTRUCTIONS/INSTRUCTIONS-FOR-AI.md) — cómo trabajar con IA
-3. 🏗️ Lee [`TEMPLATE-ARCHITECTURE.md`](./00-GUIDE-AND-INSTRUCTIONS/TEMPLATE-ARCHITECTURE.md) — diseño interno de la plantilla
-4. ❓ Revisa [`FAQ.md`](./00-GUIDE-AND-INSTRUCTIONS/FAQ.md) para dudas comunes
-
----
-
-**Creado por**: [Tu nombre/equipo]  
-**Basado en**: SDLC framework de Keygo (2026) + DDD + Arquitectura Hexagonal  
-**Última actualización**: 2026-04-22
+**Last Updated**: [Auto-generated by template]  
+**Template Version**: 1.0

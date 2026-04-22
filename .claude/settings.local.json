@@ -12,7 +12,13 @@
       "Read(//c/Users/cmartinezs/IdeaProjects/keygo-server/**)",
       "Read(//c/Users/cmartinezs/IdeaProjects/keygo-web-ui/**)",
       "Bash(python3 *)",
-      "Bash(node *)"
+      "Bash(node *)",
+      "Bash(grep -n \"00-PLANNING\\\\|01-discovery\\\\|02-requirements\\\\|03-design\\\\|04-data-model\\\\|05-planning\\\\|06-development\\\\|07-testing\\\\|08-deployment\\\\|09-operations\\\\|10-monitoring\\\\|11-feedback\" \"C:\\\\\\\\Users\\\\\\\\cmartinezs\\\\\\\\IdeaProjects\\\\\\\\keygo-docs\\\\\\\\ddd-hexagonal-ai-template\\\\\\\\00-guides-and-instructions\\\\\\\\TEMPLATE-ARCHITECTURE.md\")",
+      "Bash(grep -r \"00-GUIDE-AND-INSTRUCTIONS\\\\|[^/]00-PLANNING[/]\" \"C:\\\\\\\\Users\\\\\\\\cmartinezs\\\\\\\\IdeaProjects\\\\\\\\keygo-docs\\\\\\\\ddd-hexagonal-ai-template\" --include=\"*.md\" --include=\"*.txt\")",
+      "Bash(grep -r \"data-input/\\\\|data-output/\" \"C:\\\\\\\\Users\\\\\\\\cmartinezs\\\\\\\\IdeaProjects\\\\\\\\keygo-docs\\\\\\\\ddd-hexagonal-ai-template\" --include=\"*.md\" --include=\"*.txt\")",
+      "Bash(grep -r \"01-templates/00-documentation-planning\\\\|01-templates/0[1-9]-\\\\|01-templates/1[01]-\\\\|01-templates/data-\" \"C:\\\\\\\\Users\\\\\\\\cmartinezs\\\\\\\\IdeaProjects\\\\\\\\keygo-docs\\\\\\\\ddd-hexagonal-ai-template\" --include=\"*.md\" --include=\"*.txt\")",
+      "Bash(grep *)",
+      "Bash(ls -lh \"C:\\\\\\\\Users\\\\\\\\cmartinezs\\\\\\\\IdeaProjects\\\\\\\\keygo-docs\\\\\\\\ddd-hexagonal-ai-template\\\\\\\\README.md\")"
     ]
   }
 }
