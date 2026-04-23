@@ -59,3 +59,23 @@ En las fases `01-discovery/` y `02-requirements/`, el enfoque es el **qué**, nu
 - **Permitido**: capacidades del sistema, comportamientos esperados, restricciones de negocio, actores, necesidades
 - El material de `bkp/` es **referencia de contexto**, no fuente de implementación — extrae el *qué*, ignora el *cómo*
 - Asume que **nada está construido aún**: describe como si el sistema fuera a diseñarse desde cero
+
+---
+
+## Regla de Derivación de Templates
+
+Cuando un template en `ddd-hexagonal-ai-template/` se basa en archivos reales del proyecto Keygo:
+
+1. **Mapeo 1 a 1**: Tomar contenido real de Keygo y generalizarlo a agnóstico (aplicable a cualquier proyecto)
+2. **Generalización**: Convertir lo particular en universalmente transferible (de específico → de capacidad/requisito)
+3. **Ejemplo completable**: Incluir ejemplo concreto, pero NO de Keygo (usar SaaS tareas, Marketplace B2B, etc.)
+4. **Agnósticos 100%**: JAMÁS mencionar Keygo en templates, ejemplos, links o comentarios
+5. **Consistencia**: Aplicar esta regla a todos los templates derivados
+
+**Ejemplo de CORRECTO**: 
+- Restricción "Aislamiento multi-tenant" → Generalización "Identificar restricciones P0 no negociables" → Ejemplo: "Marketplace debe aislar datos de diferentes proveedores"
+
+**Ejemplo de INCORRECTO**: 
+- ❌ "Ejemplo (from Keygo)" 
+- ❌ "See keygo/01-discovery/context-motivation.md"
+- ❌ Mencionar Keygo en templates de ninguna forma

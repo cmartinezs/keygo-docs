@@ -1,92 +1,121 @@
+[← Index](../README.md) | [< Previous](../05-planning/README.md) | [Next >](./TEMPLATE-017-architecture.md)
+
+---
+
 # Phase 6: Development
 
-## Overview
+## Purpose
 
-Development phase defines the technical implementation: architecture, APIs, coding standards, and technology stack. This is where requirements become code.
+This phase defines the **technical implementation**: architecture, APIs, coding standards, workflows, observability, and technology stack. This is where requirements become code.
 
-## Key Objectives
+## What This Phase Produces
 
-- [ ] Define system architecture (hexagonal focus)
-- [ ] Design APIs and service contracts
-- [ ] Establish coding standards and conventions
-- [ ] Document technology stack decisions
-- [ ] Create Architecture Decision Records (ADRs)
+| Deliverable | Description | Time to Complete |
+|------------|-------------|------------------|
+| [architecture-dimensions/](./architecture-dimensions/README.md) | Architecture dimensions (Internal, Deployment, Communication, Infrastructure) | 4-6 hours |
+| [api/](./api/README.md) | API design styles (REST, GraphQL, gRPC, WebSocket) | 2-3 hours |
+| [coding/](./coding/README.md) | Coding standards (principles, SOLID, patterns, naming) | 2-3 hours |
+| [auth/](./auth/README.md) | Authentication, Authorization, Validation (optional) | 2-3 hours |
+| [dr/](./TEMPLATE-020-adr.md) | Architecture Decision Records | 30 min per ADR |
+| [observability/](./observability/README.md) | Logs, metrics, traces, health checks (optional) | 2-3 hours |
+| [data-storage-patterns/](./data-storage-patterns/README.md) | Database storage: Relational, NoSQL, Cache, Object, Search, Datalake | 2-3 hours |
+| [api/rest/](./api/rest/README.md) | Endpoint catalog + templates | 3-4 hours |
+| [workflow/](./workflow/README.md) | Branches, commits, PRs, CI/CD (optional) | 1-2 hours |
+| [glossary/](./glossary/README.md) | Technical terms reference by category | 1-2 hours |
+| [frontend/](./frontend/README.md) | Frontend: Web, Mobile, Desktop, UI Design, State, Integration | 2-3 hours |
 
-## Files to Complete
+## Diagram Convention
 
-### 1. **architecture.md** `[COMPLETABLE BY HUMAN & AI]`
-**Purpose**: System structure following hexagonal (ports & adapters) architecture
+This phase uses diagrams to visualize:
+- Architecture layers (flowchart using Mermaid)
+- API flow sequences (sequence diagram using Mermaid)
+- Authorization hierarchy (graph using Mermaid)
+- Database relationships (erDiagram using Mermaid)
 
-**Sections**:
-- **Core Domain**: Entities, aggregates, domain services, business rules
-- **Ports**: Input/output interfaces/contracts
-- **Adapters**: Specific implementations (REST, database, email, etc.)
-- **Layers**: How components relate (domain → application → presentation)
-- **Communication Patterns**: Synchronous, asynchronous, event-driven
+```
+Priority: Mermaid → PlantUML → ASCII
+See: navigation-conventions.md in 00-documentation-planning/
+```
 
-**Includes**:
-- Architecture diagram(s)
-- Component descriptions
-- Technology choices and rationale
-- Scalability and deployment strategy
+## Contents
 
-**Time to complete**: 4-6 hours
+- [Architecture](#architecture)
+- [API Design](#api-design)
+- [Coding Standards](#coding-standards)
+- [ADRs](#adrs)
+- [Authentication Flows](#authentication-flows)
+- [Authorization Patterns](#authorization-patterns)
+- [Validation Strategy](#validation-strategy)
+- [Observability](#observability)
+- [Database Schema](#database-schema)
+- [API Endpoints](#api-endpoints)
+- [Workflow](#workflow)
+- [Glossary](#glossary)
+- [Frontend Architecture](#frontend-architecture)
 
-### 2. **api-design.md** `[COMPLETABLE BY HUMAN & AI]`
-**Purpose**: API specifications (REST, GraphQL, gRPC, etc.)
+---
 
-**Per endpoint/operation**:
-- Description and purpose
-- Request format (headers, body, parameters)
-- Response format and status codes
-- Error handling
-- Authentication/authorization
-- Rate limiting
-- Example requests/responses
+## Development Philosophy
 
-**Format**: OpenAPI 3.0 or AsyncAPI 2.0 (auto-generated tools preferred)
+### Why It Matters
 
-**Time to complete**: 3-4 hours
+Development phase bridges requirements and code. Without clear specifications:
+- Teams make inconsistent architectural choices
+- APIs become fragmented
+- Code quality degrades over time
+- New team members can't understand decisions
 
-### 3. **coding-standards.md** `[COMPLETABLE BY HUMAN]`
-**Purpose**: Development conventions and best practices
+### Core Principles
 
-**Topics**:
-- Language/framework conventions
-- Naming standards (classes, functions, variables)
-- Code organization (packages, modules)
-- Comment and documentation standards
-- Error handling approach
-- Logging standards
-- Testing requirements
-- Security guidelines
-- Performance considerations
+1. **Architecture First**: Define structure before writing code
+2. **API-First**: Design contracts before implementation
+3. **Document Decisions**: Future engineers need to understand "why"
+4. **Standards Enable**: Conventions make code reviews faster
 
-**Time to complete**: 2-3 hours
+### Relationship with Previous Phases
 
-### 4. **adr/** directory `[COMPLETABLE BY HUMAN & AI]`
-**Purpose**: Architecture Decision Records — "why" behind decisions
+```
+Planning (Phase 5)
+    ↓
+    → Epics → Architecture structure
+    → Use cases → API endpoints
+    → Proposals → Tasks → Workflow
 
-**Per decision** (`ADR-001-decision-name.md`):
-- Context: What problem were we solving?
-- Decision: What did we decide?
-- Consequences: Trade-offs and implications
+Requirements (Phase 2)
+    ↓
+    → RFs → API requirements
+    → RNFs → Non-functional specs
 
-**Examples**: Technology choice, architecture pattern, library selection
-
-**Time to complete**: 30 min per decision
+Design (Phase 3)
+    ↓
+    → Bounded contexts → Modules
+    → Domain events → Event contracts
+    → Ubiquitous language → Code naming
+```
 
 ---
 
 ## Completion Checklist
 
-### Development Phase Deliverables
-- [ ] System architecture documented (hexagonal focus)
-- [ ] All major APIs designed and specified
+### Before Development
+- [ ] Architecture defined (from Design Phase)
+- [ ] Bounded contexts documented
+- [ ] Use cases catalog completed
+- [ ] Issue tracker setup
+
+### Development Deliverables
+- [ ] System architecture documented
+- [ ] All APIs designed and specified
+- [ ] Authentication flows documented
+- [ ] Authorization patterns defined
+- [ ] Validation strategy documented
+- [ ] Observability setup defined
+- [ ] Database schema documented
 - [ ] Coding standards established
-- [ ] Technology stack documented
+- [ ] Workflow defined
+- [ ] Glossary completed
 - [ ] ADRs created for major decisions
-- [ ] Architecture reviewed and approved
+- [ ] Frontend architecture defined
 
 ### Sign-Off
 - [ ] **Prepared by**: [Tech Lead, Architects]
@@ -95,38 +124,21 @@ Development phase defines the technical implementation: architecture, APIs, codi
 
 ---
 
-## Tips
+## AI Assistance
 
-1. **Hexagonal Architecture**: Separate domain from adapters, maintain testability
-2. **API-First**: Define APIs before implementing backends
-3. **Document decisions**: Future engineers need to understand choices
-4. **Consistency**: Standards make code reviews faster
-5. **Flexibility**: Architecture should allow for change
+### What AI Can Do Well
+- Generate API contract templates
+- Write basic entity structures
+- Suggest validation rules
+- Document patterns
+- Create ADR templates
 
----
-
-## Next Steps
-
-Once Development specifications are ready:
-1. Share with engineering team
-2. Begin implementation
-3. Create ADRs for new decisions during development
-4. **Move to Phase 7: Testing**
+### What Needs Human Input
+- Technology stack decisions
+- Security decisions
+- Performance requirements
+- Team workflow preferences
 
 ---
 
-**Files**:
-- `architecture.md` — System architecture and design
-- `api-design.md` — API specifications
-- `coding-standards.md` — Development conventions
-- `adr/` — Architecture Decision Records
-
-**Time Estimate**: 10-12 hours total  
-**Team**: Tech Lead, Architects, Senior Engineers  
-**Output**: Architecture and implementation ready for development
-
-**Definition of Done**:
-- Architecture documented and reviewed
-- All APIs specified
-- Coding standards established
-- Major decisions recorded in ADRs
+[← Index](../README.md) | [< Previous](../05-planning/README.md) | [Next >](./TEMPLATE-017-architecture.md)

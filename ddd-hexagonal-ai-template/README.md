@@ -156,6 +156,30 @@ After 10-15 days:
 - **No Template Text**: Remove all instruction text before committing to `01-templates/data-output/`
 - **Real Content Only**: `01-templates/data-output/` contains only actual project documentation
 
+## Diagram Convention
+
+All diagrams in this repository follow this precedence:
+
+1. **Mermaid** (preferred): Use for all diagrams where supported
+   ```mermaid
+   graph TD
+       A --> B
+   ```
+
+2. **PlantUML**: Use only if diagram type is not expressible in Mermaid
+   ```plantuml
+   @startuml
+   A --> B
+   @enduml
+   ```
+
+3. **ASCII**: Use only when neither Mermaid nor PlantUML is viable
+   ```
+   A --> B
+   ```
+
+No embedded images or external diagram tools as primary source.
+
 ## Repository Governance
 
 - **License**: MIT (see `LICENSE`)

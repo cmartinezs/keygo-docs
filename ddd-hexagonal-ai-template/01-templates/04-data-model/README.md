@@ -1,162 +1,132 @@
 # Phase 4: Data Model
 
-## Overview
+**What This Is**: The phase where design requirements translate into database schema. Entities, attributes, relationships, and data flow specifications are defined.
 
-The data model defines how information is structured, stored, and related. It translates design requirements into database schema and data flow specifications.
+**How to Use**: Follow the templates in order: Entities → ERD → Data Flows. Each entity traces to a bounded context from Design phase.
 
-## Key Objectives
+**Why It Matters**: Without clear data model, teams build inconsistent schemas. The data model is the foundation — mistakes here cascade everywhere.
 
-- [ ] Define all entities and their attributes
-- [ ] Document entity relationships
-- [ ] Create Entity-Relationship Diagram (ERD)
-- [ ] Define validation rules and constraints
-- [ ] Plan for data migration and archival
+**When to Complete**: After Design (Phase 3). Before Development (Phase 6).
 
-## Files to Complete
+**Owner**: Database Architect + Backend Lead
 
-### 1. **entities-and-relationships.md** `[COMPLETABLE BY HUMAN & AI]`
-**Purpose**: Define all entities, attributes, and constraints
+**Diagram Convention**: Mermaid → PlantUML → ASCII (see root README.md)
 
-**Format per entity**:
-```
-## Entity: Entity Name
+---
 
-**Primary Key**: field name and type
+## Contents
 
-**Attributes**:
-- field_name: Type, constraints (nullable, unique, etc.)
-- field_name: Type, constraints
-- timestamps: created_at, updated_at (always include)
+- [Documents to Complete](#documents-to-complete)
+- [Design → Data Model Connection](#design--data-model-connection)
+- [Phase Discipline Rules](#phase-discipline-rules)
+- [Completion Checklist](#completion-checklist)
+- [Sign-Off](#sign-off)
 
-**Relationships**:
-- Has many [Other Entity] (1:N)
-- Has one [Other Entity] (1:1)
-- Belongs to [Parent Entity] (N:1)
+---
 
-**Constraints**:
-- Business rules (e.g., status can only be X, Y, Z)
-- Data constraints (e.g., email must be unique)
-- Temporal constraints (e.g., end_date >= start_date)
+## Documents to Complete
 
-**Soft Delete Strategy**: Is this entity soft-deleted or hard-deleted?
+| Document | Purpose | Time | Owner |
+|----------|---------|------|-------|
+| [TEMPLATE-011-entities-and-relationships.md](./TEMPLATE-011-entities-and-relationships.md) | Entity definitions | 2-3 hours | Database Architect |
+| [TEMPLATE-012-erd-diagram.md](./TEMPLATE-012-erd-diagram.md) | Visual ERD | 1-2 hours | Database Architect |
+| [TEMPLATE-013-data-flows.md](./TEMPLATE-013-data-flows.md) | Data movement | 1-2 hours | Database Architect |
 
-**Archival**: How long is data retained?
-
-**Indexes**: What queries need to be fast?
-
-**Notes**: Any special considerations?
-```
-
-**Time to complete**: 2-3 hours
-
-### 2. **erd-diagram.md** `[COMPLETABLE BY AI with human validation]`
-**Purpose**: Visual representation of entities and relationships
-
-**Format**: ASCII diagram or reference to external tool (Lucidchart, Draw.io, etc.)
+### Template Order
 
 ```
-User
-├── user_id (PK)
-├── email (unique)
-└── created_at
-
-Project
-├── project_id (PK)
-├── name
-├── owner_id (FK → User)
-└── created_at
-
-Task
-├── task_id (PK)
-├── project_id (FK → Project)
-├── title
-├── assignee_id (FK → User, nullable)
-└── created_at
+Design (Phase 3)
+    ↓
+Entities and Relationships (start here)
+    ↓
+ERD Diagram (visual representation)
+    ↓
+Data Flows (how data moves)
+    ↓
+Development (Phase 6)
 ```
 
-**Time to complete**: 1-2 hours
+---
 
-### 3. **data-flows.md** `[COMPLETABLE BY HUMAN & AI]`
-**Purpose**: Document how data moves through the system
+## Design → Data Model Connection
 
-**Sections**:
-- Data entry points (where does data come from?)
-- Processing (transformations, validations)
-- Storage (where is data kept?)
-- Retrieval (how is data accessed?)
-- Archival/Deletion (what happens to old data?)
+**Before starting**, ensure Design phase is complete:
 
-**Time to complete**: 1-2 hours
+| Design Output | How It Shapes Data Model |
+|---------------|--------------------------|
+| **Bounded Contexts** | Each context → group of entities |
+| **Ubiquitous Language** | Terms → entity names and attributes |
+| **Domain Events** | Event payloads → entity fields |
+| **System Flows** | Data read/written → entity attributes |
+
+**Golden Rule**: Every entity traces to a bounded context in Design. Every attribute traces to a concept in Ubiquitous Language.
+
+---
+
+## Phase Discipline Rules
+
+✅ **Before moving to Development, verify**:
+
+1. ✅ **Every bounded context has entities**: Each context from Design has corresponding entities
+2. ✅ **Every entity has attributes**: All data needed is captured
+3. ✅ **Relationships are documented**: 1:1, 1:N, N:M clear
+4. ✅ **ERD is valid**: No orphan relationships, no circular dependencies
+5. ✅ **Constraints are defined**: Not null, unique, check constraints
+6. ✅ **Timestamps on every entity**: created_at, updated_at (always include)
+7. ✅ **Soft delete strategy defined**: For each entity
+8. ✅ **Archival policy defined**: How long is data retained?
+9. ✅ **Indexes identified**: What queries need to be fast?
+10. ✅ **No implementation details**: This is schema, not code
+
+❌ **EXCLUDE from Data Model phase**:
+
+- Database technology (PostgreSQL, MySQL) — that's development choice
+- Specific index types (B-tree, hash) — that's implementation
+- Table names in different cases — that's convention
+- Foreign key constraint names — that's implementation
+- Partitioning strategy — that's operations
 
 ---
 
 ## Completion Checklist
 
-### Data Model Phase Deliverables
+### Deliverables
+
 - [ ] All entities defined with attributes
-- [ ] Relationships clearly documented
-- [ ] ERD created and reviewed
+- [ ] Each entity traces to bounded context
+- [ ] Relationships clearly documented (1:1, 1:N, N:M)
+- [ ] ERD diagram created (Mermaid or external tool)
 - [ ] Validation rules and constraints defined
-- [ ] Data flow through system documented
+- [ ] Primary keys defined (UUID recommended)
+- [ ] Timestamps on every entity
+- [ ] Soft delete strategy for each entity
 - [ ] Archival and retention policies defined
-- [ ] Performance indexes identified
+- [ ] Query indexes identified
+- [ ] Data flows documented
+- [ ] No database technology names
 
 ### Sign-Off
-- [ ] **Prepared by**: [Database Architect]
-- [ ] **Reviewed by**: [Backend Lead]
-- [ ] **Approved by**: [Tech Lead]
+
+- [ ] **Prepared by**: [Database Architect], [Date]
+- [ ] **Reviewed by**: [Backend Lead], [Date]
+- [ ] **Approved by**: [Tech Lead], [Date]
 
 ---
 
-## AI Assistance
+## Summary
 
-### What AI Can Do Well
-- Generate entity definitions from requirements
-- Create ERD diagrams (Mermaid format)
-- Suggest attribute types and constraints
-- Identify common relationships
-- Draft validation rules
-
-### What Needs Human Input
-- Database technology choice
-- Performance optimization (indexing)
-- Denormalization decisions
-- Data retention policies (legal/business)
-- Migration strategy
-
----
-
-## Tips
-
-1. **Always include timestamps**: created_at, updated_at on every entity
-2. **Use UUIDs for IDs**: Better for distributed systems than auto-increment
-3. **Normalize, then denormalize**: Start normalized, optimize with data
-4. **Plan for archival**: Determine data retention from day 1
-5. **Index for queries**: Consider what queries need to be fast
-
----
-
-## Next Steps
-
-Once Data Model is complete:
-1. Share with development team
-2. Begin implementation planning (Phase 5)
-3. Use ERD for code generation (some tools can auto-generate models)
-4. **Move to Phase 5: Planning**
-
----
-
-**Files**:
-- `entities-and-relationships.md` — Entity definitions
-- `erd-diagram.md` — Entity Relationship Diagram
-- `data-flows.md` — Data movement through system
+| Document | Key Question |
+|----------|-------------|
+| Entities and Relationships | What data exists? |
+| ERD Diagram | How do entities relate? |
+| Data Flows | How does data move through system? |
 
 **Time Estimate**: 4-6 hours total  
 **Team**: Database Architect, Backend Lead  
 **Output**: Complete data model ready for implementation
 
 **Definition of Done**:
-- All entities from requirements have definitions
-- Relationships documented and validated
+- All bounded contexts from Design have entities
 - ERD created and peer-reviewed
-- Validation rules and constraints clear
+- Relationships and constraints clear
+- Indexes identified for performance

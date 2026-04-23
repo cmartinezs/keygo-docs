@@ -1,152 +1,96 @@
+[← Index](../README.md) | [< Previous](../04-data-model/README.md) | [Next >](./TEMPLATE-014-roadmap.md)
+
+---
+
 # Phase 5: Planning
 
-## Overview
+## Purpose
 
-This phase creates the implementation roadmap, breaking the project into manageable epics, sprints, and user stories. It's where "big picture" becomes "sprint-ready work".
+This phase transforms the product vision and requirements into an actionable execution plan. It answers: "In what order do we build what, and how do we communicate progress?"
 
-## Key Objectives
+## What This Phase Produces
 
-- [ ] Create product roadmap with milestones
-- [ ] Break requirements into epics and user stories
-- [ ] Estimate complexity and story points
-- [ ] Plan sprints and iterations
-- [ ] Define versioning strategy
+| Deliverable | Description | Time to Complete |
+|------------|-------------|------------------|
+| [roadmap.md](./TEMPLATE-014-roadmap.md) | High-level timeline with phases and milestones | 2-4 hours |
+| [epics.md](./TEMPLATE-015-epics.md) | Features grouped into deliverable initiatives | 3-5 hours |
+| [versioning-strategy.md](./TEMPLATE-016-versioning-strategy.md) | Version numbering, release process, support policy | 1-2 hours |
+| [use-cases-catalog.md](./TEMPLATE-017-use-cases-catalog.md) | Complete use cases per bounded context | 4-6 hours |
+| [milestones-proposals.md](./TEMPLATE-018-milestones-proposals.md) | Detailed work items with effort estimates | 3-4 hours |
+| [issue-mapping.md](./TEMPLATE-019-issue-mapping.md) | Traceability to issue tracker | 1-2 hours |
 
-## Files to Complete
+## Diagram Convention
 
-### 1. **roadmap.md** `[COMPLETABLE BY HUMAN & AI]`
-**Purpose**: High-level timeline of features and milestones
+This phase uses diagrams to visualize:
+- Roadmap timeline (Gantt-style using Mermaid)
+- Epic dependencies (flowchart using Mermaid)
+- Version lifecycle (state diagram using Mermaid)
+- Milestone dependencies (flowchart using Mermaid)
+- Issue mapping flow (flowchart using Mermaid)
 
-**Format**:
 ```
-## Roadmap: Project Name
-
-### Phase 1 / MVP (Target: Q2 2024)
-**Goal**: Launch core features to early users
-
-**Features**:
-- [ ] User authentication and profiles
-- [ ] Create/read/update tasks
-- [ ] Task assignment and status tracking
-- [ ] Email notifications
-- [ ] Basic dashboard
-
-**Milestones**:
-- Week 4: Alpha release to internal team
-- Week 6: Beta release to select users
-- Week 8: Public launch
-
-### Phase 2 (Target: Q3 2024)
-**Goal**: Enhanced collaboration
-
-**Features**:
-- [ ] Advanced search and filtering
-- [ ] Task dependencies
-- [ ] Comments and mentions
-- [ ] Mobile app (iOS/Android)
-
-### Phase 3 (Target: Q4 2024)
-**Goal**: Enterprise features
-
-**Features**:
-- [ ] Role-based access control
-- [ ] Advanced reporting
-- [ ] API and integrations
-- [ ] White-label support
+Priority: Mermaid → PlantUML → ASCII
+See: navigation-conventions.md in 00-documentation-planning/
 ```
 
-**Time to complete**: 2-3 hours
+## Contents
 
-### 2. **epics.md** `[COMPLETABLE BY HUMAN & AI]`
-**Purpose**: Break features into epics with user stories
+- [Roadmap](#roadmap)
+- [Epics](#epics)
+- [Versioning Strategy](#versioning-strategy)
+- [Use Cases Catalog](#use-cases-catalog)
+- [Milestones & Proposals](#milestones--proposals)
+- [Issue Mapping](#issue-mapping)
 
-**Format per epic**:
+---
+
+## Planning Philosophy
+
+### Why It Matters
+
+Planning is the bridge between "what we want" (Requirements) and "what we build" (Development). Without planning:
+- Teams don't know the delivery order
+- Dependencies between features are missed
+- Progress cannot be measured
+- Stakeholders lose confidence
+
+### Core Principles
+
+1. **First, what enables everything else**: Build core capabilities that other features depend on first
+2. **Each delivery is usable**: Every phase should produce something stakeholders can see/work with
+3. **Planning is iterative**: Review and adjust the roadmap quarterly
+
+### Relationship with Requirements
+
 ```
-## Epic: Feature Name
-
-**Description**: What is this epic about?
-
-**Business Value**: Why does it matter?
-
-**User Stories** (with acceptance criteria):
-1. As a [user type], I can [action] so that [benefit]
-   - [ ] Acceptance criterion 1
-   - [ ] Acceptance criterion 2
-
-2. As a [user type], I can [action] so that [benefit]
-   - [ ] Acceptance criterion 1
-
-**Acceptance Criteria** (for whole epic):
-- [ ] All stories completed
-- [ ] Code reviewed and merged
-- [ ] Automated tests passing
-- [ ] Documentation updated
-
-**Estimated Size**: [story points]
-
-**Priority**: P0 (Critical), P1 (High), P2 (Medium)
-
-**Timeline**: Which sprint(s)?
-
-**Risks/Blockers**: Known issues?
-
-**Dependencies**: Other epics or requirements?
+Requirements (Phase 2)
+    ↓
+    → Feature priority → Roadmap phases
+    → Feature groups → Epics
+    → Feature complexity → Story estimates
+    → Use cases → Proposals → Issues
 ```
-
-**Time to complete**: 3-4 hours
-
-### 3. **versioning-strategy.md** `[COMPLETABLE BY HUMAN]`
-**Purpose**: Define how versions are numbered and released
-
-**Topics to cover**:
-- Semantic versioning (major.minor.patch)?
-- Release schedule (monthly, quarterly)?
-- Beta/RC process?
-- Breaking changes policy?
-- Long-term support (LTS) versions?
-
-**Example**:
-```
-## Versioning Strategy
-
-**Format**: MAJOR.MINOR.PATCH
-
-**Meaning**:
-- MAJOR: Breaking changes, significant new features
-- MINOR: New features, backwards compatible
-- PATCH: Bug fixes, security updates
-
-**Schedule**:
-- Major release: Every 6 months (Feb, Aug)
-- Minor releases: Monthly or as needed
-- Patch releases: Weekly (security + critical bugs)
-
-**Release Process**:
-1. Beta: 2-week testing period
-2. RC: 1-week release candidate
-3. General Availability (GA)
-
-**Support Policy**:
-- Latest version: Full support
-- Previous version: 3 months bug fixes only
-- Older: Critical security patches only
-```
-
-**Time to complete**: 1-2 hours
 
 ---
 
 ## Completion Checklist
 
-### Planning Phase Deliverables
-- [ ] Product roadmap created with timelines
-- [ ] Features broken into epics
-- [ ] Epics broken into user stories
-- [ ] Stories have acceptance criteria
-- [ ] Estimates provided (story points)
-- [ ] Sprints planned
-- [ ] Versioning strategy defined
-- [ ] Team committed to roadmap
+### Before Planning
+- [ ] Scope matrix completed (from Requirements Phase)
+- [ ] Priority defined for all requirements
+- [ ] Stakeholder availability confirmed
+- [ ] Bounded contexts defined (from Design Phase)
+- [ ] Aggregates defined (from Data Model)
+
+### Planning Deliverables
+- [ ] Roadmap created with timeline
+- [ ] Epics defined with user stories
+- [ ] User stories have acceptance criteria
+- [ ] Estimates provided (story points or T-shirt sizes)
+- [ ] Versioning strategy documented
+- [ ] Use cases catalog complete
+- [ ] Proposals with effort estimates
+- [ ] Issues created and mapped
 
 ### Sign-Off
 - [ ] **Prepared by**: [Product Manager]
@@ -163,6 +107,8 @@ This phase creates the implementation roadmap, breaking the project into managea
 - Suggest epic groupings
 - Estimate complexity (T-shirt sizes)
 - Create roadmap timeline outlines
+- Write use case flows
+- Generate proposal titles
 
 ### What Needs Human Input
 - Business priorities and go/no-go decisions
@@ -170,65 +116,8 @@ This phase creates the implementation roadmap, breaking the project into managea
 - Actual timeline and deadlines
 - Risk assessments
 - Team velocity (for estimation)
+- Issue tracker setup
 
 ---
 
-## Tips
-
-1. **User story format**: "As a [user], I [action] so that [benefit]"
-2. **Keep stories small**: Aim for 1-3 day stories
-3. **Acceptance criteria are tests**: Developers should use them to verify completion
-4. **Plan for the unknown**: Reserve capacity for bugs, tech debt, support
-5. **Review and adjust**: Roadmaps change; update regularly
-
----
-
-## Example User Story
-
-```
-## Story: Create Task
-
-As a team member, I can create a new task 
-so that I can document work that needs to be done.
-
-**Acceptance Criteria**:
-- [ ] Form has required fields: title, description, assignee, priority
-- [ ] Title is required and must be 3+ characters
-- [ ] Description is optional, max 2000 characters
-- [ ] Can assign to any team member in the project
-- [ ] Task saved to database with creator, timestamps
-- [ ] Success notification shown
-- [ ] New task appears in project's task list
-- [ ] Assigned user receives email notification
-
-**Estimate**: 5 points (medium story)
-**Sprint**: Sprint 1
-```
-
----
-
-## Next Steps
-
-Once Planning is complete:
-1. Share roadmap with team and stakeholders
-2. Begin implementation (Phase 6)
-3. Run first sprint planning meeting
-4. **Move to Phase 6: Development**
-
----
-
-**Files**:
-- `roadmap.md` — Product roadmap with phases/timelines
-- `epics.md` — Epics broken into user stories
-- `versioning-strategy.md` — Versioning and release process
-
-**Time Estimate**: 6-8 hours total  
-**Team**: Product Manager, Engineering Lead, Stakeholders  
-**Output**: Sprint-ready backlog with estimates
-
-**Definition of Done**:
-- Roadmap created and shared
-- Epics defined with user stories
-- Stories have acceptance criteria
-- Team has estimated stories
-- First sprint(s) planned
+[← Index](../README.md) | [< Previous](../04-data-model/README.md) | [Next >](./TEMPLATE-014-roadmap.md)

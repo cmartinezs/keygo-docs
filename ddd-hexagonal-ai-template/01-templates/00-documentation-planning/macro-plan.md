@@ -1,12 +1,33 @@
 # Macro Plan - Progress Tracking
 
-**Project**: [PROJECT NAME]  
-**Last Updated**: [DATE]  
+**What This Is**: A single source of truth showing where the project stands across all phases. Updated weekly.
+**How to Use**: Fill in phases as they complete. Update blockers immediately when they appear. Review in weekly sync.
+**Why It Matters**: Provides visibility, accountability, and early warning of blockers. Without this, the team works blind.
+**When to Update**: Initially (Phase 0), then weekly during active development. Blockers → immediately.
+**Owner**: Project Lead or Tech Lead (the person responsible for project health).
+
+---
+
+**Project**: [PROJECT NAME]
+**Last Updated**: [DATE]
 **Lead**: [NAME]
 
 ---
 
-## Phase Status Overview
+## Contents
+
+- [Project Status Summary](#project-status-summary)
+- [Current Phase](#current-phase)
+- [Next Phase Preview](#next-phase-preview)
+- [Risks & Decisions](#risks--decisions)
+- [Milestones](#milestones)
+- [Team Capacity](#team-capacity)
+- [Meeting Schedule](#meeting-schedule)
+- [Communication](#communication)
+
+---
+
+## Project Status Summary
 
 | Phase | Status | Completion | Owner | Target Date | Notes |
 |-------|--------|------------|-------|-------------|-------|
@@ -46,6 +67,29 @@
 **Next Steps**:
 - [Action 1]
 - [Action 2]
+
+**Example** (Phase 2: Requirements in progress):
+```
+### Phase: 02 - Requirements
+
+**Status**: 🟨 In Progress
+**Completion**: 60%
+**Due Date**: 2024-02-15
+
+**Deliverables**:
+- [x] FR-001 through FR-015
+- [x] NFR-001 through NFR-005
+- [ ] FR-016 through FR-020 (in review)
+- [ ] Acceptance criteria for all FRs
+
+**Blockers**:
+- [None]
+
+**Next Steps**:
+- Complete FR-016 through FR-020 (Alice, today)
+- Write acceptance criteria for FR-016 (Bob, tomorrow)
+- Peer review all requirements (Team, Feb 12)
+```
 
 ---
 

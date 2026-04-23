@@ -1,208 +1,161 @@
 # Phase 3: Design
 
-## Overview
+**What This Is**: The phase where requirements translate into system behavior and domain structure. This phase bridges "what" (requirements) and "how" (implementation) using DDD strategic design — before diving into data model or code.
 
-Design transforms requirements into specific system flows, user interactions, and architectural decisions. This is where "what" meets "how".
+**How to Use**: Follow the templates in order based on your design approach:
+- Lightweight: Start with System Flows only
+- Full DDD: Strategic Design → Ubiquitous Language → Domain Events → Context Map → Bounded Contexts → Contracts → UI
 
-## Key Objectives
+**Why It Matters**: Without clear design, teams build the wrong thing or fight over meaning. Design validates that requirements are achievable and reveals gaps before code is written.
 
-- [ ] Define system flows (happy path + exceptions)
-- [ ] Create UI/UX designs (wireframes, mockups)
-- [ ] Document key design decisions
-- [ ] Validate design meets requirements
-- [ ] Get design team sign-off
+**When to Complete**: After Requirements (Phase 2) is complete. Before Data Model (Phase 4).
 
-## Files to Complete
+**Owner**: Designer/Architect lead + Product Manager + Engineering Lead
 
-### 1. **system-flows.md** `[COMPLETABLE BY AI with human validation]`
-**Purpose**: Document how the system behaves for major workflows
+**Diagram Convention**: Mermaid → PlantUML → ASCII (see root README.md)
 
-**Format per flow**:
-```
-## [SF-001] User Workflow Name
+---
 
-### Actors Involved
-- User, System, External Service (if any)
+## Contents
 
-### Happy Path
-1. User action...
-2. System response...
-3. Outcome...
+- [Design Approach](#design-approach)
+- [Documents to Complete](#documents-to-complete)
+- [Design → Requirements Connection](#design--requirements-connection)
+- [Phase Discipline Rules](#phase-discipline-rules)
+- [Completion Checklist](#completion-checklist)
+- [Sign-Off](#sign-off)
 
-### Exception Flows
-- If [condition]: [alternative path]
-- If [other]: [other alternative]
+---
 
-### Decision Points
-- Where can the flow branch?
-- What conditions cause branches?
+## Design Approach
 
-### Data Flow
-- What data moves where?
-```
+### Option A: Lightweight Design (Default for MVP)
 
-**Scope**: Cover all major user workflows that appeared in requirements
+Use for simple systems, single-team products, or short timelines:
 
-**Time to complete**: 3-4 hours
+| Document | Purpose | File |
+|----------|---------|------|
+| **System Flows** | How the system behaves for major workflows | [TEMPLATE-008](./TEMPLATE-008-system-flows.md) |
 
-### 2. **ui-ux-design.md** `[COMPLETABLE BY HUMAN with AI assistance]`
-**Purpose**: Describe UI layout, interaction patterns, accessibility
+**Time**: 3-4 hours
 
-**Note**: Link to actual mockups (Figma, XD, etc.), don't duplicate them here
+**When to use**: MVP, simple domains, CRUD-heavy apps
 
-**Sections per screen/component**:
-```
-## [UI-001] Screen/Component Name
+### Option B: Domain-Driven Design (For Complex Domains)
 
-**Purpose**: What does this screen/component do?
+Use for complex business logic, multiple teams, long-term products:
 
-**Layout**:
-- Header: Elements and purpose
-- Main area: Content sections
-- Footer: Navigation, actions
-- Sidebars: Any supporting areas
+| Document | Purpose | File |
+|----------|---------|------|
+| **Strategic Design** | Subdomain classification, Domain Vision Statement | [TEMPLATE-009](./TEMPLATE-009-strategic-design.md) |
+| **System Flows** | How the system behaves for major workflows | [TEMPLATE-008](./TEMPLATE-008-system-flows.md) |
+| **Ubiquitous Language** | Domain terminology and concepts | [TEMPLATE-011](./TEMPLATE-011-ubiquitous-language.md) |
+| **Domain Events** | Key business events and reactions | [TEMPLATE-012](./TEMPLATE-012-domain-events.md) |
+| **Context Map** | How bounded contexts relate and integrate | [TEMPLATE-013](./TEMPLATE-013-context-map.md) |
 
-**Key Elements**:
-- Forms: Fields, validation, error states
-- Buttons: Primary actions, secondary actions
-- Lists: How data is displayed
+**Supplements** (in subfolders):
+- [Bounded Contexts](./bounded-contexts/) — Each major domain boundary detailed
+- [Contracts](./contracts/) — How systems communicate
+- [UI/UX](./ui/) — Screen designs and interaction patterns
 
-**Interactions**:
-- What happens when user clicks/types?
-- Validation and error messages
-- Loading states
-- Empty states
+**Time**: 6-8 hours
 
-**Responsive Design**:
-- Mobile layout (< 600px)
-- Tablet layout (600-1024px)
-- Desktop layout (> 1024px)
+**When to use**: Complex domains, multiple teams, microservices
 
-**Accessibility**:
-- WCAG 2.1 compliance level (A/AA/AAA)
-- Color contrast ratios
-- Keyboard navigation
-- Screen reader support
-- Form labeling
+---
 
-**Related Requirements**:
-- Which FR does this implement?
-```
+## Documents to Complete
 
-**Time to complete**: 2-3 hours per major screen (5-6 hours total for MVP)
+### Core Documents
 
-### 3. **process-decisions.md** `[COMPLETABLE BY HUMAN]`
-**Purpose**: Document significant design decisions and rationale
+| Document | Description | Time | Owner |
+|----------|-------------|------|-------|
+| [TEMPLATE-008-system-flows.md](./TEMPLATE-008-system-flows.md) | System behavior for major workflows | 3-4 hours | Architect + PM |
+| [TEMPLATE-009-strategic-design.md](./TEMPLATE-009-strategic-design.md) | Subdomain classification, vision | 1-2 hours | Architect |
+| [TEMPLATE-011-ubiquitous-language.md](./TEMPLATE-011-ubiquitous-language.md) | Domain vocabulary | 2-3 hours | Domain Expert |
+| [TEMPLATE-012-domain-events.md](./TEMPLATE-012-domain-events.md) | Key business events | 1-2 hours | Domain Expert |
+| [TEMPLATE-013-context-map.md](./TEMPLATE-013-context-map.md) | Context relationships | 1-2 hours | Architect |
 
-**Format per decision**:
-```
-## [DD-001] Decision Name
+### Supplementary Documents
 
-**Question**: What were we deciding?
+| Folder | Description | When |
+|--------|-------------|------|
+| [bounded-contexts/](./bounded-contexts/) | Each bounded context detailed | Using DDD |
+| [contracts/](./contracts/) | API, event, integration contracts | Any integrations |
+| [ui/](./ui/) | Design system, UX, screens | Any product with UI |
 
-**Options Considered**:
-1. Option A: Description, pros/cons
-2. Option B: Description, pros/cons
-3. Option C: Description, pros/cons
+---
 
-**Decision**: We chose [Option X]
+## Design → Requirements Connection
 
-**Rationale**:
-- Why this option?
-- What does it enable?
-- Trade-offs accepted?
+**Before starting**, ensure Requirements phase is complete:
 
-**Consequences**:
-- Positives (benefits)
-- Negatives (limitations)
-- Future implications
+| Requirements | How It Shapes Design |
+|--------------|--------------------|
+| **Functional Requirements** | Each FR → at least one system flow |
+| **Non-Functional Requirements** | Performance/security targets guide decisions |
+| **Scope Matrix** | In-scope items determine which flows to design |
+| **Acceptance Criteria** | Flow paths validate acceptance criteria |
 
-**Alternatives Rejected**:
-- Why not the others?
-- Could we revisit later?
+**Golden Rule**: Every flow must link to FR-XXX. Every screen must link to FR-XXX.
 
-**Related Requirements**:
-- Which requirements does this fulfill?
-```
+---
 
-**Examples**:
-- Authentication approach (simple email/password vs OAuth vs SAML)
-- Database type (SQL vs NoSQL)
-- Architecture style (monolith vs microservices)
-- UI framework choice (if mentioned in design decisions)
-- Real-time vs polling (for notifications)
+## Phase Discipline Rules
 
-**Time to complete**: 1-2 hours
+✅ **Before moving to Data Model phase, verify**:
+
+1. ✅ **Every requirement has a flow**: Each FR → at least one system flow (SF-XXX)
+2. ✅ **Every flow traces back**: SF-XXX links to FR-XXX in "Related Requirements"
+3. ✅ **Exception paths documented**: Error cases, timeouts, validation failures covered
+4. ✅ **No technology in flows**: Don't mention JWT, REST, PostgreSQL, React (that's development)
+5. ✅ **No implementation details**: Avoid MVC, repositories, factories, design patterns
+6. ✅ **If using DDD**: Ubiquitous language, domain events, context map documented
+7. ✅ **Data flow clear**: What data moves, transforms, and persists
+8. ✅ **Stakeholder validated**: Product and engineering reviewed and approved
+
+❌ **EXCLUDE from Design phase**:
+
+- Technology choices (REST, GraphQL, databases)
+- Implementation patterns (repository, singleton)
+- Code structure (folders, files, classes)
+- API endpoints or schemas
+- Database tables or schemas
 
 ---
 
 ## Completion Checklist
 
-### Design Phase Deliverables
-- [ ] System flows documented for all major workflows
-- [ ] UI mockups created and described
-- [ ] Interaction patterns defined
-- [ ] Design decisions documented with rationale
-- [ ] Accessibility requirements addressed
-- [ ] Design validated against requirements
+### Deliverables
+
+- [ ] All major workflows documented (system flows)
+- [ ] Each flow traces to requirement (FR-XXX)
+- [ ] Happy path and exception paths covered
+- [ ] Data flow documented
+- [ ] (If DDD) Strategic design defined
+- [ ] (If DDD) Ubiquitous language documented
+- [ ] (If DDD) Domain events documented
+- [ ] (If DDD) Context map created
+- [ ] (If DDD) Bounded contexts detailed
+- [ ] (If integrations) Contracts documented
+- [ ] No technology/implementation details
+- [ ] Stakeholder sign-off obtained
 
 ### Sign-Off
-- [ ] **Prepared by**: [Designer, Architect]
-- [ ] **Reviewed by**: [Product, Engineering Lead]
-- [ ] **Approved by**: [Tech Lead, Design Lead]
+
+- [ ] **Prepared by**: [Designer/Architect], [Date]
+- [ ] **Reviewed by**: [Product Manager, Engineering Lead], [Date]
+- [ ] **Approved by**: [Product Director], [Date]
 
 ---
 
-## AI Assistance
+## Summary
 
-### What AI Can Do Well
-- Generate system flow diagrams (Mermaid format)
-- Suggest UI patterns based on requirements
-- Draft accessibility checklist
-- Document interaction flows
-- Suggest design decisions based on requirements
+| Approach | Deliverables | Time |
+|----------|------------|------|
+| **Lightweight** | System Flows only | 3-4 hours |
+| **Full DDD** | Strategic + Flows + Language + Events + Context Map + Bounded Contexts | 6-8 hours |
 
-### What Needs Human Input
-- Actual UI/UX mockups and designs
-- Visual design language and branding
-- User experience validated with users
-- Specific architectural decisions
-- Performance and scalability considerations
-
----
-
-## Tips
-
-1. **Start with flows**: Before designing screens, know what the system does
-2. **Link to requirements**: Each flow should address specific requirements
-3. **Include error paths**: Don't just show the happy path
-4. **Design for mobile first**: Responsive design from the start
-5. **Validate with users**: Get feedback on mockups before building
-6. **Document decisions**: Future engineers need to understand WHY
-
----
-
-## Next Steps
-
-Once Design is complete and approved:
-1. Share designs with development team
-2. Begin detailing data structures (Phase 4)
-3. Use designs for development estimation
-4. **Move to Phase 4: Data Model**
-
----
-
-**Files**:
-- `system-flows.md` — User workflows and system behavior
-- `ui-ux-design.md` — Screen layouts and interactions
-- `process-decisions.md` — Design decisions with rationale
-
-**Time Estimate**: 6-8 hours total  
-**Team**: Designer, Product Manager, Architecture Lead  
-**Output**: Designs ready for implementation
-
-**Definition of Done**:
-- All requirements have corresponding flows/screens
-- Mockups created and approved
-- Key design decisions documented
-- Accessibility requirements met
+**Time Estimate**: 3-8 hours (lightweight to full DDD)
+**Team**: Designer/Architect (lead), Product Manager, Engineering Lead
+**Output**: System behavior documented, domain model clear, ready for data model

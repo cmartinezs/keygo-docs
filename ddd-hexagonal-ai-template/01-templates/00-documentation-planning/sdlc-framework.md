@@ -1,5 +1,12 @@
 # SDLC Framework
 
+**What This Is**: A customized Software Development Lifecycle that describes how your project moves from idea to production. It's tailored to your project, not generic.  
+**How to Use**: Customize each phase for your project size and context. This becomes the contract for how documentation flows.  
+**Why It Matters**: Prevents scope creep, enables planning, and creates accountability across all team members.  
+**When to Complete**: At project start, before Phase 1. Review when scope changes significantly.
+
+---
+
 ## Project: [PROJECT NAME]
 
 ## Framework Overview
@@ -196,6 +203,42 @@ For this project, we have customized:
 - [ ] Deliverables (added/removed)
 - [ ] Timeline (adjusted for project size)
 - [ ] Participants (team-specific)
+
+### How to Customize for Your Project
+
+**Small Project** (< 3 months, < 5 people):
+- Combine phases 3-4 (Design + Data Model → 1 week)
+- Combine phases 7-8 (Testing + Deployment → overlap with dev)
+- Each phase: 1-2 weeks max
+
+**Medium Project** (3-6 months, 5-10 people):
+- Keep all 12 phases separate
+- More time in Discovery and Requirements (4-6 weeks total)
+- Add explicit review gates between phases
+
+**Large Project** (> 6 months, 10+ people):
+- Add sub-phases (e.g., "Discovery → Internal Review" → "External validation")
+- More formal sign-off process
+- Dedicated documentation owner per phase
+
+**Example**: For a SaaS product:
+```
+Phase 1: Discovery (2 weeks) → Focus on user problems
+Phase 2: Requirements (3 weeks) → Focus on features
+Phase 3: Design (2 weeks) → Focus on UX + API design
+Phase 4: Data Model (1 week) → Focus on schema
+...
+```
+
+---
+
+## Contents
+
+- [Framework Overview](#framework-overview)
+- [Phase Breakdown](#phase-breakdown)
+- [Timeline](#timeline)
+- [Success Criteria](#success-criteria)
+- [Template Customization](#template-customization)
 
 ---
 

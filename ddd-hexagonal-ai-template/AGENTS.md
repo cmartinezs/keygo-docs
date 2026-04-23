@@ -56,7 +56,33 @@ Key traits:
 
 ## Editing Conventions
 
-### Markdown Style
+### Diagram Convention
+
+All diagrams in this repository follow this precedence:
+
+1. **Mermaid** (preferred): Use for all diagrams where supported
+   ```mermaid
+   graph TD
+       A --> B
+   ```
+
+2. **PlantUML**: Use only if diagram type is not expressible in Mermaid
+   ```plantuml
+   @startuml
+   A --> B
+   @enduml
+   ```
+
+3. **ASCII**: Use only when neither Mermaid nor PlantUML is viable
+   ```
+   A --> B
+   ```
+
+No embedded images or external diagram tools as primary source.
+
+---
+
+## Markdown Style
 - Use ATX-style headers (`#` not underline).
 - Keep lines under 120 characters when possible.
 - Use fenced code blocks with language hints.

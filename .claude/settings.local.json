@@ -19,7 +19,9 @@
       "Bash(grep -r \"01-templates/00-documentation-planning\\\\|01-templates/0[1-9]-\\\\|01-templates/1[01]-\\\\|01-templates/data-\" \"C:\\\\\\\\Users\\\\\\\\cmartinezs\\\\\\\\IdeaProjects\\\\\\\\keygo-docs\\\\\\\\ddd-hexagonal-ai-template\" --include=\"*.md\" --include=\"*.txt\")",
       "Bash(grep *)",
       "Bash(ls -lh \"C:\\\\\\\\Users\\\\\\\\cmartinezs\\\\\\\\IdeaProjects\\\\\\\\keygo-docs\\\\\\\\ddd-hexagonal-ai-template\\\\\\\\README.md\")",
-      "Bash(awk '{print $9, \"\\(\" $5 \"\\)\"}')"
+      "Bash(awk '{print $9, \"\\(\" $5 \"\\)\"}')",
+      "WebSearch",
+      "WebFetch(domain:github.com)"
     ]
   }
 }

@@ -1,8 +1,27 @@
-# Phase 0: Planning & Framework
+# Phase 0: Documentation Planning
 
-## Overview
+**What This Is**: The foundation phase. Establishes how the project will be documented, from discovery through operations. A one-time setup that defines structure, conventions, and tracking.  
+**How to Use**: Read `HOW-TO-USE.md` first. Then customize the framework, conventions, and macro plan for your project.  
+**Why It Matters**: Without this foundation, documentation becomes inconsistent, hard to find, and loses value over time. With it, any document is findable and traceable.  
+**When to Complete**: Before starting Phase 1 (Discovery). Reviewed when scope changes significantly.  
+**Owner**: Tech Lead + Product Manager.
 
-This phase establishes the SDLC framework and documentation conventions for the entire project. It's a one-time setup that defines how the project will be documented from discovery through operations.
+---
+
+**Diagram Convention**: Mermaid → PlantUML → ASCII (see root README.md)
+
+---
+
+## Contents
+
+- [Key Objectives](#key-objectives)
+- [Files](#files)
+- [Completion Checklist](#completion-checklist)
+- [Sign-Off](#sign-off)
+- [Tips](#tips)
+- [Next Steps](#next-steps)
+
+---
 
 ## Key Objectives
 
@@ -11,77 +30,116 @@ This phase establishes the SDLC framework and documentation conventions for the 
 - [ ] Create macro plan for tracking progress across all phases
 - [ ] Set up document versioning and change management
 
-## Files to Complete
+## Files
 
-### 1. **sdlc-framework.md** `[COMPLETABLE BY HUMAN & AI]`
-Customized SDLC for the project, defining:
-- Phase-by-phase breakdown
-- Deliverables for each phase
-- Relationships between phases
-- Timeline and milestones
+| File | Description | Time to Complete | Who |
+|------|-------------|----------------|------|
+| **`HOW-TO-USE.md`** | Guide explaining each file, when to use, and why it matters | 30 min read | Everyone |
+| **`sdlc-framework.md`** | Customized SDLC defining phase structure, deliverables, timeline | 1-2 hours | Tech Lead + PM |
+| **`macro-plan.md`** | Project status tracking template (updated weekly) | 1 hour | Project Lead |
+| **`navigation-conventions.md`** | Rules for naming, linking, and organizing documents | 1-2 hours | Tech Lead |
 
-**Time to complete**: 1-2 hours
+### How to Use These Files
 
-### 2. **macro-plan.md** `[COMPLETABLE BY HUMAN]`
-High-level progress tracking across all phases:
-- Current phase status
-- Completed deliverables
-- Blockers and dependencies
-- Next steps and target dates
+```
+START HERE → Read HOW-TO-USE.md first (30 min)
+           ↓
+Customize → sdlc-framework.md (adapt to your project)
+           ↓
+Set up    → navigation-conventions.md (learn the rules)
+           ↓
+Track    → macro-plan.md (use weekly)
+```
 
-**Time to complete**: 1 hour initial, updated weekly
+### Example Output
 
-### 3. **navigation-conventions.md** `[COMPLETABLE BY HUMAN]`
-Rules for organizing and linking documentation:
-- Naming conventions
-- File structure rules
-- How to link between phases
-- Review and approval process
+**After completing Phase 0, you'll have**:
 
-**Time to complete**: 1-2 hours
+```
+sdlc-framework.md:
+- 12 phases defined with durations
+- Timeline with milestones
+- Deliverables per phase
+
+macro-plan.md:
+- All phases tracked with status
+- Current phase: 00 Planning (90% complete)
+- Next: Phase 1 Discovery starts Monday
+
+navigation-conventions.md:
+- Naming rules understood
+- Document template in use
+- Linking patterns established
+```
+
+**What Phase 0 enables**:
+
+- ✅ Clear phase boundaries (no scope creep)
+- ✅ Findable documents (no searching)
+- ✅ Traceable requirements (link to design → test → code)
+- ✅ Visible project status (weekly updates)
+- ✅ Preserved history (bkp/ folder)
 
 ---
 
 ## Completion Checklist
 
-### Planning Phase Deliverables
-- [ ] SDLC framework defined and approved
-- [ ] Macro plan created with timeline
-- [ ] Navigation conventions documented
-- [ ] Team understands documentation structure
-- [ ] Tools selected (Git, Markdown, etc.)
-- [ ] Review/approval process established
+- [ ] **Read HOW-TO-USE.md** — Understand what each file does
+- [ ] **Customize sdlc-framework.md** — Adapt to your project
+- [ ] **Define navigation conventions** — Document the rules
+- [ ] **Create initial macro-plan.md** — Set up tracking
+- [ ] **Share conventions with team** — Everyone uses them
+- [ ] **Review and approve** — Tech Lead + PM sign-off
 
 ### Sign-Off
+
 - [ ] **Prepared by**: [Name, Date]
-- [ ] **Reviewed by**: [Lead, Date]
+- [ ] **Reviewed by**: [Tech Lead, Date]
 - [ ] **Approved by**: [Project Manager, Date]
 
 ---
 
 ## Tips
 
-1. **Customize the framework**: Adapt the SDLC phases to your project size/complexity
-2. **Keep it simple**: Convention over configuration — consistency matters more than perfection
-3. **Make it discoverable**: Ensure team members can find and understand docs
-4. **Plan for updates**: Document change process before starting
+1. **Customize the framework**: The 12 phases are a starting point. Adjust for your project:
+   - Small project: Combine phases 3-4, 7-8
+   - Large project: Add sub-phases for formal review
+
+2. **Keep it simple**: Convention over configuration. Consistency matters more than perfection.
+
+3. **Make it discoverable**: Ensure team members can find and understand docs. Use the navigation rules.
+
+4. **Plan for updates**: Document change process before starting. Use `bkp/` for old versions.
+
+5. **Invest time here**: 3-4 hours now saves 10x that in maintenance later.
+
+**Common Mistakes to Avoid**:
+- Skipping Phase 0 → Documentation becomes inconsistent
+- Not following naming rules → Files become hard to find
+- Rarely updating macro-plan → Status becomes unreliable
+- Deleting old material → Loses historical context
 
 ---
 
 ## Next Steps
 
-Once this phase is complete:
-1. **Share conventions** with the team
-2. **Set up repository** structure according to framework
-3. **Move to Phase 1: Discovery**
+Once Phase 0 is complete:
+
+1. **Phase 1: Discovery** — Start understanding the problem
+2. **Use the macro-plan** — Update as you progress
+3. **Follow navigation conventions** — Every document, every time
 
 ---
 
-**Files**:
-- `sdlc-framework.md` — Framework and phase relationships
-- `macro-plan.md` — Progress tracking template
-- `navigation-conventions.md` — Documentation rules
+## Summary
 
-**Time Estimate**: 3-4 hours total  
+| File | Purpose | When to Use |
+|------|---------|-------------|
+| `HOW-TO-USE.md` | Guide | Read first |
+| `sdlc-framework.md` | Define how we work | Once + updates |
+| `macro-plan.md` | Track progress | Weekly |
+| `navigation-conventions.md` | Rulebook | Always |
+
+**Time Estimate**: 3-4 hours total (plus 30 min read of HOW-TO-USE.md)  
 **Team**: Tech Lead, Product Manager  
-**Output**: Framework and conventions documented
+**Output**: Foundation for all documentation

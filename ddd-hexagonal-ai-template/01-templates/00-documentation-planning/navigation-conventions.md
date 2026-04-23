@@ -1,8 +1,26 @@
 # Navigation Conventions
 
-**Last Updated**: [DATE]
+**What This Is**: The rulebook ensuring every document is findable and linked to others. Think of it as the "GPS" for the documentation.  
+**How to Use**: Read before creating any document. Follow strictly. Link proactively — if you mention something, link to it.  
+**Why It Matters**: Without these rules, documentation becomes a maze. With them, any document is at most 3 clicks away.  
+**When to Reference**: Every time you create, move, or link documents. Not just once — ongoing.  
+**Owner**: Tech Lead (can delegate to documentation owner).
 
-This document defines rules for organizing, linking, and managing documentation across the project.
+---
+
+## Contents
+
+- [File Structure Rules](#file-structure-rules)
+- [Linking Between Documents](#linking-between-documents)
+- [Document Templates](#document-templates)
+- [Linking IDs](#linking-ids)
+- [Markdown Standards](#markdown-standards)
+- [Phase Discipline](#phase-discipline)
+- [Review & Approval Process](#review--approval-process)
+- [Version Control](#version-control)
+- [Common Patterns](#common-patterns)
+- [Tools & Automation](#tools--automation)
+- [FAQ](#faq)
 
 ---
 
@@ -34,6 +52,15 @@ bkp/                        # Backup/historical material
 - ❌ `Discovery/README.md` — Wrong directory name
 - ❌ `01-templates/01-discovery/CONTEXT-TEMPLATE.md` — Wrong naming convention
 
+### Why These Rules Matter
+
+| Rule | Problem Without It | Solution |
+|------|-------------------|----------|
+| Phase prefix | Can't tell phase order | 01-discovery vs 02-requirements |
+| TEMPLATE- prefix | Can't find templates | TEMPLATE-filename.md |
+| bkp/ folder | Deleted = lost forever | Preserves history |
+| README in each folder | No entry point | Always know where to start |
+
 ---
 
 ## Linking Between Documents
@@ -52,11 +79,12 @@ See [Requirement FR-001](../01-templates/02-requirements/functional-requirements
 - Use descriptive link text (not "click here")
 - Test links before committing
 
-**Examples**:
-```markdown
-See [Discovery Phase](../01-templates/01-discovery/README.md) for context.
-Link from requirement to flow: [System Flow SF-001](../01-templates/03-design/system-flows.md#sf-001)
-```
+### Why Linking Matters
+
+- **Traceability**: You can trace a requirement from Discovery → Design → Test → Code
+- **Navigation**: Reader can jump to related content without searching
+- **Maintenance**: Broken links surface problems immediately
+- **Context**: Reader understands how pieces connect
 
 ### Cross-Phase References
 
