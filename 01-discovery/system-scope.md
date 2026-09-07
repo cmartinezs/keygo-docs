@@ -4,151 +4,136 @@
 
 # Alcance del Sistema
 
+> [!IMPORTANT]
+> Este documento fue reconciliado el **2026-09-07** por `DEC-KEYGO-SCOPE-001`. KeyGo target ownership se limita a `CAP-IAM-001 — Identity, Tenancy & Access Management`. El Billing actualmente implementado se conserva como estado legacy/current y como fuente para migración, pero **subscription/entitlement** pasa a `INIT-SUB-001 / CAP-SUB-001` y **payment execution** a `INIT-PAY-001 / CAP-PAY-001`. Ver [Scope Reconciliation](scope-reconciliation-2026-09-07.md).
+
 ## Contenido
 
 - [Propósito](#propósito)
 - [Alcance funcional](#alcance-funcional)
-  - [Trazabilidad entre Objetivos Estratégicos y Alcance Funcional](#trazabilidad-entre-objetivos-estratégicos-y-alcance-funcional)
-  - [Alcance del MVP](#alcance-del-mvp)
-- [Fuera de alcance en esta fase](#fuera-de-alcance-en-esta-fase)
+- [Alcance del MVP](#alcance-del-mvp)
+- [Capacidades externas relacionadas](#capacidades-externas-relacionadas)
+- [Fuera de alcance de KeyGo](#fuera-de-alcance-de-keygo)
 - [Otras consideraciones](#otras-consideraciones)
-  - [Límites operativos iniciales](#límites-operativos-iniciales)
-  - [Dependencias y supuestos](#dependencias-y-supuestos)
-- [Comentarios de los Revisores](#comentarios-de-los-revisores)
 
 ---
 
 ## Propósito
 
-Keygo se establece como el punto central de autenticación, autorización y gestión de identidad para ecosistemas SaaS multi-organización. Su propósito es proveer a las aplicaciones cliente un único lugar desde donde resolver quién es el usuario, qué puede hacer y bajo qué organización opera, eliminando la necesidad de que cada aplicación gestione esas responsabilidades de forma independiente.
+Keygo se establece como el punto central de **identidad, autenticación, autorización y contexto de acceso** para ecosistemas SaaS multi-organización. Su propósito es proveer a las aplicaciones cliente contratos estables para resolver quién es el principal, cómo se autenticó, bajo qué tenant/aplicación opera y qué autorizaciones tiene, evitando que cada aplicación implemente estas responsabilidades independientemente.
 
-El alcance del sistema comprende la gestión completa del ciclo de vida de la identidad —desde el registro de una organización y sus usuarios hasta el control de acceso granular, la facturación por uso y la trazabilidad de cada evento de seguridad— ofreciendo un marco coherente, seguro y administrable desde una única plataforma.
+El alcance objetivo comprende el ciclo de vida de identidad y acceso: identidades, credenciales/federación cuando corresponda, sesiones/tokens, tenants, memberships, aplicaciones cliente, scopes/roles/grants, revocación, claves y trazabilidad de seguridad.
 
-[↑ Volver al inicio](#alcance-del-sistema)
+**KeyGo no es el sistema comercial universal de los consumidores que autentica.** Que una aplicación use KeyGo como IAM no implica que deba usar KeyGo para suscripciones, entitlements, payments, invoicing o accounting.
 
 ---
 
 ## Alcance funcional
 
-Esta sección detalla las **capacidades clave** que Keygo deberá incorporar a lo largo de su roadmap, más allá de la primera entrega. Cada capacidad describe "lo que el sistema debe poder hacer" sin entrar en soluciones de implementación.
-
-El objetivo es:
-
-1. **Trazar** cómo cada capacidad contribuye a los objetivos estratégicos definidos.
-2. **Guiar la priorización** de iteraciones futuras, mostrando qué piezas son fundamentales y cuáles pueden añadirse gradualmente.
-3. **Dar visibilidad** a todos los actores sobre el alcance total, evitando malentendidos sobre qué estará y qué no estará cubierto.
-
 | # | Capacidad | Descripción | Valor estratégico |
 |---|-----------|-------------|-------------------|
-| **1** | **Gestión de organizaciones** | Registro, configuración y administración del ciclo de vida de cada organización en la plataforma. Cada organización opera de forma completamente aislada. | Habilita el modelo multi-organización y es el punto de partida para todas las demás capacidades. |
-| **2** | **Autenticación de usuarios** | Gestión del ciclo completo de inicio de sesión, renovación de credenciales, cierre de sesión y revocación de acceso. Las credenciales son siempre validadas en el contexto de la organización correspondiente. | Elimina la duplicación de mecanismos de autenticación en cada aplicación cliente. |
-| **3** | **Gestión de usuarios por organización** | Creación, modificación, suspensión y eliminación de usuarios dentro de cada organización. El administrador de la organización gestiona su propio directorio de usuarios de forma autónoma. | Transfiere el control del directorio de usuarios a cada organización, reduciendo la dependencia del equipo operativo de Keygo. |
-| **4** | **Control de acceso basado en roles** | Definición de roles y permisos por organización, asignación a usuarios y aplicaciones cliente, y verificación automática en cada operación. La jerarquía de roles permite delegar administración dentro de la organización. | Permite que cada organización modele su propia estructura de acceso sin exponer privilegios globales. |
-| **5** | **Registro y gestión de aplicaciones cliente** | Las organizaciones registran las aplicaciones que tendrán acceso a sus usuarios. Cada aplicación tiene un ámbito de acceso definido y controlado. | Garantiza que solo las aplicaciones autorizadas puedan operar sobre los recursos de cada organización. |
-| **6** | **Facturación por organización** | Gestión de planes, suscripciones y ciclos de facturación por organización. Permite cobrar por el uso de la plataforma y habilita que cada organización gestione su propia suscripción. | Hace posible la operación de Keygo como producto SaaS sostenible, con ingresos proporcionales al uso. |
-| **7** | **Auditoría y trazabilidad de accesos** | Registro inmutable de todos los eventos de seguridad relevantes: inicio de sesión, cierre, revocación, cambios de rol, creación y eliminación de usuarios. El historial es consultable por la propia organización. | Habilita el cumplimiento de requisitos de auditoría, la detección de accesos anómalos y el soporte ante incidentes. |
-| **8** | **Integración con el ecosistema de aplicaciones** | Exposición de contratos estables para que las aplicaciones cliente puedan integrarse y consumir los servicios de Keygo. Incluye mecanismos de notificación ante eventos relevantes (usuario creado, acceso revocado, etc.). | Multiplica el valor de la plataforma con cada nueva aplicación integrada y reduce el costo de incorporación de nuevos equipos. |
+| **1** | **Gestión de tenants / organizaciones IAM** | Registro, configuración, aislamiento y ciclo de vida del boundary IAM multi-tenant. | Base del aislamiento y del contexto de acceso. |
+| **2** | **Identidad y autenticación** | Identidad global, credenciales, inicio/cierre de sesión, renovación/revocación, recuperación y métodos de autenticación soportados. | Elimina duplicación de autenticación en cada aplicación. |
+| **3** | **Memberships por tenant** | Incorporación/invitación, activación, suspensión y baja de una identidad en uno o más tenants. | Separa identidad global de pertenencia organizacional. |
+| **4** | **Autorización** | Roles, permisos, grants/scopes y evaluación con límites explícitos platform/tenant/application. | Evita privilegios ambiguos y centraliza controles de acceso reutilizables. |
+| **5** | **Registro y gestión de aplicaciones cliente** | OAuth/OIDC clients, redirect URIs, scopes, consentimiento/políticas y ciclo de vida de aplicaciones integradas. | Permite integración segura y protocol-oriented. |
+| **6** | **Sesiones, tokens y claves** | Platform/OAuth sessions, authorization codes, refresh tokens, revocación, signing keys/JWKS y rotación. | Hace explícito y testeable el trust boundary. |
+| **7** | **Federación y account linking** | Integración con IdP externos/sociales, verified identifiers y vinculación segura de identidades, cuando sea validado/implementado. | Mantiene una identidad durable independientemente del método de login. |
+| **8** | **Auditoría y actor context** | Eventos de seguridad, actor/session/client context, cambios de roles/access y trazabilidad IAM. | Soporte, investigación y gobernanza de seguridad. |
+| **9** | **Integración con ecosistema** | Contratos/protocolos estables, claims/context y eventos IAM necesarios para consumidores. | Multiplica reuse sin compartir tablas internas. |
+| **10** | **Workload/service identities** | Identidades no-humanas y grants acotados para servicios/jobs cuando el riesgo y consumidores lo justifiquen. | Evita credenciales humanas compartidas en automatización. |
 
-[↑ Volver al inicio](#alcance-del-sistema)
+### Regla de alcance
 
----
-
-### Trazabilidad entre Objetivos Estratégicos y Alcance Funcional
-
-El siguiente mapa muestra cómo cada capacidad del alcance funcional contribuye al logro de los siete objetivos estratégicos definidos para Keygo.
-
-| # | Capacidad | 1<br>Centralizar IAM | 2<br>Aislamiento orgs | 3<br>Estándares abiertos | 4<br>Control de acceso | 5<br>Trazabilidad | 6<br>Integración ecosistema | 7<br>Escala enterprise |
-|---|-----------|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
-| **1** | Gestión de organizaciones           | 🟢 | 🟢 | 🟡 | 🟡 | 🟡 | 🟡 | 🟢 |
-| **2** | Autenticación de usuarios           | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 | 🟢 | 🟢 |
-| **3** | Gestión de usuarios por organización | 🟢 | 🟢 | 🟡 | 🟢 | 🟡 | 🟡 | 🟢 |
-| **4** | Control de acceso basado en roles   | 🟢 | 🟢 | 🟡 | 🟢 | 🟡 | 🟡 | 🟢 |
-| **5** | Gestión de aplicaciones cliente     | 🟢 | 🟢 | 🟢 | 🟢 | 🟡 | 🟢 | 🟡 |
-| **6** | Facturación por organización        | 🟡 | 🟡 | 🟡 | 🟡 | 🟡 | 🟡 | 🟢 |
-| **7** | Auditoría y trazabilidad            | 🟢 | 🟡 | 🟡 | 🟡 | 🟢 | 🟡 | 🟢 |
-| **8** | Integración con el ecosistema       | 🟢 | 🟡 | 🟢 | 🟡 | 🟡 | 🟢 | 🟢 |
-
-> 🟢 Contribución principal — la capacidad habilita o impacta directamente el objetivo.
-> 🟡 Contribución secundaria — refuerza o soporta el objetivo, pero no es su motor principal.
-
-Cobertura: cada objetivo estratégico tiene al menos una capacidad marcada con 🟢, lo que confirma que el alcance funcional respalda todos los resultados deseados.
-
-Priorización: las capacidades 1, 2 y 4 —gestión de organizaciones, autenticación y control de acceso— son las de mayor impacto transversal. Su ausencia bloquea la mayoría de los demás objetivos.
-
-[↑ Volver al inicio](#alcance-del-sistema)
+Las capacidades anteriores responden a IAM/trust. Los consumidores son dueños de sus conceptos de negocio. Un `Tenant` de KeyGo es un boundary IAM; no sustituye automáticamente a `ProviderOrganization`, `Customer`, `Workspace`, `BusinessUnit` u otra entidad de dominio.
 
 ---
 
-### Alcance del MVP
+## Alcance del MVP
 
-El **MVP** define el conjunto mínimo de capacidades necesarias para validar la propuesta de valor de Keygo con organizaciones reales y recoger aprendizaje temprano. El objetivo es entregar una plataforma funcional —aunque aún limitada— que permita cubrir el ciclo completo de identidad y acceso para una organización y sus aplicaciones, y sentar las bases sobre las que evolucionará el sistema.
+El MVP objetivo de KeyGo debe validar **identidad y acceso**, no monetización comercial.
 
-En esta fase no se busca cubrir escenarios enterprise de alta complejidad, sino demostrar que un punto único de autenticación y control de acceso puede reducir la carga operativa de las organizaciones conectadas y generar confianza suficiente para justificar las siguientes iteraciones.
+Capacidades mínimas a considerar, sujetas a la reconciliación real del estado existente:
 
-**Capacidades incluidas en el MVP:**
+1. Identidad y autenticación básica.
+2. Registro/configuración de tenant.
+3. Memberships y estado del miembro.
+4. Registro/configuración de aplicaciones cliente.
+5. Autorización básica y separación de scopes platform/tenant/application.
+6. Sesión/token/revocación con contratos explícitos.
+7. Eventos/auditoría de seguridad esenciales.
+8. Integración protocol-oriented para al menos un consumidor acotado.
 
-1. Registro y configuración de una organización.
-2. Gestión de usuarios dentro de la organización: alta, baja, modificación y suspensión.
-3. Autenticación de usuarios: inicio de sesión, cierre de sesión y renovación de credenciales.
-4. Registro y configuración de aplicaciones cliente por organización.
-5. Control de acceso básico por roles: asignación de roles a usuarios y verificación de permisos.
-6. Facturación básica: gestión de plan y suscripción activa por organización.
-7. Registro de eventos de seguridad: bitácora consultable de acciones críticas.
-
-[↑ Volver al inicio](#alcance-del-sistema)
+**Facturación, plan y suscripción ya no forman parte del target MVP de KeyGo.** La funcionalidad que existe actualmente debe inventariarse y migrarse sin big-bang, de acuerdo con [Capability Extraction Boundaries](../03-design/capability-extraction-boundaries.md).
 
 ---
 
-## Fuera de alcance en esta fase
+## Capacidades externas relacionadas
 
-- Aprovisionamiento automático de usuarios desde sistemas externos (ej. directorios corporativos, plataformas de RRHH).
-- Inicio de sesión único federado entre múltiples aplicaciones del ecosistema.
-- Soporte para múltiples monedas en facturación.
-- Gestión de claves criptográficas mediante servicios externos especializados.
-- Federación de identidad con proveedores externos (ej. inicio de sesión con cuentas de terceros).
-- Analítica avanzada de comportamiento de acceso.
-- Corrección o administración de datos personales más allá de lo necesario para la gestión de identidad.
-- Módulos de administración de campus, aulas o estructuras organizativas internas de cada tenant.
+### CAP-SUB-001 — Subscription & Entitlement Management
 
-[↑ Volver al inicio](#alcance-del-sistema)
+Produce `INIT-SUB-001`. Es dueño candidato de product/plan/version, subscription lifecycle, commercial entitlements/quotas, usage/metering asociado y adapters de subscription providers.
+
+KeyGo puede aportar `IdentityRef`, `TenantRef`, `ApplicationRef` y `ActorContext`; no comparte tablas ni se convierte en source of truth comercial.
+
+### CAP-PAY-001 — Payment Orchestration
+
+Produce `INIT-PAY-001`. Es dueño candidato de payment request/transaction state, provider execution, idempotency, callbacks/webhooks, refunds/disputes y reconciliation.
+
+KeyGo puede autenticar/autorizar actores o workloads; no determina éxito de pago ni transforma payment state en user/account state.
+
+### Invoicing / Tax / Accounting
+
+Permanece `BOUNDARY_UNRESOLVED` donde el código legacy de Billing mezcla invoices, fiscal profiles u otros conceptos. No se asigna automáticamente a CAP-PAY.
+
+---
+
+## Fuera de alcance de KeyGo
+
+- producto/plan comercial del consumidor;
+- subscription lifecycle del consumidor;
+- entitlements, feature flags comerciales y quotas adquiridas;
+- usage billing comercial como source of truth;
+- payment transactions/provider orchestration;
+- refunds, chargebacks y payment reconciliation;
+- invoices/receipts/tax/accounting como responsabilidad IAM;
+- reglas de negocio del producto consumidor;
+- utilizar IAM roles como sustituto de commercial entitlement.
+
+### Regla Authorization ≠ Entitlement
+
+KeyGo responde **si el actor está autorizado**. CAP-SUB responde **si el cliente tiene derecho comercial/cuota**. El producto combina ambas decisiones según su dominio.
 
 ---
 
 ## Otras consideraciones
 
-### Límites operativos iniciales
-
-| Concepto | Límite | Notas |
-|----------|--------|-------|
-| Usuarios activos por organización (MVP) | **X** usuarios | Placeholder; se definirá según validación comercial. |
-| Aplicaciones cliente por organización | **Y** aplicaciones | Límite inicial para controlar la superficie de integración. |
-| Retención del historial de eventos | **Z** meses | Se alineará con políticas de protección de datos aplicables. |
-| Disponibilidad del servicio | **W** % | Se formalizará en el SLA de producción. |
-
-[↑ Volver al inicio](#alcance-del-sistema)
-
----
-
 ### Dependencias y supuestos
 
-- Las organizaciones que se integren dispondrán de equipos técnicos capaces de consumir contratos de integración estándar de la industria.
-- Las aplicaciones cliente que deseen integrarse con Keygo deberán registrarse formalmente y operar bajo las condiciones de uso de la plataforma.
-- Keygo no es responsable de la política interna de cada organización sobre qué usuarios tienen qué roles —esa decisión la toma el administrador de la organización.
-- La pasarela de pagos que soporte la facturación deberá ser compatible con los mercados objetivo de Keygo.
+- Las aplicaciones consumidoras integran KeyGo mediante protocolos/contratos estables, no tablas internas.
+- Federation/social login, passkeys/MFA u otros métodos se incorporan con requisitos de seguridad explícitos.
+- Commercial capabilities pueden usar KeyGo para IAM, pero sus lifecycles y fuentes de verdad permanecen independientes.
+- Los consumidores no deben quedar bloqueados indefinidamente por madurez insuficiente de KeyGo; una solución gestionada compatible puede utilizarse detrás de una abstracción cuando la etapa de solución lo justifique.
+- Cualquier claim comercial derivado en un token es snapshot/cache con freshness explícita, nunca entitlement authority permanente.
 
-[↑ Volver al inicio](#alcance-del-sistema)
+### Límites operativos
+
+Los límites de usuarios, apps, sesiones, retención y disponibilidad deben definirse mediante evidencia/operación y no confundirse con límites de un plan comercial. Los límites comerciales son CAP-SUB; los límites técnicos/seguridad de KeyGo son IAM/operability.
 
 ---
 
-## Comentarios de los Revisores
+## Estado de transición
 
-A continuación se presentan los comentarios de los revisores sobre el alcance del sistema.
+- Target scope: **RECONCILED**.
+- Current implementation: aún contiene Billing/subscription/payment concerns.
+- Code/data/UI extraction: **NOT COMPLETE**.
+- Initiative Lifecycle: `INIT-KEYGO-001` continúa `RECONCILIATION_REQUIRED` hasta una reconstrucción explícita bajo ADÜMÜN ILS.
+- Destructive refactor/deletion: **NOT AUTHORIZED** por esta decisión.
 
-| Revisor | Tipo | Contenido |
-| ------- | ---- | --------- |
-| — | — | Pendiente de revisión |
+Referencias:
 
-[↑ Volver al inicio](#alcance-del-sistema)
+- [Scope Reconciliation 2026-09-07](scope-reconciliation-2026-09-07.md)
+- [Capability Extraction Boundaries](../03-design/capability-extraction-boundaries.md)
 
 ---
 
